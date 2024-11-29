@@ -62,7 +62,7 @@ agent = Agent(
 )
 
 
-@app.post("/chat")
+@app.post("/api/chat")
 async def chat(request: ChatRequest) -> ChatResponse:
     global latest_conversation_id
 
