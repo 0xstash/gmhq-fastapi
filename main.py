@@ -13,10 +13,14 @@ from griptape.configs.drivers import (
     GoogleDriversConfig,
 )
 from griptape.drivers import OpenAiChatPromptDriver, AnthropicPromptDriver
+from griptape.drivers import GriptapeCloudConversationMemoryDriver
+from griptape.structures.structure import ConversationMemory
+from griptape.utils import Chat
 
 from fastapi import FastAPI
 
 load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 app = FastAPI()
 
@@ -35,7 +39,16 @@ Defaults.drivers_config = OpenAiDriversConfig(
     OpenAiChatPromptDriver(model="gpt-4o-mini", api_key=os.getenv("OPENAI_API_KEY"))
 )
 
-agent = Agent(tools=[DateTimeTool()])
+# Initialize Griptape Cloud conversation memory
+cloud_memory = GriptapeCloudConversationMemoryDriver(
+    api_key=os.getenv("GRIPTAPE_CLOUD_API_KEY"), alias=str(uuid.uuid4())
+)
+
+agent = Agent(
+    conversation_memory=ConversationMemory(conversation_memory_driver=cloud_memory),
+    stream=True,
+    tools=[DateTimeTool()],
+)
 
 
 @app.post("/chat")
