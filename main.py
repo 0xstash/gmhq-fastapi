@@ -1,5 +1,5 @@
-from typing import Optional
-from pydantic import BaseModel, field_validator, model_validator, root_validator, Field
+from typing import Optional, List
+from pydantic import BaseModel, model_validator, Field
 import uuid
 from dotenv import load_dotenv
 import os
@@ -14,6 +14,18 @@ from griptape.configs.drivers import OpenAiDriversConfig
 from griptape.drivers import OpenAiChatPromptDriver
 from griptape.drivers import GriptapeCloudConversationMemoryDriver
 from griptape.structures.structure import ConversationMemory
+from griptape.events import (
+    BaseEvent,
+    EventBus,
+    EventListener,
+    FinishActionsSubtaskEvent,
+    StartActionsSubtaskEvent,
+    BaseActionsSubtaskEvent,
+    BaseTaskEvent,
+    BaseChunkEvent,
+    TextChunkEvent,
+    ActionChunkEvent,
+)
 
 from fastapi import FastAPI
 
@@ -21,6 +33,18 @@ load_dotenv()
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Ensure there is at least one handler
+if not logger.handlers:
+    # Create a default stream handler if no handlers are present
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(JsonFormatter())
+    logger.addHandler(stream_handler)
+else:
+    # Set formatter for the existing handler
+    logger.handlers[0].setFormatter(JsonFormatter())
 
 app = FastAPI()
 
@@ -49,6 +73,7 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     response: str
     conversation_id: str
+    actions: List[dict] = Field(default_factory=list)
 
 
 Defaults.drivers_config = OpenAiDriversConfig(
@@ -67,11 +92,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
     global latest_conversation_id
 
     # Log the incoming conversation_id
-    logging.info(f"Received conversation_id: {request.conversation_id}")
-
-    logger = logging.getLogger(Defaults.logging_config.logger_name)
-    logger.setLevel(logging.DEBUG)
-    logger.handlers[0].setFormatter(JsonFormatter())
+    logger.info(f"Received conversation_id: {request.conversation_id}")
 
     # Use existing conversation_id or create a new one
     conversation_id = request.conversation_id or str(uuid.uuid4())
@@ -89,16 +110,28 @@ async def chat(request: ChatRequest) -> ChatResponse:
         conversation_memory_driver=cloud_memory
     )
 
+    EventBus.add_event_listeners(
+        [
+            EventListener(
+                lambda e: print(str(e), end="", flush=True),
+                event_types=[TextChunkEvent],
+            ),
+            EventListener(
+                lambda e: print(str(e), end="", flush=True),
+                event_types=[ActionChunkEvent],
+            ),
+        ]
+    )
+
     response = agent.run(request.message)
     chat_response = response.output_task.output.value
 
     # Log the response and conversation_id
-    logging.info(
-        f"Response: {chat_response}, conversation_id: {latest_conversation_id}"
-    )
+    logger.info(f"Response: {chat_response}, conversation_id: {latest_conversation_id}")
 
     return ChatResponse(
-        response=str(chat_response), conversation_id=latest_conversation_id
+        response=str(chat_response),
+        conversation_id=latest_conversation_id,
     )
 
 
