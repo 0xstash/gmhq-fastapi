@@ -135,7 +135,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
                         for action in event.subtask_actions
                     ],
                     "subtask_thought": event.subtask_thought,
-                    "task_output": str(event.task_output),
+                    "subtask_output": str(event.task_output),
                 },
             }
 
