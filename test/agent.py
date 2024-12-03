@@ -49,11 +49,11 @@ logged_subtask_ids = set()
 def on_event(event: BaseEvent) -> None:
     if isinstance(
         event,
-        [
+        (
             StartActionsSubtaskEvent,
             FinishActionsSubtaskEvent,
             BaseActionsSubtaskEvent,
-        ],
+        ),
     ):
         # Always generate a new unique subtask ID
         subtask_id = str(uuid.uuid4())
