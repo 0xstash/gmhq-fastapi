@@ -42,4 +42,4 @@ Defaults.drivers_config = OpenAiDriversConfig(
 )
 
 agent = Agent(tools=[ArtifactGenerationTool(), DateTimeTool()])
-agent.run("Please create a simple calendar illustration of this week")
+agent.run("Write a short story with a dramatic twist regarding today")
