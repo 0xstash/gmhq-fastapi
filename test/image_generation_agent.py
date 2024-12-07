@@ -9,7 +9,9 @@ from griptape.drivers import OpenAiImageGenerationDriver
 from griptape.engines import PromptImageGenerationEngine
 from griptape.structures import Agent
 from griptape.tools import PromptImageGenerationTool
-from artifact.artifact_agent import ArtifactAgent
+
+# from artifact.artifact_agent import ArtifactAgent
+from artifact.artifact_agent_image import ArtifactAgent
 from dotenv import load_dotenv
 
 
