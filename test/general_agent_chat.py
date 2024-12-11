@@ -24,7 +24,12 @@ Defaults.drivers_config = OpenAiDriversConfig(
 web_search_tool = WebSearchTool(
     web_search_driver=SerperWebSearchDriver(api_key=os.getenv("SERPER_API_KEY"))
 )
-agent = ArtifactAgent(tools=[DateTimeTool()])
+agent = ArtifactAgent(tools=[DateTimeTool(), web_search_tool])
 
-output = agent.run("create a calendar event app in shadcn style UI please")
+output = agent.run(
+    "Can you give me 5 suggestions on what kind of AI tools Meadoworks could use for productivity? "
+)
+
 rprint(f"FOR MERT Output of the task FOR MERT: {output.output_task.output.to_text()}")
+
+Chat(agent).start()

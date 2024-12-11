@@ -88,6 +88,7 @@ marshmallow-enum==1.5.1
 mdurl==0.1.2
 multidict==6.1.0
 ndg-httpsclient==0.5.1
+numexpr==2.10.2
 numpy==1.26.4
 oauthlib==3.2.2
 ollama==0.3.3

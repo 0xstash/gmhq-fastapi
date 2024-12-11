@@ -75,8 +75,8 @@ class ArtifactAgent(Agent):
 
         artifact_data = {
             "type": artifact_type.lower().strip(),
-            "content": content,
             "metadata": metadata or {},
+            "content": content,
         }
 
         return f"[ARTIFACT_START] {json.dumps(artifact_data, ensure_ascii=False)} [ARTIFACT_END]"
