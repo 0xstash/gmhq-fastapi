@@ -5,6 +5,7 @@ from rich import print_json
 import schema
 import json
 from typing import Dict, Any
+import xlsx
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -25,7 +26,6 @@ from griptape.drivers import (
 )
 from griptape.tools import DateTimeTool, WebSearchTool
 from dotenv import load_dotenv
-from artifact.artifact_agent_rules import ArtifactAgent
 from drivers.serper_web_search_driver import SerperWebSearchDriver
 from griptape.utils import Chat
 
@@ -115,6 +115,7 @@ chat_ruleset = Ruleset(
             - Code MUST be in artifacts, not in text
             - Every response must start with a text element
             - Artifacts must be used for code longer than 1 line
+            - NEVER include quotation marks in any response
 
             Response Format:
             {
