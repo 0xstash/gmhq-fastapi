@@ -1,181 +1,208 @@
+import os
+from typing import Dict, Any
+import schema
+from griptape.configs import Defaults
 from griptape.structures import Agent
-from griptape.artifacts import TextArtifact
-from typing import Optional, Any, Dict
-import json
-import re
+from griptape.configs.drivers import OpenAiDriversConfig
+from griptape.drivers import OpenAiChatPromptDriver
+from griptape.rules import Rule, Ruleset
 
 
 class ArtifactAgent(Agent):
-    """An Agent that handles artifact generation within conversational responses.
+    """An Agent specialized for handling artifacts with specific schema validation."""
 
-    This agent uses pattern recognition and content analysis to automatically detect
-    and properly format different types of content as artifacts. It can handle various
-    content types including code, React components, markdown, SVG, and more.
-    """
+    def __init__(self, **kwargs):
+        # Define constants
+        self.VALID_LANGUAGES = [
+            "python",
+            "javascript",
+            "typescript",
+            "java",
+            "c",
+            "cpp",
+            "csharp",
+            "go",
+            "rust",
+            "swift",
+            "kotlin",
+            "ruby",
+            "php",
+            "bash",
+            "powershell",
+            "sql",
+            "r",
+            "matlab",
+            "scala",
+            "perl",
+            "html",
+            "css",
+        ]
 
-    # Define content type patterns and their associated metadata
-    CONTENT_PATTERNS = {
-        # Code patterns for different languages
-        "python": {
-            "pattern": r"(def\s+\w+|class\s+\w+|import\s+\w+|from\s+\w+\s+import|print\()",
-            "type": "code",
-            "metadata": {"language": "python"},
-        },
-        "javascript": {
-            "pattern": r"(function\s+\w+|const\s+\w+|let\s+\w+|var\s+\w+|\=\>|module\.exports)",
-            "type": "code",
-            "metadata": {"language": "javascript"},
-        },
-        # React/JSX patterns
-        "react": {
-            "pattern": r'(<[\w]+[^>]*>|import\s+.*?from\s+[\'"]react[\'"]|const.*?\=.*?\(\s*\)\s*\=\>|function\s+\w+Component)',
-            "type": "react",
-            "metadata": {"framework": "react"},
-        },
-        # SVG patterns
-        "svg": {
-            "pattern": r"(<svg[^>]*>.*?</svg>)",
-            "type": "svg",
-            "metadata": {"format": "svg"},
-        },
-        # Markdown patterns
-        "markdown": {
-            "pattern": r"(^#{1,6}\s|\*\*.*?\*\*|__.*?__|```|\[.*?\]\(.*?\))",
-            "type": "markdown",
-            "metadata": {"format": "markdown"},
-        },
-        # Base64 patterns for binary content
-        "base64_image": {
-            "pattern": r'(data:image\/[^;]+;base64,([^"]+))',
-            "type": "image",
-            "metadata": {"encoding": "base64"},
-        },
-        "base64_audio": {
-            "pattern": r'(data:audio\/[^;]+;base64,([^"]+))',
-            "type": "audio",
-            "metadata": {"encoding": "base64"},
-        },
-    }
-
-    def wrap_artifact(
-        self, artifact_type: str, content: Any, metadata: Optional[dict] = None
-    ) -> str:
-        """Creates a formatted artifact string with proper metadata and structure.
-
-        Args:
-            artifact_type: The type of artifact (e.g., "code", "react", "markdown")
-            content: The content to be wrapped
-            metadata: Additional metadata about the content
-
-        Returns:
-            A properly formatted artifact string with start/end tags
-        """
-        if not isinstance(content, str):
-            content = str(content)
-
-        artifact_data = {
-            "type": artifact_type.lower().strip(),
-            "metadata": metadata or {},
-            "content": content,
+        self.ARTIFACT_TYPES = {
+            "code": {
+                "required_fields": ["language"],
+                "allowed_languages": self.VALID_LANGUAGES,
+            },
+            "markdown": {"required_fields": [], "allowed_languages": []},
+            "svg": {"required_fields": [], "allowed_languages": ["svg"]},
+            "mermaid": {"required_fields": [], "allowed_languages": ["mermaid"]},
+            "html": {"required_fields": [], "allowed_languages": ["html"]},
+            "react": {"required_fields": [], "allowed_languages": ["jsx", "tsx"]},
         }
 
-        return f"[ARTIFACT_START] {json.dumps(artifact_data, ensure_ascii=False)} [ARTIFACT_END]"
+        # Set up schemas and validation
+        chat_response_schema = self._create_chat_response_schema()
+        chat_ruleset = self._create_chat_ruleset(chat_response_schema)
 
-    def detect_content_type(self, content: str) -> Dict[str, Any]:
-        """Analyzes content to determine its type and appropriate metadata.
+        # Initialize the parent Agent class
+        super().__init__(rulesets=[chat_ruleset], **kwargs)
 
-        This method uses pattern matching and content analysis to identify the
-        type of content and gather relevant metadata about it. It can handle
-        multiple content types within the same text.
+    def _validate_artifact_type(self, artifact_dict: Dict[str, Any]) -> bool:
+        artifact_type = artifact_dict.get("artifact_type")
+        if artifact_type not in self.ARTIFACT_TYPES:
+            raise schema.SchemaError(f"Invalid artifact type: {artifact_type}")
 
-        Args:
-            content: The content to analyze
+        required_fields = self.ARTIFACT_TYPES[artifact_type]["required_fields"]
+        for field in required_fields:
+            if not artifact_dict.get(field):
+                raise schema.SchemaError(
+                    f"Missing required field for {artifact_type}: {field}"
+                )
 
-        Returns:
-            Dictionary containing content type and metadata
-        """
-        # First check for explicit code blocks
-        code_block_match = re.search(r"```(\w+)?\n(.*?)\n```", content, re.DOTALL)
-        if code_block_match:
-            language = code_block_match.group(1) or "text"
-            return {"type": "code", "metadata": {"language": language}}
+        if "language" in artifact_dict:
+            allowed_languages = self.ARTIFACT_TYPES[artifact_type]["allowed_languages"]
+            if artifact_dict["language"] not in allowed_languages:
+                raise schema.SchemaError(
+                    f"Invalid language for {artifact_type}: {artifact_dict['language']}"
+                )
 
-        # Check against defined patterns
-        for pattern_info in self.CONTENT_PATTERNS.values():
-            if re.search(pattern_info["pattern"], content, re.MULTILINE | re.DOTALL):
-                return {
-                    "type": pattern_info["type"],
-                    "metadata": pattern_info["metadata"],
-                }
+        return True
 
-        # Default to plain text if no specific pattern matches
-        return {"type": "text", "metadata": {"format": "plain"}}
-
-    def process_content(self, content: str) -> str:
-        """Processes content to properly format it as artifacts.
-
-        This method handles both single and mixed content types, ensuring each
-        distinct piece of content is properly wrapped as an artifact.
-
-        Args:
-            content: The content to process
-
-        Returns:
-            Processed content with appropriate artifact wrapping
-        """
-        # Handle explicit code blocks first
-        if "```" in content:
-            return self.process_code_blocks(content)
-
-        # Detect content type and wrap appropriately
-        content_info = self.detect_content_type(content)
-        return self.wrap_artifact(
-            content_info["type"], content, content_info["metadata"]
+    def _create_chat_response_schema(self) -> schema.Schema:
+        text_response_schema = schema.Schema(
+            {"type": "text", "content": str, "sequence_number": int}
         )
 
-    def try_run(self, *args) -> Agent:
-        """Executes the agent's response generation with artifact support."""
-        result = super().try_run(*args)
+        artifact_response_schema = schema.Schema(
+            {
+                "type": "artifact",
+                "id": str,
+                "content": str,
+                "artifact_type": str,
+                "language": schema.Or(str, None),
+                "title": schema.Or(str, None),
+                "sequence_number": int,
+                schema.Optional("metadata"): dict,
+            },
+            self._validate_artifact_type,
+        )
 
-        if result.output_task and result.output_task.output:
-            original_output = result.output_task.output.to_text()
-            processed_output = self.process_content(original_output)
-            result.output_task.output = TextArtifact(processed_output)
+        return schema.Schema(
+            {
+                "stream_elements": schema.And(
+                    [schema.Or(text_response_schema, artifact_response_schema)],
+                    lambda elements: any(
+                        elem.get("type") == "text" for elem in elements
+                    ),
+                    lambda elements: all(
+                        elements[i]["sequence_number"] == i + 1
+                        for i in range(len(elements))
+                    ),
+                ),
+                "has_artifacts": bool,
+            }
+        ).json_schema("Chat Response Format")
 
-        return result
+    Defaults.drivers_config = OpenAiDriversConfig(
+        OpenAiChatPromptDriver(
+            model="gpt-4o-mini",
+            api_key=os.getenv("OPENAI_API_KEY"),
+            seed=42,
+            response_format={
+                "type": "json_schema",
+                "json_schema": {
+                    "strict": True,
+                    "name": "Chat Response Format",
+                    "schema": _create_chat_response_schema,
+                },
+            },
+        )
+    )
 
-    def process_code_blocks(self, text: str) -> str:
-        """Processes text containing code blocks into artifacts.
+    def _create_chat_ruleset(self, chat_response_schema: schema.Schema) -> Ruleset:
+        return Ruleset(
+            name="Chat response ruleset",
+            rules=[
+                Rule(self._get_response_format_rule()),
+                Rule(chat_response_schema),
+            ],
+        )
 
-        This method handles markdown-style code blocks, converting them into
-        properly formatted code artifacts while preserving surrounding context.
+    def _get_response_format_rule(self) -> str:
+        return """You MUST structure your responses exactly as follows:
 
-        Args:
-            text: Text containing code blocks
+    For responses containing code:
+    1. Start with a text element explaining what you will do
+    2. Create an artifact for the code with:
+       - A descriptive title
+       - Proper language tag
+       - Clear comments explaining the code
+       - The complete code implementation
+    3. End with a text element explaining the code and next steps
 
-        Returns:
-            Processed text with code blocks converted to artifacts
-        """
-        parts = []
-        current_pos = 0
+    For responses containing markdown documents:
+    1. Start with a text element introducing the document
+    2. Create an artifact with:
+       - artifact_type: "markdown"
+       - language: null
+       - A descriptive title
+       - The complete markdown content
+    3. End with a text element summarizing key points
 
-        pattern = r"```(\w+)?\n(.*?)\n```"
-        matches = re.finditer(pattern, text, re.DOTALL)
+    CRITICAL RULES:
+    - NEVER include code blocks (```) in text responses
+    - Text responses are for explanations only
+    - Each distinct code file/component must be its own artifact
+    - Code MUST be in artifacts, not in text
+    - Every response must start with a text element
+    - Artifacts must be used for code longer than 1 line
+    - NEVER include quotation marks in any response
+    - Use markdown artifact type for documents and memos
 
-        for match in matches:
-            # Add text before code block
-            parts.append(text[current_pos : match.start()])
+    Response Format:
+    {
+        "stream_elements": [
+            {
+                "type": "text",
+                "content": "Let me create a program that...",
+                "sequence_number": 1
+            },
+            {
+                "type": "artifact",
+                "id": "unique-id",
+                "content": "# Code goes here...",
+                "artifact_type": "markdown",
+                "language": null,
+                "title": "Clear Title",
+                "sequence_number": 2
+            },
+            {
+                "type": "text",
+                "content": "This code demonstrates...",
+                "sequence_number": 3
+            }
+        ],
+        "has_artifacts": true
+    }
 
-            language = match.group(1) or "text"
-            code_content = match.group(2).strip()
-
-            # Create code artifact
-            artifact = self.wrap_artifact("code", code_content, {"language": language})
-
-            parts.append(artifact)
-            current_pos = match.end()
-
-        # Add remaining text
-        parts.append(text[current_pos:])
-
-        return "".join(parts)
+    For simple text responses:
+    {
+        "stream_elements": [
+            {
+                "type": "text",
+                "content": "Your response here...",
+                "sequence_number": 1
+            }
+        ],
+        "has_artifacts": false
+    }"""

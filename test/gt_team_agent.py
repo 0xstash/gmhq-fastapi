@@ -10,7 +10,7 @@ from griptape.configs import Defaults
 from griptape.configs.drivers import OpenAiDriversConfig
 from griptape.drivers import OpenAiChatPromptDriver
 from griptape.tools import DateTimeTool
-from tools.tool import ArtifactGenerationTool
+from tools.artifact_generation_tool.tool import ArtifactGenerationTool
 
 from dotenv import load_dotenv
 

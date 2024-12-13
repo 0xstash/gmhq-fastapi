@@ -226,6 +226,8 @@ chat_ruleset = Ruleset(
         JsonSchemaRule(chat_response_schema),
     ],
 )
-agent = Agent(rulesets=[chat_ruleset], stream=True)
+agent = Agent(
+    rulesets=[chat_ruleset], tools=[web_search_tool, DateTimeTool()], stream=True
+)
 
 Chat(agent).start()
