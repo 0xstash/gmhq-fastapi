@@ -21,9 +21,9 @@ from griptape.loaders import WebLoader
 load_dotenv()
 
 # Configure the OpenAI driver
-# Defaults.drivers_config = OpenAiDriversConfig(
-#     prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini")
-# )
+Defaults.drivers_config = OpenAiDriversConfig(
+    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini")
+)
 web_search_tool = WebSearchTool(
     web_search_driver=SerperWebSearchDriver(api_key=os.getenv("SERPER_API_KEY"))
 )
