@@ -11,14 +11,29 @@ import schema
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from griptape.structures import Agent, Pipeline
-from griptape.drivers import OpenAiChatPromptDriver, AnthropicPromptDriver
+from griptape.drivers import (
+    OpenAiChatPromptDriver,
+    AnthropicPromptDriver,
+    CoherePromptDriver,
+    GooglePromptDriver,
+)
 from griptape.configs import Defaults
 from griptape.rules import Rule, Ruleset, JsonSchemaRule
-from griptape.tools import DateTimeTool, WebScraperTool, WebSearchTool
+from griptape.tools import (
+    DateTimeTool,
+    WebScraperTool,
+    WebSearchTool,
+    PromptSummaryTool,
+)
 from drivers.serper_web_search_driver import SerperWebSearchDriver
 from drivers.jina_web_scraper_driver import JinaWebScraperDriver
 from griptape.loaders import WebLoader
-from griptape.configs.drivers import OpenAiDriversConfig, AnthropicDriversConfig
+from griptape.configs.drivers import (
+    OpenAiDriversConfig,
+    AnthropicDriversConfig,
+    GoogleDriversConfig,
+    CohereDriversConfig,
+)
 from dotenv import load_dotenv
 from griptape.tasks import ToolkitTask, PromptTask
 from griptape.utils import Chat
@@ -29,11 +44,25 @@ from schemas.output_schema import output_schema
 load_dotenv()
 
 
-Defaults.drivers_config = OpenAiDriversConfig(
-    OpenAiChatPromptDriver(
-        model="gpt-4o-mini", api_key=os.getenv("OPENAI_API_KEY"), stream=True
-    )
-)
+# Defaults.drivers_config = OpenAiDriversConfig(
+#     OpenAiChatPromptDriver(
+#         model="gpt-4o", api_key=os.getenv("OPENAI_API_KEY"), stream=True
+#     )
+# )
+
+# Defaults.drivers_config = AnthropicDriversConfig(
+#     AnthropicPromptDriver(
+#         model="claude-3-5-20240620", api_key=os.getenv("ANTHROPIC_API_KEY")
+#     )
+# )
+
+# Defaults.drivers_config = GoogleDriversConfig(
+#     GooglePromptDriver(model="gemini-pro", api_key=os.getenv("GOOGLE_API_KEY"))
+# )
+
+# Defaults.drivers_config = CohereDriversConfig(
+#     api_key=os.getenv("COHERE_API_KEY"),
+# )
 
 
 # Define valid languages as an enum
@@ -150,7 +179,9 @@ class ChatResponse(BaseModel):
 
 
 structure_rules = Rule(
-    """You generate responses in a structured JSON format:
+    """
+    IMPORTANT:
+    You generate responses in a structured JSON format:
 {
     "stream_elements": [
         {"type": "text", "content": "explanation", "sequence_number": n},
@@ -173,8 +204,19 @@ artifact_rules = Rule(
 - Complete implementation"""
 )
 
+web_search_tool = WebSearchTool(
+    web_search_driver=SerperWebSearchDriver(api_key=os.getenv("SERPER_API_KEY"))
+)
+
+web_scraper_tool = WebScraperTool(
+    web_loader=WebLoader(
+        web_scraper_driver=JinaWebScraperDriver(api_key=os.getenv("JINA_API_KEY"))
+    ),
+    off_prompt=False,
+)
+
 agent = Agent(
-    tools=[DateTimeTool()],
+    tools=[DateTimeTool(), web_search_tool, web_scraper_tool],
     rules=[
         structure_rules,
         artifact_rules,
@@ -223,3 +265,4 @@ Chat(agent).start()
 
 # """
 #         ),
+# is there a clever word we can play on around "work 10 times faster and 10 times better with 10 more AI coworkers by building your team" This is lame but you might get the idea, ask me questions if you don't

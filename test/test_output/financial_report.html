@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA Equity Research Report</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .section { 
+            margin-bottom: 20px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .nav button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .nav button:hover {
+            background-color: #0056b3;
+        }
+
+        .chart {
+            width: 100%;
+            height: 300px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>NVIDIA Equity Research Report</h1>
+        <div class="nav">
+            <button onclick="showSection('executive-summary')">Executive Summary</button>
+            <button onclick="showSection('financial-analysis')">Financial Analysis</button>
+            <button onclick="showSection('valuation')">Valuation</button>
+            <button onclick="showSection('conclusion')">Conclusion</button>
+        </div>
+        <div id="executive-summary" class="section">
+            <h2>Executive Summary</h2>
+            <p>NVIDIA Corporation is a leading designer of graphics processing units (GPUs) for gaming, professional
+                visualization, data centers, and automotive markets. NVIDIA's strong market position in AI and gaming,
+                coupled with its innovative product pipeline, positions it for sustained growth.</p>
+        </div>
+        <div id="financial-analysis" class="section" style="display:none;">
+            <h2>Financial Analysis</h2>
+            <p>Revenue Growth: NVIDIA's revenue grew by 20% year-over-year, driven by strong sales in the gaming and
+                data center segments.</p>
+            <p>Profit Margins: Gross margin improved to 65%, reflecting operational efficiencies and higher ASPs
+                (Average Selling Prices).</p>
+            <p>Earnings Per Share (EPS): EPS increased to $5.00, up from $4.20 in the previous year.</p>
+            <div class="chart">[Revenue Growth Chart]</div>
+        </div>
+        <div id="valuation" class="section" style="display:none;">
+            <h2>Valuation</h2>
+            <p>Price-to-Earnings (P/E) Ratio: Currently trading at a P/E ratio of 30x, compared to the industry average
+                of 25x.</p>
+            <p>Discounted Cash Flow (DCF) Analysis: Based on projected cash flows, the intrinsic value of NVIDIA's stock
+                is estimated at $600 per share.</p>
+            <div class="chart">[Valuation Chart]</div>
+        </div>
+        <div id="conclusion" class="section" style="display:none;">
+            <h2>Conclusion and Recommendation</h2>
+            <p>Recommendation: Buy</p>
+            <p>Target Price: $650</p>
+            <p>Rationale: Strong growth prospects in AI and gaming, robust financial performance, and strategic
+                positioning in emerging markets.</p>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
