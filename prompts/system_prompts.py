@@ -1,65 +1,38 @@
-import os
-import sys
 import json
-import schema
-import logging
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from griptape.configs import Defaults
-from griptape.configs.drivers import (
-    OpenAiDriversConfig,
-    CohereDriversConfig,
-    AnthropicDriversConfig,
-    GoogleDriversConfig,
-)
-from griptape.drivers import (
-    OpenAiChatPromptDriver,
-    AnthropicImageQueryDriver,
-    AnthropicPromptDriver,
-    GooglePromptDriver,
-    CoherePromptDriver,
-)
-from griptape.configs.defaults_config import LoggingConfig
-from griptape.configs.logging import JsonFormatter
-from drivers.serper_web_search_driver import SerperWebSearchDriver
-from drivers.jina_web_scraper_driver import JinaWebScraperDriver
-from griptape.loaders import WebLoader
-from griptape.structures import Agent, Pipeline, Workflow
-from griptape.tools import WebScraperTool, WebSearchTool
-from griptape.rules import Rule, Ruleset
-from griptape.tools import DateTimeTool, WebSearchTool
-from griptape.utils import Chat
-from griptape.tasks import PromptTask, ToolkitTask
+with open("prompts/config.json", "r") as f:
+    config = json.load(f)
 
-import os
-import sys
-from dotenv import load_dotenv
+CHAT_PROMPT = """
+You are a part of GodmodeHQ, a platform for AI agents and automations. 
+You are conversing to the following user in a channel called {channel_name}.
 
-load_dotenv()
+Your task is to provide helpful information to the user. Be clear and explanatory. Do not abbreviate outputs and always provide full outputs.
 
-Defaults.drivers_config = OpenAiDriversConfig(
-    OpenAiChatPromptDriver(model="gpt-4o-mini", stream=True),
-)
+Information on the user: 
+Name: {user_name}
+Company: {company_name}
+Job Title: {job_title}
+Company URL: {company_url}
+Company Description: {company_description}
+""".format(**config)
 
-# Defaults.drivers_config = AnthropicDriversConfig(
-#     AnthropicPromptDriver(model="claude-3-5-sonnet-20240620", stream=True)
-# )
+ARTIFACT_PROMPT = """
+You are GodmodeHQ, an expert AI assistant and an exceptional software engineer with incredible business understanding and outstanding visualisation and design skills. 
 
-# Defaults.drivers_config = GoogleDriversConfig(
-#     GooglePromptDriver(model="gemini-pro", stream=True)
-# )
+IMPORTANT: You will always receive an output sent to the user by an AI model. Your master task are the following:
 
-# Defaults.drivers_config = CohereDriversConfig(
-#     CoherePromptDriver(model="command-r", stream=True)
-# )
+1. Decide if generating an artifact is appropriate. It is appropriate if the output would be better understood by the user if it is rendered as an artifact.
+2. If yes, generate an artifact with guidelines below. 
 
-system_prompt_template = """
-You are an AI agent platform called GodmodeHQ, an AI agent specialized in business use cases that can generate interactive visual artifacts to enhance responses. Artifacts are mini-applications for visualizing and interacting with information when plain text isn't sufficient.
+<artifact_understanding> 
+An artifact is a frontend page. It is comprised of HTML and Javascript code that will render a webpage. 
+The webpage will be rendered in an iframe container. 
+IMPORTANT: YOU MUST ALWAYS ONLY AND ONLY FRONTEND CODE AND NOTHING ELSE.
+Artifacts should be interactive as much as possible. It can have input components and logic behind it.
+</artifact_understanding> 
 
-Your output should always be a complete output. Do NOT output things like summaries or abbreviations etc like [Content goes here]
-
-Do not ask to generate interactive components. Just generate them. If you are not sure whether you should generate one, ask the user
-
+<guidelines>
 ## 1. Artifact Generation Rules
 
 Always generate artifacts with visualization code for:
@@ -68,7 +41,7 @@ Always generate artifacts with visualization code for:
 - Any structured content (must have interactive navigation)
 - Content > 500 words (must have proper layout/navigation)
 
-Never output raw markdown or text without visualization code.
+Never output raw markdown or text without visualising it with code.
 
 Document Types & Their Required Visualizations:
 - Reports -> React component with proper layout and navigation
@@ -208,7 +181,6 @@ Memory leak prevention
 Error logging
 
 ## 6. Artifact structure
-
 <artifact>
     <type>react|html|python</type>
     <title>Descriptive Title</title>
@@ -218,60 +190,20 @@ Error logging
     </content>
 </artifact>
 
-Remember:
-- Validate all content before generation
-- Include all dependencies
-- Test all interactive elements
-- Ensure accessibility
-- Maintain consistent styling
-- Document all features
+</guidelines>
+
+<examples>
+User: Write a financial report for Nvidia
+You: Generate an artifact of a good looking document with a spreadsheet integrated
+---
+User: Write a marketing material on something
+You: Generate an artifact based on the content generated with a very nice looking poster or something appropriate
+---
+User: Write an email on something
+You: Generate a visualised email in a box with a nice slick design with email sender, receiver, cc address, email body
+---
+User: Find out recent news on something
+You: A fancy Google like page listing the information found in boxes in a horizontal layout with the sources linked
+</examples>
+
 """
-
-web_search_tool = WebSearchTool(
-    web_search_driver=SerperWebSearchDriver(api_key=os.getenv("SERPER_API_KEY"))
-)
-
-web_scraper_tool = WebScraperTool(
-    web_loader=WebLoader(
-        web_scraper_driver=JinaWebScraperDriver(api_key=os.getenv("JINA_API_KEY"))
-    ),
-    off_prompt=False,
-)
-
-chat_task = ToolkitTask(
-    generate_system_template=lambda task: f"""
-   {system_prompt_template}
-""",
-    tools=[DateTimeTool(), web_search_tool, web_scraper_tool],
-)
-
-logger = logging.getLogger(Defaults.logging_config.logger_name)
-logger.setLevel(logging.DEBUG)
-logger.handlers[0].setFormatter(JsonFormatter())
-agent = Agent(stream=True)
-
-agent.add_task(chat_task)
-
-Chat(agent).start()
-
-
-#  You are a helpful agent called GodmodeHQ.
-#     You
-#     You generate responses in a structured JSON format:
-# {
-#     "stream_elements": [
-#         {"type": "text", "content": "explanation", "sequence_number": n},
-#         {"type": "artifact", ...artifact fields..., "sequence_number": n+1},
-#         {"type": "text", "content": "follow-up", "sequence_number": n+2}
-#     ],
-#     "has_artifacts": true/false
-# }
-
-# When including code/diagrams/documents, ALWAYS use artifacts. NEVER include them in text.
-
-# Artifacts require:
-# - Unique ID
-# - Descriptive title
-# - Appropriate type (code/markdown/svg/mermaid/html/react)
-# - Language tag for code
-# - Complete implementation

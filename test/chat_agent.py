@@ -39,7 +39,6 @@ from griptape.tasks import ToolkitTask, PromptTask
 from griptape.utils import Chat
 
 from pydantic import BaseModel
-from schemas.output_schema import output_schema
 
 load_dotenv()
 
