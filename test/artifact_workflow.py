@@ -129,9 +129,9 @@ chat_task = ToolkitTask(
     id="CHAT_TASK",
 )
 
+
 artifact_task = PromptTask(
     """Generate an artifact based on the following output received, if you find it appropriate. Otherwise, just reply with "No artifact".
-    
     Output: {{parent_outputs['CHAT_TASK']}}""",
     generate_system_template=lambda task: f"{ARTIFACT_PROMPT}",
     id="ARTIFACT_TASK",
