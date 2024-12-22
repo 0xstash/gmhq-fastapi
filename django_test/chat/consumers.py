@@ -18,13 +18,10 @@ class ChatConsumer(AsyncWebsocketConsumer):
         from griptape.drivers import OpenAiChatPromptDriver
         from griptape.structures import Agent
         from griptape.tasks import ToolkitTask
-        from griptape.tools import DateTimeTool
-        from griptape.events import (
-            BaseEvent,
-            EventListener,
-            EventBus,
-            StartActionsSubtaskEvent,
-        )
+        from griptape.tools import DateTimeTool, WebSearchTool
+        from griptape.drivers import GoogleWebSearchDriver
+        from griptape.utils import Events
+        from griptape.events import StartActionsSubtaskEvent
 
         try:
             data = json.loads(text_data)
@@ -40,47 +37,44 @@ class ChatConsumer(AsyncWebsocketConsumer):
             model="gpt-4", api_key=os.getenv("OPENAI_API_KEY"), stream=True
         )
         agent = Agent(stream=True)
+        web_search_tool = WebSearchTool(
+            web_search_driver=GoogleWebSearchDriver(
+                api_key=os.environ["GOOGLE_API_KEY"],
+                search_id=os.environ["GOOGLE_API_SEARCH_ID"],
+                results_count=5,
+                language="en",
+                country="us",
+            )
+        )
         agent.add_task(
             ToolkitTask(
                 query,
                 prompt_driver=prompt_driver,
-                tools=[
-                    DateTimeTool(),
-                ],
+                tools=[DateTimeTool(), web_search_tool],
             )
         )
 
-        def handler(event: BaseEvent):
-            print("Task started!")
-            if event.subtask_actions:
-                tool_name = None
+        async def send_event(event):
+            if isinstance(event, StartActionsSubtaskEvent):
+                if event.subtask_actions:
+                    tool_name = None
+                    for action in event.subtask_actions:
+                        tool_name = action.get("name")
+                        if tool_name:
+                            break
 
-                for action in event.subtask_actions:
-                    tool_name = action.get("name")
                     if tool_name:
-                        break
+                        tool_data = (
+                            "[TOOL_START] "
+                            + tool_name
+                            + "|"
+                            + str(event.task_id)
+                            + "|"
+                            + str(int(event.timestamp))
+                            + " [TOOL_END]"
+                        )
+                        await self.send(text_data=tool_data)
 
-                if tool_name:
-                    tool_data = (
-                        "[TOOL_START] "
-                        + tool_name
-                        + "|"
-                        + str(event.task_id)
-                        + "|"
-                        + str(int(event.timestamp))
-                        + " [TOOL_END]"
-                    )
-                    # Send the tool data
-                    asyncio.create_task(self.send(text_data=tool_data))
-
-        EventBus.add_event_listeners(
-            [
-                EventListener(
-                    handler,
-                    event_types=[
-                        StartActionsSubtaskEvent,
-                    ],
-                )
-            ]
-        )
-        agent.run()
+        # Use the new Events utility
+        for event in Events(agent).run():
+            await send_event(event)

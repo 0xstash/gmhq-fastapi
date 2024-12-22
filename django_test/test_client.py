@@ -17,7 +17,10 @@ async def test_websocket():
         try:
             async with websockets.connect(uri) as websocket:
                 print(f"Successfully connected to {uri}!")
-                message = {"message": "What time is it now?"}
+                message = {
+                    # "message": "What is the date and time now?"
+                    "message": "what are some recent news from today"
+                }
 
                 await websocket.send(json.dumps(message))
                 print("Message sent!")
