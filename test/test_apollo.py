@@ -21,7 +21,6 @@ def mock_response():
             {
                 "name": "John Doe",
                 "title": "Marketing Manager",
-                "headline": "Marketing Manager at Tech Corp | Digital Marketing Expert",
                 "email_status": "verified",
                 "linkedin_url": "https://linkedin.com/in/johndoe",
                 "city": "San Francisco",
