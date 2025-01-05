@@ -1,25 +1,366 @@
-ToolkitTask c2de857feffd450a9a338eb90eada03a
-Input: What is today's date?
-Subtask ID: cc2120f8-af46-4727-964a-b71dfbcbc459
-Actions: None
-Response: None
-----------------------------------------
-Subtask b1d8d5c612de4fac97ac02eeb6256014
-Actions: [
-  {
-    "tag": "call_2oEVO7JLZ4GUItlCgJt3kX07",
-    "name": "DateTimeTool",
-    "path": "get_current_datetime",
-    "input": {
-      "values": {}
-    }
-  }
-]
-Subtask ID: 989c3b0d-fac6-418c-92da-20dc3b4fe919
-Actions: None
-Response: None
-----------------------------------------
-Subtask b1d8d5c612de4fac97ac02eeb6256014
-Response: 2024-12-19 02:26:13.438855
-ToolkitTask c2de857feffd450a9a338eb90eada03a
-Output: Today's date is December 19, 2024.
+
+[2025-01-05 02:25:35]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 947dca8c41154e77a97e3ea8874872cc
+Timestamp: 1736043935.01551
+
+Subtask Actions:
+Tool Name: ApolloClient
+Tool Path: search_people
+Tool Input: {'values': {'person_titles': ['account executive'], 'person_locations': ['New York'], 'organization_locations': ['United States'], 'organization_num_employees_ranges': ['5000,100000'], 'q_organization_keyword_tags': ['salesforce'], 'q_organization_domains': ['salesforce.com']}}
+---
+Tool Output: None
+
+                Pagination Information:
+                - Total Profiles Found: 371
+                - Total Pages: 38
+                - Current Page: 1
+                - Results Per Page: 10
+                
+
+
+                    Name: Samantha Kepple
+                    Title: Account Executive
+                    Headline: Account Executive at Salesforce Marketing Cloud
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/samantha-kepple-210a9b37
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Bryan Aviles
+                    Title: Account Executive
+                    Headline: Account Executive at Salesforce
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/bryan-aviles-8a873513a
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Matthew Duffy
+                    Title: Account Executive
+                    Headline: Account Executive at Salesforce
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/matthew-duffy-9b80b630
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Allie Zuck
+                    Title: Account Executive
+                    Headline: Healthcare & Life Sciences @ Salesforce
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/azuck
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Christopher Leon
+                    Title: Account Executive
+                    Headline: Growth Business at Salesforce | Love helping teams win & love to learn
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/christophermdeleon
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Dylan Petrovich
+                    Title: Account Executive
+                    Headline: Account Executive @ Salesforce
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/dylan-petrovich-1a988a106
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Henry Marrion
+                    Title: Account Executive
+                    Headline: Account Executive at Salesforce
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/henry-marrion-25a71324
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Alexandra Ayers
+                    Title: Account Executive
+                    Headline: Account Executive @ Salesforce | Growth Business
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/alexandra-ayers
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: John Ciccotelli
+                    Title: Account Executive
+                    Headline: Account Executive
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/john-ciccotelli-ba557821
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_sales
+                    Functions: sales
+                    
+
+
+                    Name: Jake Russell
+                    Title: Account Executive | Financial Services
+                    Headline: Account Executive | Financial Services at Salesforce
+                    Email Status: verified
+                    LinkedIn: http://www.linkedin.com/in/jake-russell61
+                    Location: New York, New York, United States
+                    Company: Salesforce
+                    Company Website: http://www.salesforce.com
+                    Company LinkedIn: http://www.linkedin.com/company/salesforce
+                    Seniority: entry
+                    Departments: master_finance, master_sales
+                    Functions: sales, finance
+                    
+================================================================================
+
+[2025-01-05 02:25:34]
+Event Class: StartActionsSubtaskEvent
+Task ID: 947dca8c41154e77a97e3ea8874872cc
+Timestamp: 1736043934.580042
+
+Subtask Actions:
+Tool Name: ApolloClient
+Tool Path: search_people
+Tool Input: {'values': {'person_titles': ['account executive'], 'person_locations': ['New York'], 'organization_locations': ['United States'], 'organization_num_employees_ranges': ['5000,100000'], 'q_organization_keyword_tags': ['salesforce'], 'q_organization_domains': ['salesforce.com']}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:25:32]
+Event Class: FinishActionsSubtaskEvent
+Task ID: a009d7baaab347db821e3315e5546d7e
+Timestamp: 1736043932.985709
+
+Subtask Actions:
+Tool Name: ApolloClient
+Tool Path: search_people
+Tool Input: {'values': {'person_titles': ['account executive'], 'person_locations': ['New York'], 'organization_locations': ['New York'], 'organization_num_employees_ranges': ['5000,100000'], 'q_organization_keyword_tags': ['salesforce'], 'q_organization_domains': ['salesforce.com']}}
+---
+Tool Output: None
+
+                Pagination Information:
+                - Total Profiles Found: 0
+                - Total Pages: 0
+                - Current Page: 1
+                - Results Per Page: 10
+                
+================================================================================
+
+[2025-01-05 02:25:32]
+Event Class: StartActionsSubtaskEvent
+Task ID: a009d7baaab347db821e3315e5546d7e
+Timestamp: 1736043932.4263391
+
+Subtask Actions:
+Tool Name: ApolloClient
+Tool Path: search_people
+Tool Input: {'values': {'person_titles': ['account executive'], 'person_locations': ['New York'], 'organization_locations': ['New York'], 'organization_num_employees_ranges': ['5000,100000'], 'q_organization_keyword_tags': ['salesforce'], 'q_organization_domains': ['salesforce.com']}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:22:30]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 9a0c80699bbe41ca886d1118adbc89c8
+Timestamp: 1736043750.714359
+
+Subtask Actions:
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': 'gumloop recent news'}}
+---
+Tool Output: None
+{"url": "https://www.gumloop.com/", "title": "Gumloop | AI Automation Framework", "description": "Automate work fully hands free. Trigger your flows via incoming email, new slack message, via Webhook, and much more. Trigger icon.", "sitelinks": [{"title": "Gumloop", "link": "https://blog.gumloop.com/"}, {"title": "Gumloop vs Zapier", "link": "https://blog.gumloop.com/gumloop-vs-zapier/"}, {"title": "Gumloop vs. Make", "link": "https://blog.gumloop.com/gumloop-vs-make/"}, {"title": "About", "link": "https://blog.gumloop.com/about/"}], "position": 1}
+
+{"url": "https://www.ycombinator.com/companies/gumloop", "title": "Gumloop: A no-code platform for automating workflows with AI", "description": "Latest News. Announcing our $3.1M Seed Round Led by First Round. Jul 23, 2024. Gumloop. Founded:2023. Team Size:2. Location: Group Partner:Gustaf ...", "sitelinks": [], "position": 2}
+
+{"url": "https://blog.gumloop.com/seed-round/", "title": "Announcing our $3.1M Seed Round Led by First Round - Gumloop", "description": "We're excited to announce our seed round led by First Round Capital with participation from Y Combinator, Max Mullen (Instacart), Arash Ferdowsi (Dropbox), ...", "sitelinks": [{"title": "Gumloop Lets Anyone Build...", "link": "https://blog.gumloop.com/seed-round/#gumloop-lets-anyone-build-with-ai"}, {"title": "What Our Customers Are...", "link": "https://blog.gumloop.com/seed-round/#what-our-customers-are-doing-with-it"}], "position": 3}
+
+{"url": "https://www.crunchbase.com/organization/gumloop/signals_and_news", "title": "Gumloop - Updates, News, Events, Signals & Triggers - Crunchbase", "description": "News\u2022 Jul 24, 2024 ... BetaKit \u2014 Y Combinator grad Gumloop secures $3.1 million USD in seed funding to grow no-code automation tool.", "sitelinks": [], "position": 4}
+
+{"url": "https://betakit.com/y-combinator-grad-gumloop-secures-3-1-million-in-seed-funding-to-grow-no-code-automation-tool/", "title": "Y Combinator grad Gumloop secures $3.1 million in seed funding", "description": "Vancouver-based Gumloop, which offers a no-code platform to automate workflows with artificial intelligence (AI), has secured a $3.1-million USD ($4.28-million ...", "sitelinks": [], "position": 5}
+
+{"url": "https://blog.gumloop.com/triptease-enterprise-case-study-ai-assisted-sales/", "title": "How Gumloop Helped Triptease Win +200% More Revenue", "description": "A breakdown of how our first Enterprise customer used AI Automation to increase revenue by 200%", "sitelinks": [], "position": 6}
+
+{"url": "https://www.leadsontrees.com/news/breaking-news-gumloop-secures-3.1-million-in-seed-funding-for-innovative-llm-powered-automation-platform", "title": "Breaking News: Gumloop Secures $3.1 Million in Seed Funding for ...", "description": "Breaking News: Gumloop Secures $3.1 Million in Seed Funding for Innovative LLM-Powered Automation Platform ... Gumloop, an innovative platform ...", "sitelinks": [], "position": 7}
+
+{"url": "https://getcoai.com/article/gumloop-founders-make-a-magical-app-that-turns-everyone-into-an-automation-wizard-%F0%9F%AA%84/", "title": "Gumloop Founders Make A Magical App That Turns Everyone Into ...", "description": "This AI-powered workflow platform is democratizing automation, enabling business teams to build powerful solutions without coding.", "sitelinks": [], "position": 8}
+
+{"url": "https://www.producthunt.com/products/agenthub", "title": "Gumloop - Product Information, Latest Updates, and Reviews 2024", "description": "Gumloop is a no-code platform for building powerful AI automations. Our no-code visual builder lets users create reliable, cost-effective, intuitive AI-powered ...", "sitelinks": [], "position": 9}
+
+{"url": "https://tracxn.com/d/companies/gumloop/__W_Rm13RIiWZmGWc9RlDuZvnjwkOXHj37wKA4HLWV4oY/funding-and-investors", "title": "Gumloop - Raised $3.22M Funding from 13 investors - Tracxn", "description": "Gumloop has raised a total funding of $3.22M over 2 rounds from 13 investors. Investors include First Round Capital, Y Combinator and 11 ...", "sitelinks": [], "position": 10}
+================================================================================
+
+[2025-01-05 02:22:30]
+Event Class: StartActionsSubtaskEvent
+Task ID: 9a0c80699bbe41ca886d1118adbc89c8
+Timestamp: 1736043750.0100338
+
+Subtask Actions:
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': 'gumloop recent news'}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:21:42]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 2c091cfba91640c89f6eb29337ba9d3a
+Timestamp: 1736043702.675078
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+Tool Output: None
+2025-01-05 02:21:42.674984
+================================================================================
+
+[2025-01-05 02:21:42]
+Event Class: StartActionsSubtaskEvent
+Task ID: 2c091cfba91640c89f6eb29337ba9d3a
+Timestamp: 1736043702.673373
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:20:58]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 82d8f40ae4aa432eb3eaa3c042ef6df9
+Timestamp: 1736043658.6175418
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+
+Task Output:
+Tool Output: None
+2025-01-05 02:20:58.617449
+================================================================================
+
+[2025-01-05 02:20:58]
+Event Class: StartActionsSubtaskEvent
+Task ID: 82d8f40ae4aa432eb3eaa3c042ef6df9
+Timestamp: 1736043658.616042
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+
+Task Output:
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:15:18]
+Event Class: StartActionsSubtaskEvent
+Task ID: 07724d03a9d441f2b611bf9095d3f27e
+Timestamp: 1736043318.9386282
+
+Subtask Actions:
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': 'news today'}}
+---
+
+Task Output:
+None
+================================================================================
+
+[2025-01-05 02:14:50]
+Event Class: StartActionsSubtaskEvent
+Task ID: d14819f65ff0475d94237d58cd7da3fc
+Timestamp: 1736043290.820998
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+
+Task Output:
+None
+================================================================================
+
+[2025-01-05 02:12:05]
+Event Class: StartActionsSubtaskEvent
+Task ID: 48b370b42ccd458294272d7185d048e8
+Timestamp: 1736043125.443207
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+================================================================================

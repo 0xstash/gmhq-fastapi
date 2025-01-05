@@ -8,8 +8,8 @@ from griptape.configs.logging import JsonFormatter
 from griptape.structures import Agent
 from griptape.tools import DateTimeTool
 from griptape.configs import Defaults
-from griptape.configs.drivers import OpenAiDriversConfig
-from griptape.drivers import OpenAiChatPromptDriver
+from griptape.configs.drivers import OpenAiDriversConfig, GoogleDriversConfig
+from griptape.drivers import OpenAiChatPromptDriver, GooglePromptDriver
 from griptape.drivers import GriptapeCloudConversationMemoryDriver
 from griptape.structures.structure import ConversationMemory
 from griptape.events import (
@@ -29,8 +29,12 @@ from rich import print as rprint, print_json
 
 load_dotenv()
 
-Defaults.drivers_config = OpenAiDriversConfig(
-    OpenAiChatPromptDriver(model="gpt-4o-mini")
+# Defaults.drivers_config = OpenAiDriversConfig(
+#     OpenAiChatPromptDriver(model="gpt-4o-mini")
+# )
+
+Defaults.drivers_config = GoogleDriversConfig(
+    prompt_driver=GooglePromptDriver(model="gemini-1.5-flash")
 )
 
 logger = logging.getLogger(Defaults.logging_config.logger_name)
@@ -93,5 +97,7 @@ EventBus.add_event_listeners(
 agent = Agent(tools=[DateTimeTool()])
 
 
-output = agent.run("What is today's date?")
-rprint(f"Output of the task: {output.output_task.output.value}")
+# output = agent.run("What is today's date?")
+# rprint(f"Output of the task: {output.output_task.output.value}")
+
+Chat(structure=agent).start()
