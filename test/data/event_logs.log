@@ -1,4 +1,1141 @@
 
+[2025-01-05 03:10:56]
+Event Class: FinishActionsSubtaskEvent
+Task ID: b455dae086ca4a4e99318e9ac20fe474
+Timestamp: 1736046656.639735
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_balance_sheet
+Tool Input: {'values': {'symbol': 'INTC', 'period': 'annual', 'limit': 2}}
+---
+Tool Output: None
+Tool Name: FMPClient
+Tool Path: get_balance_sheet
+Tool Input: {'values': {'symbol': 'INTC', 'period': 'quarter', 'limit': 8}}
+---
+Tool Output: None
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+Tool Output: None
+
+                    Filing Information:
+                    - Date: 2023-12-30
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2024-01-26
+                    - Accepted Date: 2024-01-25 18:38:16
+                    - Calendar Year: 2023
+                    - Period: FY
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $7,079,000,000.00
+                    - Short Term Investments: $17,955,000,000.00
+                    - Cash and Short Term Investments: $25,034,000,000.00
+                    - Net Receivables: $3,402,000,000.00
+                    - Inventory: $11,127,000,000.00
+                    - Other Current Assets: $3,706,000,000.00
+                    - Total Current Assets: $43,269,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $97,152,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $4,589,000,000.00
+                    - Goodwill and Intangible Assets: $32,180,000,000.00
+                    - Long Term Investments: $5,829,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $13,142,000,000.00
+                    - Total Non-Current Assets: $148,303,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $191,572,000,000.00
+                    - Total Investments: $23,784,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $8,578,000,000.00
+                    - Short Term Debt: $2,300,000,000.00
+                    - Tax Payables: $1,107,000,000.00
+                    - Deferred Revenue: $0.00
+                    - Other Current Liabilities: $16,068,000,000.00
+                    - Total Current Liabilities: $28,053,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $46,978,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $6,576,000,000.00
+                    - Total Non-Current Liabilities: $53,554,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $0.00
+                    - Total Liabilities: $81,607,000,000.00
+                    - Total Debt: $49,278,000,000.00
+                    - Net Debt: $42,199,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $36,649,000,000.00
+                    - Retained Earnings: $69,156,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-215,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $105,590,000,000.00
+                    - Total Equity: $109,965,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $4,375,000,000.00
+                    - Total Liabilities and Stockholders Equity: $191,572,000,000.00
+                    - Total Liabilities and Total Equity: $191,572,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086324000010/0000050863-24-000010-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086324000010/intc-20231230.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2022-12-31
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2023-01-27
+                    - Accepted Date: 2023-01-26 18:31:20
+                    - Calendar Year: 2022
+                    - Period: FY
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $11,144,000,000.00
+                    - Short Term Investments: $17,194,000,000.00
+                    - Cash and Short Term Investments: $28,338,000,000.00
+                    - Net Receivables: $4,133,000,000.00
+                    - Inventory: $13,224,000,000.00
+                    - Other Current Assets: $4,712,000,000.00
+                    - Total Current Assets: $50,407,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $80,860,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $6,018,000,000.00
+                    - Goodwill and Intangible Assets: $33,609,000,000.00
+                    - Long Term Investments: $5,912,000,000.00
+                    - Tax Assets: $3,450,000,000.00
+                    - Other Non-Current Assets: $7,865,000,000.00
+                    - Total Non-Current Assets: $131,696,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $182,103,000,000.00
+                    - Total Investments: $23,106,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $9,595,000,000.00
+                    - Short Term Debt: $4,379,000,000.00
+                    - Tax Payables: $2,251,000,000.00
+                    - Deferred Revenue: $0.00
+                    - Other Current Liabilities: $15,930,000,000.00
+                    - Total Current Liabilities: $32,155,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $37,920,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $202,000,000.00
+                    - Other Non-Current Liabilities: $8,540,000,000.00
+                    - Total Non-Current Liabilities: $46,662,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $236,000,000.00
+                    - Total Liabilities: $78,817,000,000.00
+                    - Total Debt: $42,051,000,000.00
+                    - Net Debt: $30,907,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $31,580,000,000.00
+                    - Retained Earnings: $70,405,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-562,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $101,423,000,000.00
+                    - Total Equity: $103,286,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $1,863,000,000.00
+                    - Total Liabilities and Stockholders Equity: $182,103,000,000.00
+                    - Total Liabilities and Total Equity: $182,103,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086323000006/0000050863-23-000006-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086323000006/intc-20221231.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2024-09-28
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2024-11-01
+                    - Accepted Date: 2024-10-31 18:13:27
+                    - Calendar Year: 2024
+                    - Period: Q3
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $8,785,000,000.00
+                    - Short Term Investments: $15,301,000,000.00
+                    - Cash and Short Term Investments: $24,086,000,000.00
+                    - Net Receivables: $3,121,000,000.00
+                    - Inventory: $12,062,000,000.00
+                    - Other Current Assets: $6,868,000,000.00
+                    - Total Current Assets: $46,137,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $104,248,000,000.00
+                    - Goodwill: $24,680,000,000.00
+                    - Intangible Assets: $3,975,000,000.00
+                    - Goodwill and Intangible Assets: $28,655,000,000.00
+                    - Long Term Investments: $5,496,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $9,006,000,000.00
+                    - Total Non-Current Assets: $147,405,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $193,542,000,000.00
+                    - Total Investments: $20,797,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $11,074,000,000.00
+                    - Short Term Debt: $3,765,000,000.00
+                    - Tax Payables: $2,440,000,000.00
+                    - Deferred Revenue: $0.00
+                    - Other Current Liabilities: $17,880,000,000.00
+                    - Total Current Liabilities: $35,159,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $46,471,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $7,048,000,000.00
+                    - Total Non-Current Liabilities: $53,519,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $0.00
+                    - Total Liabilities: $88,678,000,000.00
+                    - Total Debt: $50,236,000,000.00
+                    - Net Debt: $41,451,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $50,665,000,000.00
+                    - Retained Earnings: $49,052,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-185,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $99,532,000,000.00
+                    - Total Equity: $104,864,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $5,332,000,000.00
+                    - Total Liabilities and Stockholders Equity: $193,542,000,000.00
+                    - Total Liabilities and Total Equity: $193,542,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086324000149/0000050863-24-000149-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086324000149/intc-20240928.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2024-06-29
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2024-08-02
+                    - Accepted Date: 2024-08-01 18:26:52
+                    - Calendar Year: 2024
+                    - Period: Q2
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $11,287,000,000.00
+                    - Short Term Investments: $17,986,000,000.00
+                    - Cash and Short Term Investments: $29,273,000,000.00
+                    - Net Receivables: $3,131,000,000.00
+                    - Inventory: $11,244,000,000.00
+                    - Other Current Assets: $7,181,000,000.00
+                    - Total Current Assets: $50,829,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $103,398,000,000.00
+                    - Goodwill: $27,442,000,000.00
+                    - Intangible Assets: $4,383,000,000.00
+                    - Goodwill and Intangible Assets: $31,825,000,000.00
+                    - Long Term Investments: $7,826,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $12,327,000,000.00
+                    - Total Non-Current Assets: $155,376,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $206,205,000,000.00
+                    - Total Investments: $25,812,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $9,618,000,000.00
+                    - Short Term Debt: $4,695,000,000.00
+                    - Tax Payables: $1,856,000,000.00
+                    - Deferred Revenue: $1,856,000,000.00
+                    - Other Current Liabilities: $15,858,000,000.00
+                    - Total Current Liabilities: $32,027,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $48,334,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $5,410,000,000.00
+                    - Total Non-Current Liabilities: $53,744,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $0.00
+                    - Total Liabilities: $85,771,000,000.00
+                    - Total Debt: $53,029,000,000.00
+                    - Net Debt: $41,742,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $49,763,000,000.00
+                    - Retained Earnings: $66,162,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-696,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $115,229,000,000.00
+                    - Total Equity: $120,434,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $5,205,000,000.00
+                    - Total Liabilities and Stockholders Equity: $206,205,000,000.00
+                    - Total Liabilities and Total Equity: $206,205,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/0000050863-24-000124-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086324000124/intc-20240629.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2024-03-31
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2024-04-25
+                    - Accepted Date: 2024-04-25 16:09:45
+                    - Calendar Year: 2024
+                    - Period: Q1
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $6,923,000,000.00
+                    - Short Term Investments: $14,388,000,000.00
+                    - Cash and Short Term Investments: $21,311,000,000.00
+                    - Net Receivables: $3,323,000,000.00
+                    - Inventory: $11,494,000,000.00
+                    - Other Current Assets: $6,480,000,000.00
+                    - Total Current Assets: $42,608,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $99,924,000,000.00
+                    - Goodwill: $27,440,000,000.00
+                    - Intangible Assets: $4,675,000,000.00
+                    - Goodwill and Intangible Assets: $32,115,000,000.00
+                    - Long Term Investments: $8,145,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $9,941,000,000.00
+                    - Total Non-Current Assets: $150,125,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $192,733,000,000.00
+                    - Total Investments: $22,533,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $8,559,000,000.00
+                    - Short Term Debt: $14,963,000,000.00
+                    - Tax Payables: $346,000,000.00
+                    - Deferred Revenue: $346,000,000.00
+                    - Other Current Liabilities: $13,381,000,000.00
+                    - Total Current Liabilities: $27,213,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $47,869,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $6,895,000,000.00
+                    - Total Non-Current Liabilities: $54,764,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $10,382,000,000.00
+                    - Total Liabilities: $81,977,000,000.00
+                    - Total Debt: $52,450,000,000.00
+                    - Net Debt: $45,527,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $38,291,000,000.00
+                    - Retained Earnings: $68,224,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-542,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $105,973,000,000.00
+                    - Total Equity: $110,756,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $4,783,000,000.00
+                    - Total Liabilities and Stockholders Equity: $192,733,000,000.00
+                    - Total Liabilities and Total Equity: $192,733,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086324000074/0000050863-24-000074-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086324000074/q124_earningsrelease.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2023-12-30
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2024-01-26
+                    - Accepted Date: 2024-01-25 18:38:16
+                    - Calendar Year: 2023
+                    - Period: Q4
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $7,079,000,000.00
+                    - Short Term Investments: $17,955,000,000.00
+                    - Cash and Short Term Investments: $25,034,000,000.00
+                    - Net Receivables: $3,402,000,000.00
+                    - Inventory: $11,127,000,000.00
+                    - Other Current Assets: $3,706,000,000.00
+                    - Total Current Assets: $43,269,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $96,647,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $4,589,000,000.00
+                    - Goodwill and Intangible Assets: $32,180,000,000.00
+                    - Long Term Investments: $5,829,000,000.00
+                    - Tax Assets: $5,459,000,000.00
+                    - Other Non-Current Assets: $8,188,000,000.00
+                    - Total Non-Current Assets: $148,303,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $191,572,000,000.00
+                    - Total Investments: $23,784,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $8,578,000,000.00
+                    - Short Term Debt: $3,052,000,000.00
+                    - Tax Payables: $1,107,000,000.00
+                    - Deferred Revenue: $1,107,000,000.00
+                    - Other Current Liabilities: $15,316,000,000.00
+                    - Total Current Liabilities: $28,053,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $47,267,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $6,287,000,000.00
+                    - Total Non-Current Liabilities: $53,554,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $911,000,000.00
+                    - Total Liabilities: $81,607,000,000.00
+                    - Total Debt: $49,278,000,000.00
+                    - Net Debt: $42,199,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $36,649,000,000.00
+                    - Retained Earnings: $69,156,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-215,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $105,590,000,000.00
+                    - Total Equity: $109,965,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $4,375,000,000.00
+                    - Total Liabilities and Stockholders Equity: $191,572,000,000.00
+                    - Total Liabilities and Total Equity: $191,572,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086324000010/0000050863-24-000010-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086324000010/intc-20231230.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2023-09-30
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2023-10-27
+                    - Accepted Date: 2023-10-26 18:34:47
+                    - Calendar Year: 2023
+                    - Period: Q3
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $7,621,000,000.00
+                    - Short Term Investments: $17,409,000,000.00
+                    - Cash and Short Term Investments: $25,030,000,000.00
+                    - Net Receivables: $2,843,000,000.00
+                    - Inventory: $11,466,000,000.00
+                    - Other Current Assets: $4,472,000,000.00
+                    - Total Current Assets: $43,811,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $93,352,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $4,970,000,000.00
+                    - Goodwill and Intangible Assets: $32,561,000,000.00
+                    - Long Term Investments: $5,700,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $13,413,000,000.00
+                    - Total Non-Current Assets: $145,026,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $188,837,000,000.00
+                    - Total Investments: $23,109,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $8,669,000,000.00
+                    - Short Term Debt: $2,288,000,000.00
+                    - Tax Payables: $2,112,000,000.00
+                    - Deferred Revenue: $0.00
+                    - Other Current Liabilities: $15,545,000,000.00
+                    - Total Current Liabilities: $28,614,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $46,591,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $7,946,000,000.00
+                    - Total Non-Current Liabilities: $54,537,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $0.00
+                    - Total Liabilities: $83,151,000,000.00
+                    - Total Debt: $48,879,000,000.00
+                    - Net Debt: $41,258,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $35,653,000,000.00
+                    - Retained Earnings: $67,021,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-861,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $101,813,000,000.00
+                    - Total Equity: $105,686,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $3,873,000,000.00
+                    - Total Liabilities and Stockholders Equity: $188,837,000,000.00
+                    - Total Liabilities and Total Equity: $188,837,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086323000103/0000050863-23-000103-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086323000103/intc-20230930.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2023-07-01
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2023-07-28
+                    - Accepted Date: 2023-07-27 18:13:00
+                    - Calendar Year: 2023
+                    - Period: Q2
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $8,349,000,000.00
+                    - Short Term Investments: $15,908,000,000.00
+                    - Cash and Short Term Investments: $24,257,000,000.00
+                    - Net Receivables: $2,996,000,000.00
+                    - Inventory: $11,984,000,000.00
+                    - Other Current Assets: $4,119,000,000.00
+                    - Total Current Assets: $43,356,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $90,945,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $5,173,000,000.00
+                    - Goodwill and Intangible Assets: $32,764,000,000.00
+                    - Long Term Investments: $5,893,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $12,671,000,000.00
+                    - Total Non-Current Assets: $142,273,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $185,629,000,000.00
+                    - Total Investments: $21,801,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $8,757,000,000.00
+                    - Short Term Debt: $2,711,000,000.00
+                    - Tax Payables: $2,169,000,000.00
+                    - Deferred Revenue: $2,169,000,000.00
+                    - Other Current Liabilities: $13,543,000,000.00
+                    - Total Current Liabilities: $27,180,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $46,335,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $0.00
+                    - Other Non-Current Liabilities: $7,643,000,000.00
+                    - Total Non-Current Liabilities: $53,978,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $0.00
+                    - Total Liabilities: $81,158,000,000.00
+                    - Total Debt: $49,046,000,000.00
+                    - Net Debt: $40,697,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $34,330,000,000.00
+                    - Retained Earnings: $67,231,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-544,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $101,017,000,000.00
+                    - Total Equity: $104,471,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $3,454,000,000.00
+                    - Total Liabilities and Stockholders Equity: $185,629,000,000.00
+                    - Total Liabilities and Total Equity: $185,629,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086323000069/0000050863-23-000069-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086323000069/intc-20230701.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2023-04-01
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2023-04-28
+                    - Accepted Date: 2023-04-27 18:25:04
+                    - Calendar Year: 2023
+                    - Period: Q1
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $8,232,000,000.00
+                    - Short Term Investments: $19,302,000,000.00
+                    - Cash and Short Term Investments: $27,534,000,000.00
+                    - Net Receivables: $3,847,000,000.00
+                    - Inventory: $12,993,000,000.00
+                    - Other Current Assets: $3,940,000,000.00
+                    - Total Current Assets: $48,314,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $85,734,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $5,567,000,000.00
+                    - Goodwill and Intangible Assets: $33,158,000,000.00
+                    - Long Term Investments: $6,029,000,000.00
+                    - Tax Assets: $0.00
+                    - Other Non-Current Assets: $12,068,000,000.00
+                    - Total Non-Current Assets: $136,989,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $185,303,000,000.00
+                    - Total Investments: $25,331,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $8,083,000,000.00
+                    - Short Term Debt: $1,437,000,000.00
+                    - Tax Payables: $4,046,000,000.00
+                    - Deferred Revenue: $0.00
+                    - Other Current Liabilities: $13,827,000,000.00
+                    - Total Current Liabilities: $27,393,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $48,836,000,000.00
+                    - Deferred Revenue Non-Current: $-3,831,000,000.00
+                    - Deferred Tax Liabilities: $3,831,000,000.00
+                    - Other Non-Current Liabilities: $8,671,000,000.00
+                    - Total Non-Current Liabilities: $57,507,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $0.00
+                    - Total Liabilities: $84,900,000,000.00
+                    - Total Debt: $50,273,000,000.00
+                    - Net Debt: $42,041,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $32,829,000,000.00
+                    - Retained Earnings: $65,649,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-419,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $98,059,000,000.00
+                    - Total Equity: $100,403,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $2,344,000,000.00
+                    - Total Liabilities and Stockholders Equity: $185,303,000,000.00
+                    - Total Liabilities and Total Equity: $185,303,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086323000028/0000050863-23-000028-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086323000028/intc-20230401.htm
+                    
+
+
+                    Filing Information:
+                    - Date: 2022-12-31
+                    - Symbol: INTC
+                    - CIK: 0000050863
+                    - Filing Date: 2023-01-27
+                    - Accepted Date: 2023-01-26 18:31:20
+                    - Calendar Year: 2022
+                    - Period: Q4
+                    - Currency: USD
+                    
+                    Current Assets:
+                    - Cash and Cash Equivalents: $11,144,000,000.00
+                    - Short Term Investments: $17,194,000,000.00
+                    - Cash and Short Term Investments: $28,338,000,000.00
+                    - Net Receivables: $4,133,000,000.00
+                    - Inventory: $13,224,000,000.00
+                    - Other Current Assets: $4,712,000,000.00
+                    - Total Current Assets: $50,407,000,000.00
+                    
+                    Non-Current Assets:
+                    - Property, Plant & Equipment (Net): $80,860,000,000.00
+                    - Goodwill: $27,591,000,000.00
+                    - Intangible Assets: $6,018,000,000.00
+                    - Goodwill and Intangible Assets: $33,609,000,000.00
+                    - Long Term Investments: $5,912,000,000.00
+                    - Tax Assets: $202,000,000.00
+                    - Other Non-Current Assets: $11,113,000,000.00
+                    - Total Non-Current Assets: $131,696,000,000.00
+                    
+                    Total Assets Summary:
+                    - Other Assets: $0.00
+                    - Total Assets: $182,103,000,000.00
+                    - Total Investments: $23,106,000,000.00
+                    
+                    Current Liabilities:
+                    - Accounts Payable: $9,595,000,000.00
+                    - Short Term Debt: $4,379,000,000.00
+                    - Tax Payables: $2,251,000,000.00
+                    - Deferred Revenue: $0.00
+                    - Other Current Liabilities: $15,930,000,000.00
+                    - Total Current Liabilities: $32,155,000,000.00
+                    
+                    Non-Current Liabilities:
+                    - Long Term Debt: $37,920,000,000.00
+                    - Deferred Revenue Non-Current: $0.00
+                    - Deferred Tax Liabilities: $202,000,000.00
+                    - Other Non-Current Liabilities: $8,540,000,000.00
+                    - Total Non-Current Liabilities: $46,662,000,000.00
+                    
+                    Total Liabilities Summary:
+                    - Other Liabilities: $0.00
+                    - Capital Lease Obligations: $236,000,000.00
+                    - Total Liabilities: $78,817,000,000.00
+                    - Total Debt: $42,051,000,000.00
+                    - Net Debt: $30,907,000,000.00
+                    
+                    Shareholders' Equity:
+                    - Preferred Stock: $0.00
+                    - Common Stock: $31,580,000,000.00
+                    - Retained Earnings: $70,405,000,000.00
+                    - Accumulated Other Comprehensive Income/Loss: $-562,000,000.00
+                    - Other Total Stockholders Equity: $0.00
+                    - Total Stockholders Equity: $101,423,000,000.00
+                    - Total Equity: $103,286,000,000.00
+                    
+                    Balance Check:
+                    - Minority Interest: $1,863,000,000.00
+                    - Total Liabilities and Stockholders Equity: $182,103,000,000.00
+                    - Total Liabilities and Total Equity: $182,103,000,000.00
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/50863/000005086323000006/0000050863-23-000006-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/50863/000005086323000006/intc-20221231.htm
+                    
+
+2025-01-05 03:10:56.252341
+================================================================================
+
+[2025-01-05 03:10:56]
+Event Class: StartActionsSubtaskEvent
+Task ID: b455dae086ca4a4e99318e9ac20fe474
+Timestamp: 1736046656.249067
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_balance_sheet
+Tool Input: {'values': {'symbol': 'INTC', 'period': 'annual', 'limit': 2}}
+---
+Tool Output: None
+Tool Name: FMPClient
+Tool Path: get_balance_sheet
+Tool Input: {'values': {'symbol': 'INTC', 'period': 'quarter', 'limit': 8}}
+---
+Tool Output: None
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 03:04:27]
+Event Class: FinishActionsSubtaskEvent
+Task ID: dc3ff1ebf434441482140a9327a07999
+Timestamp: 1736046267.3717508
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+
+                    Filing Information:
+                    - Date: 2024-09-28
+                    - Symbol: AAPL
+                    - CIK: 0000320193
+                    - Filing Date: 2024-11-01
+                    - Accepted Date: 2024-11-01 06:01:36
+                    - Period: FY
+                    - Calendar Year: 2024
+                    - Currency: USD
+                    
+                    Revenue and Profitability:
+                    - Revenue: $391,035,000,000.00
+                    - Cost of Revenue: $210,352,000,000.00
+                    - Gross Profit: $180,683,000,000.00
+                    - Gross Profit Margin: 46.21%
+                    
+                    Operating Metrics:
+                    - Operating Income: $123,216,000,000.00
+                    - Operating Margin: 31.51%
+                    - EBITDA: $134,661,000,000.00
+                    - EBITDA Margin: 34.44%
+                    
+                    Expenses Breakdown:
+                    - R&D: $31,370,000,000.00
+                    - SG&A: $26,097,000,000.00
+                    - Total Operating Expenses: $57,467,000,000.00
+                    - Total Costs and Expenses: $267,819,000,000.00
+                    - Depreciation & Amortization: $11,445,000,000.00
+                    
+                    Interest and Taxes:
+                    - Interest Income: $0.00
+                    - Interest Expense: $0.00
+                    - Income Before Tax: $123,485,000,000.00
+                    - Income Tax Expense: $29,749,000,000.00
+                    
+                    Bottom Line:
+                    - Net Income: $93,736,000,000.00
+                    - Net Income Margin: 23.97%
+                    
+                    Per Share Data:
+                    - EPS: $6.11
+                    - EPS Diluted: $6.08
+                    - Weighted Avg Shares Outstanding: 15,343,783,000
+                    - Weighted Avg Shares Outstanding (Diluted): 15,408,095,000
+                    
+                    Links:
+                    - SEC Filing: https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/0000320193-24-000123-index.htm
+                    - Final Document: https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm
+                    
+================================================================================
+
+[2025-01-05 03:04:27]
+Event Class: StartActionsSubtaskEvent
+Task ID: dc3ff1ebf434441482140a9327a07999
+Timestamp: 1736046267.003466
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 03:03:00]
+Event Class: FinishActionsSubtaskEvent
+Task ID: b2ecd034600a4b7e83476f8f133f6973
+Timestamp: 1736046180.201338
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?apikey=None&period=annual&limit=1
+================================================================================
+
+[2025-01-05 03:02:59]
+Event Class: StartActionsSubtaskEvent
+Task ID: b2ecd034600a4b7e83476f8f133f6973
+Timestamp: 1736046179.80883
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 03:02:58]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 21ace864109e4e6fa28756aa246e9930
+Timestamp: 1736046178.9925492
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+Tool Output: None
+2025-01-05 03:02:58.992193
+================================================================================
+
+[2025-01-05 03:02:58]
+Event Class: StartActionsSubtaskEvent
+Task ID: 21ace864109e4e6fa28756aa246e9930
+Timestamp: 1736046178.989738
+
+Subtask Actions:
+Tool Name: DateTimeTool
+Tool Path: get_current_datetime
+Tool Input: {'values': {}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 03:02:58]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 50766fd23e324f76a1c173da2681502f
+Timestamp: 1736046178.31598
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?apikey=None&period=annual&limit=1
+================================================================================
+
+[2025-01-05 03:02:57]
+Event Class: StartActionsSubtaskEvent
+Task ID: 50766fd23e324f76a1c173da2681502f
+Timestamp: 1736046177.8971899
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 03:01:28]
+Event Class: FinishActionsSubtaskEvent
+Task ID: e5465fd8fb7442e0bf6727868827136b
+Timestamp: 1736046088.447721
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'quarter', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=quarter&limit=1
+================================================================================
+
+[2025-01-05 03:01:28]
+Event Class: StartActionsSubtaskEvent
+Task ID: e5465fd8fb7442e0bf6727868827136b
+Timestamp: 1736046088.094741
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'quarter', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 03:01:26]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 24febbdb3bba484ab071e89f34c3ae87
+Timestamp: 1736046086.796971
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=annual&limit=1
+================================================================================
+
+[2025-01-05 03:01:26]
+Event Class: StartActionsSubtaskEvent
+Task ID: 24febbdb3bba484ab071e89f34c3ae87
+Timestamp: 1736046086.3172412
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:58:52]
+Event Class: FinishActionsSubtaskEvent
+Task ID: b8712368663a4090bdef3e082e2b93b1
+Timestamp: 1736045932.468043
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'quarter', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=quarter&limit=1
+================================================================================
+
+[2025-01-05 02:58:52]
+Event Class: StartActionsSubtaskEvent
+Task ID: b8712368663a4090bdef3e082e2b93b1
+Timestamp: 1736045932.112576
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'quarter', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:58:51]
+Event Class: FinishActionsSubtaskEvent
+Task ID: a5ad372718dd4568ae4a62b63076458d
+Timestamp: 1736045931.264738
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=annual&limit=1
+================================================================================
+
+[2025-01-05 02:58:50]
+Event Class: StartActionsSubtaskEvent
+Task ID: a5ad372718dd4568ae4a62b63076458d
+Timestamp: 1736045930.5731
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:55:36]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 16474b7846914470849114dcfe6f6d9c
+Timestamp: 1736045736.4136739
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'quarter', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=quarter&limit=1
+================================================================================
+
+[2025-01-05 02:55:36]
+Event Class: StartActionsSubtaskEvent
+Task ID: 16474b7846914470849114dcfe6f6d9c
+Timestamp: 1736045736.058764
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'quarter', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
+[2025-01-05 02:55:35]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 07d5376d4e574ba688271d205ba3c201
+Timestamp: 1736045735.223893
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+Failed to fetch income statement: 401 Client Error: Unauthorized for url: https://financialmodelingprep.com/api/v3/income-statement/AAPL?period=annual&limit=1
+================================================================================
+
+[2025-01-05 02:55:34]
+Event Class: StartActionsSubtaskEvent
+Task ID: 07d5376d4e574ba688271d205ba3c201
+Timestamp: 1736045734.838806
+
+Subtask Actions:
+Tool Name: FMPClient
+Tool Path: get_income_statement
+Tool Input: {'values': {'symbol': 'AAPL', 'period': 'annual', 'limit': 1}}
+---
+Tool Output: None
+None
+================================================================================
+
 [2025-01-05 02:25:35]
 Event Class: FinishActionsSubtaskEvent
 Task ID: 947dca8c41154e77a97e3ea8874872cc
