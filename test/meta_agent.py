@@ -3,7 +3,8 @@ import sys
 import json
 import schema
 import logging
-import datetime
+from datetime import datetime
+import datetime as dt
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from griptape.configs import Defaults
@@ -24,6 +25,7 @@ from griptape.configs.drivers import (
     AnthropicDriversConfig,
     GoogleDriversConfig,
 )
+from griptape.artifacts import BaseArtifact, ErrorArtifact, ListArtifact, TextArtifact
 from griptape.drivers import (
     OpenAiChatPromptDriver,
     AnthropicPromptDriver,
@@ -128,10 +130,45 @@ workflow_structure_run_tool = StructureRunTool(
     structure_run_driver=LocalStructureRunDriver(create_structure=create_workflow),
 )
 
+
+class ToolsTask(ToolkitTask):
+    def try_run(self) -> BaseArtifact:
+        from griptape.tasks import ActionsSubtask
+
+        self.subtasks.clear()
+
+        result = self.prompt_driver.run(self.prompt_stack)
+        subtask = self.add_subtask(ActionsSubtask(result.to_artifact()))
+        tool_outputs = []
+
+        while True:
+            if subtask.output is None:
+                if len(self.subtasks) >= self.max_subtasks:
+                    subtask.output = ErrorArtifact(
+                        f"Exceeded tool limit of {self.max_subtasks} subtasks per task"
+                    )
+                else:
+                    tool_result = subtask.run()
+                    # Wrap each tool output separately
+                    if tool_result is not None:
+                        tool_outputs.append(
+                            TextArtifact(
+                                f"<artifact_output>{tool_result}</artifact_output>"
+                            )
+                        )
+
+                    result = self.prompt_driver.run(self.prompt_stack)
+                    subtask = self.add_subtask(ActionsSubtask(result.to_artifact()))
+            else:
+                break
+
+        return ListArtifact([subtask.output, *tool_outputs])
+
+
 agent = Agent()
 
 agent.add_task(
-    ToolkitTask(
+    ToolsTask(
         generate_system_template=lambda task: f"{system_prompt_template}",
         tools=[web_search_tool, workflow_structure_run_tool],
     )

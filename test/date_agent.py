@@ -4,6 +4,8 @@ import logging
 import uuid
 
 from griptape.utils import Chat
+from griptape.tasks import PromptTask, ToolkitTask
+from griptape.artifacts import ErrorArtifact, BaseArtifact, ListArtifact, TextArtifact
 from griptape.configs.logging import JsonFormatter
 from griptape.structures import Agent
 from griptape.tools import DateTimeTool
@@ -66,11 +68,46 @@ EventBus.add_event_listeners(
     ]
 )
 
-agent = Agent(tools=[DateTimeTool()])
 
-agent.run("what is tomorrow's date from one month ago?")
+class ToolsTask(ToolkitTask):
+    def try_run(self) -> BaseArtifact:
+        from griptape.tasks import ActionsSubtask
+
+        self.subtasks.clear()
+
+        result = self.prompt_driver.run(self.prompt_stack)
+        subtask = self.add_subtask(ActionsSubtask(result.to_artifact()))
+        tool_outputs = []
+
+        while True:
+            if subtask.output is None:
+                if len(self.subtasks) >= self.max_subtasks:
+                    subtask.output = ErrorArtifact(
+                        f"Exceeded tool limit of {self.max_subtasks} subtasks per task"
+                    )
+                else:
+                    tool_result = subtask.run()
+                    # Wrap each tool output separately
+                    if tool_result is not None:
+                        tool_outputs.append(
+                            TextArtifact(
+                                f"<artifact_output>{tool_result}</artifact_output>"
+                            )
+                        )
+
+                    result = self.prompt_driver.run(self.prompt_stack)
+                    subtask = self.add_subtask(ActionsSubtask(result.to_artifact()))
+            else:
+                break
+
+        return ListArtifact([subtask.output, *tool_outputs])
+
+
+agent = Agent()
+agent.add_task(ToolsTask(tools=[DateTimeTool()]))
+agent.run("what is yesterday's date")
 
 # Print all accumulated event logs at the end
-rprint("Accumulated Event Logs:")
-for log in event_logs:
-    rprint(log)
+# rprint("Accumulated Event Logs:")
+# for log in event_logs:
+#     rprint(log)

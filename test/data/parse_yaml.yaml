@@ -1,0 +1,29 @@
+required_inputs:
+  - name: website_name
+    description: The name of the website for which the content overview is to be generated.
+    type: string
+    required: true
+
+workflow_steps:
+  - step_number: 1
+    instruction: "Based on the website name website_name, provide a brief overview of the website's content, target audience, and marketing goals."
+    required_inputs:
+      - website_name
+    uses_output_from_step: null
+    output_variable_name: content_overview
+
+  - step_number: 2
+    instruction: "From the content overview content_overview, identify the key themes and topics that are relevant to the website's audience."
+    required_inputs:
+      - content_overview
+    uses_output_from_step:
+      - 1
+    output_variable_name: key_themes
+
+  - step_number: 3
+    instruction: "Using the key themes key_themes, generate several creative video marketing script ideas tailored to the website's content and audience."
+    required_inputs:
+      - key_themes
+    uses_output_from_step:
+      - 2
+    output_variable_name: script_ideas
