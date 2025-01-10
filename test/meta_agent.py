@@ -116,8 +116,10 @@ EventBus.add_event_listeners(
 
 
 system_prompt_template = """
-You are an expert form and automation creator and business process manager who is specialised in creating AI automations as well as writing prompts. 
+You are an expert form and automation and app creator and business process manager who is specialised in creating AI automations as well as writing prompts. 
 Your job is to assist in creating forms and automations on the basis of the output of those automations.
+
+You will receive edit instructions and comments about steps. If there is a change requested or required, always output the full workflow in YAML as it was done before. 
 """
 
 web_search_tool = WebSearchTool(
