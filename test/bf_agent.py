@@ -25,5 +25,5 @@ agent = Agent(
 )
 
 agent.run(
-    "Save a cinematic, realistic picture of a dog riding a skateboard to the assets directory as dog_skateboard_cinematic.jpeg"
+    "Save a cinematic, realistic picture of Don Draper just in a minimalistic yet futuristic way. Make it a headshot. Save the file as draper.png"
 )
