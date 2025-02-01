@@ -1,699 +1,280 @@
 
-[2025-01-10 15:27:19]
-Event Class: FinishActionsSubtaskEvent
-Task ID: b55724f5bab94c7dbff5dede27047694
-Timestamp: 1736522839.9396238
+[2025-01-31 02:06:10]
+Event Class: FinishPromptEvent
+Task ID: a1ff15efd84e4fb9af14c10a5752ae3c
+Timestamp: 1738278370.48287
 
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['LinkedIn post creator', 'company name', 'post content', 'image upload option', 'post scheduling option', 'engagement tracking', 'hashtags suggestion', 'call to action']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-- name: post_content
-  description: The content to be included in the LinkedIn post.
-  type: string
-  required: true
-- name: post_image
-  description: The image file to be uploaded for the LinkedIn post, if available.
-  type: file
-  required: false
+Final Task Output:
 
-workflow_steps:
-- step_number: 1
-  instruction: Generate a LinkedIn post using the following content: post_content.
-  required_inputs: 
-    - post_content
-  uses_output_from_step: null
-  output_variable_name: linkedin_post_text
 
-- step_number: 2
-  instruction: Upload the image file for the LinkedIn post if it exists.
-  required_inputs: 
-    - post_image
-  uses_output_from_step: null
-  output_variable_name: uploaded_image_url
+Based on the testing, I'll now provide a comprehensive list of optimized search queries with their relevance explanations:
 
-- step_number: 3
-  instruction: Create a LinkedIn post with the following text: linkedin_post_text and include the image from uploaded_image_url if it exists.
-  required_inputs: 
-    - linkedin_post_text
-    - uploaded_image_url
-  uses_output_from_step: 
-    - 1
-    - 2
-  output_variable_name: final_linkedin_post
+1. Sales Operations & Automation Queries:
+
 ```
-================================================================================
-
-[2025-01-10 15:27:08]
-Event Class: StartActionsSubtaskEvent
-Task ID: b55724f5bab94c7dbff5dede27047694
-Timestamp: 1736522828.99585
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['LinkedIn post creator', 'company name', 'post content', 'image upload option', 'post scheduling option', 'engagement tracking', 'hashtags suggestion', 'call to action']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-10 01:21:07]
-Event Class: FinishActionsSubtaskEvent
-Task ID: b8ed9518e03346b3b6bc0f025e0bc9b9
-Timestamp: 1736472067.0091362
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-- name: invoice_file
-  description: The invoice document from which text will be extracted.
-  type: file
-  required: true
-
-workflow_steps:
-- step_number: 1
-  instruction: Extract all text from the provided invoice document.
-  required_inputs:
-    - invoice_file
-  uses_output_from_step: null
-  output_variable_name: extracted_text
-
-- step_number: 2
-  instruction: From the extracted text, identify and categorize the key data fields such as invoice number, date, total amount, and line items.
-  required_inputs:
-    - extracted_text
-  uses_output_from_step:
-    - 1
-  output_variable_name: key_data_fields
-
-- step_number: 3
-  instruction: Format the identified key data fields into a structured format suitable for output.
-  required_inputs:
-    - key_data_fields
-  uses_output_from_step:
-    - 2
-  output_variable_name: formatted_data
+("Director of Sales Operations" OR "Sales Operations Manager") AND ("manual research" OR "sales automation challenges") AND ("SMB" OR "mid-market") -jobs site:linkedin.com
 ```
-================================================================================
+Relevance: Targets key decision-makers experiencing pain points around manual sales processes in SMBs, which directly aligns with GodmodeHQ's solution.
 
-[2025-01-10 01:20:57]
-Event Class: StartActionsSubtaskEvent
-Task ID: b8ed9518e03346b3b6bc0f025e0bc9b9
-Timestamp: 1736472057.116551
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-10 01:20:03]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 6fbc85b738c74aca94f71a5d02a71a11
-Timestamp: 1736472003.959218
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an invoice extraction app', 'Extract invoice number', 'Extract price', 'Extract recipient']}}
----
-Tool Output: None
-expected token 'end of print statement', got 'braces'
-================================================================================
-
-[2025-01-10 01:19:52]
-Event Class: StartActionsSubtaskEvent
-Task ID: 6fbc85b738c74aca94f71a5d02a71a11
-Timestamp: 1736471992.246177
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an invoice extraction app', 'Extract invoice number', 'Extract price', 'Extract recipient']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-10 01:19:50]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 4cc84413429545caa5164ae86a048ec2
-Timestamp: 1736471990.39942
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an invoice extraction app', 'Extract invoice number', 'Extract price', 'Extract recipient']}}
----
-Tool Output: None
-expected token 'end of print statement', got 'braces'
-================================================================================
-
-[2025-01-10 01:19:35]
-Event Class: StartActionsSubtaskEvent
-Task ID: 4cc84413429545caa5164ae86a048ec2
-Timestamp: 1736471975.9174871
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an invoice extraction app', 'Extract invoice number', 'Extract price', 'Extract recipient']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-10 01:19:35]
-Event Class: FinishActionsSubtaskEvent
-Task ID: a60ac0f437304bc8b9d25e06ee11f89f
-Timestamp: 1736471975.118207
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an invoice extraction app', 'Extract invoice number', 'Extract price', 'Extract recipient']}}
----
-Tool Output: None
-expected token 'end of print statement', got 'braces'
-================================================================================
-
-[2025-01-10 01:19:22]
-Event Class: StartActionsSubtaskEvent
-Task ID: a60ac0f437304bc8b9d25e06ee11f89f
-Timestamp: 1736471962.822876
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an invoice extraction app', 'Extract invoice number', 'Extract price', 'Extract recipient']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-10 01:19:21]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 1250e79dee4c41ac83c15606a31ce31f
-Timestamp: 1736471961.9560478
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app', 'extract invoice number', 'extract price', 'extract recipient']}}
----
-Tool Output: None
-expected token 'end of print statement', got 'braces'
-================================================================================
-
-[2025-01-10 01:19:06]
-Event Class: StartActionsSubtaskEvent
-Task ID: 1250e79dee4c41ac83c15606a31ce31f
-Timestamp: 1736471946.220484
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app', 'extract invoice number', 'extract price', 'extract recipient']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 10:35:01]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 3f5ba3f26b014652adfd7e925de4d92c
-Timestamp: 1736418901.9154
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-- name: invoice_file
-  description: The invoice document from which text will be extracted.
-  type: file
-  required: true
-
-workflow_steps:
-- step_number: 1
-  instruction: Extract all text content from the provided invoice document.
-  required_inputs:
-    - invoice_file
-  uses_output_from_step: null
-  output_variable_name: extracted_text
-
-- step_number: 2
-  instruction: Identify and extract key fields such as invoice number, date, total amount, and line items from the extracted text.
-  required_inputs:
-    - extracted_text
-  uses_output_from_step:
-    - 1
-  output_variable_name: key_fields
-
-- step_number: 3
-  instruction: Format the identified key fields into a structured format suitable for further processing.
-  required_inputs:
-    - key_fields
-  uses_output_from_step:
-    - 2
-  output_variable_name: formatted_data
-
-- step_number: 4
-  instruction: Create a final summary of the invoice including all key fields in a readable format.
-  required_inputs:
-    - formatted_data
-  uses_output_from_step:
-    - 3
-  output_variable_name: final_invoice_summary
+2. Manufacturing Industry Focus:
 ```
-================================================================================
-
-[2025-01-09 10:34:50]
-Event Class: StartActionsSubtaskEvent
-Task ID: 3f5ba3f26b014652adfd7e925de4d92c
-Timestamp: 1736418890.18291
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 01:06:04]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 536caf8c61ee46fbaea38b3abb67354c
-Timestamp: 1736384764.419401
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ["Create an automation for generating video marketing scripts based on a given website name. The automation should take the website name as input and output several script ideas tailored to the website's content, audience, and marketing goals."]}}
----
-Tool Output: None
-```yaml
-required_inputs:
-- name: website_name
-  description: The name of the website for which the content overview is to be generated.
-  type: string
-  required: true
-
-workflow_steps:
-- step_number: 1
-  instruction: "Based on the website name website_name, provide a brief overview of the website's content, target audience, and marketing goals."
-  required_inputs: 
-    - website_name
-  uses_output_from_step: null
-  output_variable_name: content_overview
-
-- step_number: 2
-  instruction: "From the content overview content_overview, identify the key themes and topics that are relevant to the website's audience."
-  required_inputs: 
-    - content_overview
-  uses_output_from_step: 
-    - 1
-  output_variable_name: key_themes
-
-- step_number: 3
-  instruction: "Using the key themes key_themes, generate several creative video marketing script ideas tailored to the website's content and audience."
-  required_inputs: 
-    - key_themes
-  uses_output_from_step: 
-    - 2
-  output_variable_name: script_ideas
+("manufacturing industry" OR "industrial company") AND ("sales process automation" OR "customer research") AND ("digital transformation" OR "AI adoption") site:industryweek.com OR site:manufacturingglobal.com
 ```
-================================================================================
+Relevance: Identifies manufacturing companies actively discussing or seeking solutions for sales automation and digital transformation.
 
-[2025-01-09 01:05:51]
-Event Class: StartActionsSubtaskEvent
-Task ID: 536caf8c61ee46fbaea38b3abb67354c
-Timestamp: 1736384751.170824
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ["Create an automation for generating video marketing scripts based on a given website name. The automation should take the website name as input and output several script ideas tailored to the website's content, audience, and marketing goals."]}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 01:03:37]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 75bed43108cc4c11b6d9df1441e99ae8
-Timestamp: 1736384617.6788979
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an automation that accepts a website name of a startup as input and analyzes the content of the website to generate video script ideas. The automation should include the following steps: 1. Input the website URL. 2. Scrape the website content for relevant information. 3. Analyze the content to identify key themes, products, and services. 4. Generate creative video script ideas based on the analysis. 5. Output the video script ideas for user review.']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-  - name: website_url
-    description: The URL of the website to be analyzed.
-    type: string
-    required: true
-
-workflow_steps:
-  - step_number: 1
-    instruction: "Please provide the content of the website located at the following URL: website_url."
-    required_inputs:
-      - website_url
-    uses_output_from_step: null
-    output_variable_name: website_content
-
-  - step_number: 2
-    instruction: "Scrape the content from the provided website content: website_content to extract relevant information such as text, images, and links."
-    required_inputs:
-      - website_content
-    uses_output_from_step:
-      - 1
-    output_variable_name: scraped_content
-
-  - step_number: 3
-    instruction: "Analyze the scraped content: scraped_content to identify key themes, products, and services mentioned on the website."
-    required_inputs:
-      - scraped_content
-    uses_output_from_step:
-      - 2
-    output_variable_name: analysis_results
-
-  - step_number: 4
-    instruction: "Based on the analysis results: analysis_results, generate creative video script ideas that highlight the key themes, products, and services."
-    required_inputs:
-      - analysis_results
-    uses_output_from_step:
-      - 3
-    output_variable_name: video_script_ideas
-
-  - step_number: 5
-    instruction: "Output the following video script ideas for user review: video_script_ideas."
-    required_inputs:
-      - video_script_ideas
-    uses_output_from_step:
-      - 4
-    output_variable_name: final_video_script_ideas
+3. Financial Services Pain Points:
 ```
-================================================================================
-
-[2025-01-09 01:03:22]
-Event Class: StartActionsSubtaskEvent
-Task ID: 75bed43108cc4c11b6d9df1441e99ae8
-Timestamp: 1736384602.518205
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an automation that accepts a website name of a startup as input and analyzes the content of the website to generate video script ideas. The automation should include the following steps: 1. Input the website URL. 2. Scrape the website content for relevant information. 3. Analyze the content to identify key themes, products, and services. 4. Generate creative video script ideas based on the analysis. 5. Output the video script ideas for user review.']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 01:00:36]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 0f629cc2afa74a859e588d65411bf723
-Timestamp: 1736384436.453263
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an automation for generating video marketing scripts based on a provided startup website. The automation should include the following steps: 1. Input field for the startup website URL. 2. Analyze the website content to identify key products, services, and unique selling points. 3. Generate a marketing script tailored for video content, focusing on engaging storytelling, benefits of the product/service, and a call to action. 4. Output the generated script in a user-friendly format.']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-  - name: website_url
-    description: URL of the startup's website to analyze for generating a marketing script.
-    type: string
-    required: true
-
-workflow_steps:
-  - step_number: 1
-    instruction: Please provide the URL of the startup's website that you want to analyze for generating a marketing script.
-    required_inputs: []
-    uses_output_from_step: null
-    output_variable_name: input_website_url
-
-  - step_number: 2
-    instruction: Analyze the content of the website at the following URL: input_website_url. Identify key products, services, and unique selling points.
-    required_inputs: 
-      - input_website_url
-    uses_output_from_step: 
-      - 1
-    output_variable_name: website_analysis
-
-  - step_number: 3
-    instruction: Based on the analysis of the website content: website_analysis, generate a marketing script tailored for video content. Focus on engaging storytelling, benefits of the product/service, and include a strong call to action.
-    required_inputs: 
-      - website_analysis
-    uses_output_from_step: 
-      - 2
-    output_variable_name: marketing_script
-
-  - step_number: 4
-    instruction: Output the generated marketing script in a user-friendly format: marketing_script.
-    required_inputs: 
-      - marketing_script
-    uses_output_from_step: 
-      - 3
-    output_variable_name: final_script
+("wealth management" OR "financial advisory") AND ("prospect research challenges" OR "client acquisition") AND ("automation" OR "AI technology") -jobs site:financialtimes.com OR site:wsj.com
 ```
-================================================================================
+Relevance: Targets financial services companies struggling with prospect research and client acquisition, core problems GodmodeHQ solves.
 
-[2025-01-09 01:00:18]
-Event Class: StartActionsSubtaskEvent
-Task ID: 0f629cc2afa74a859e588d65411bf723
-Timestamp: 1736384418.275192
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['Create an automation for generating video marketing scripts based on a provided startup website. The automation should include the following steps: 1. Input field for the startup website URL. 2. Analyze the website content to identify key products, services, and unique selling points. 3. Generate a marketing script tailored for video content, focusing on engaging storytelling, benefits of the product/service, and a call to action. 4. Output the generated script in a user-friendly format.']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 00:53:05]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 851300a7d5a54c7ba64908097c16ffd7
-Timestamp: 1736383985.035147
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['create an app', 'input brand name', 'analyze ads', 'ad performance', 'ad content', 'target audience', 'competitor analysis']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-  - name: app_name
-    description: The name of the app being created.
-    type: string
-    required: true
-  - name: app_description
-    description: A brief description of the app's functionality and purpose.
-    type: string
-    required: true
-  - name: app_version
-    description: The version number of the app.
-    type: string
-    required: true
-  - name: app_icon
-    description: The image file to be used as the app icon.
-    type: file
-    required: true
-
-workflow_steps:
-  - step_number: 1
-    instruction: "Create a metadata structure for an app with the following details: Name: {app_name}, Description: {app_description}, Version: {app_version}."
-    required_inputs:
-      - app_name
-      - app_description
-      - app_version
-    uses_output_from_step: null
-    output_variable_name: app_metadata
-
-  - step_number: 2
-    instruction: "Prepare the app icon for the app using the provided image file: {app_icon}."
-    required_inputs:
-      - app_icon
-    uses_output_from_step: null
-    output_variable_name: prepared_app_icon
-
-  - step_number: 3
-    instruction: "Create the initial app structure using the following metadata: {app_metadata} and the prepared icon."
-    required_inputs:
-      - app_metadata
-      - prepared_app_icon
-    uses_output_from_step:
-      - 1
-      - 2
-    output_variable_name: app_structure
-
-  - step_number: 4
-    instruction: "Finalize the app creation process using the app structure: {app_structure}."
-    required_inputs:
-      - app_structure
-    uses_output_from_step:
-      - 3
-    output_variable_name: final_app
+4. Growth Signals:
 ```
-================================================================================
-
-[2025-01-09 00:52:45]
-Event Class: StartActionsSubtaskEvent
-Task ID: 851300a7d5a54c7ba64908097c16ffd7
-Timestamp: 1736383965.654337
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['create an app', 'input brand name', 'analyze ads', 'ad performance', 'ad content', 'target audience', 'competitor analysis']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 00:46:29]
-Event Class: FinishActionsSubtaskEvent
-Task ID: 51a2ae68c8744208ab1db189735a7a8b
-Timestamp: 1736383589.90342
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-  - name: invoice_file
-    description: The invoice document from which text needs to be extracted.
-    type: file
-    required: true
-
-workflow_steps:
-  - step_number: 1
-    instruction: "Extract all text content from the provided invoice document."
-    required_inputs:
-      - invoice_file
-    uses_output_from_step: null
-    output_variable_name: extracted_text
-
-  - step_number: 2
-    instruction: "From the extracted text, identify and extract the following key information: invoice number, date, total amount, and vendor name."
-    required_inputs:
-      - extracted_text
-    uses_output_from_step:
-      - 1
-    output_variable_name: key_information
-
-  - step_number: 3
-    instruction: "Format the extracted key information into a structured format (e.g., JSON or key-value pairs) for easy reference."
-    required_inputs:
-      - key_information
-    uses_output_from_step:
-      - 2
-    output_variable_name: formatted_output
-
-final_output:
-  description: The final expected result is the formatted_output, which contains the structured key information extracted from the invoice.
+("Series A" OR "Series B") AND ("sales team scaling" OR "revenue operations") AND ("automation platform" OR "AI implementation") site:techcrunch.com OR site:venturebeat.com
 ```
-================================================================================
+Relevance: Identifies recently funded companies that are likely scaling their sales operations and need automation solutions.
 
-[2025-01-09 00:46:19]
-Event Class: StartActionsSubtaskEvent
-Task ID: 51a2ae68c8744208ab1db189735a7a8b
-Timestamp: 1736383579.71908
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-None
-================================================================================
-
-[2025-01-09 00:22:39]
-Event Class: FinishActionsSubtaskEvent
-Task ID: b364a58a3ccc4405b3b9a5a45cb8ec85
-Timestamp: 1736382159.010368
-
-Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
-Tool Output: None
-```yaml
-required_inputs:
-  - name: invoice_file
-    description: The invoice document from which text will be extracted.
-    type: file
-    required: true
-
-workflow_steps:
-  - step_number: 1
-    instruction: "Extract all text from the provided invoice document."
-    required_inputs:
-      - invoice_file
-    uses_output_from_step: null
-    output_variable_name: extracted_text
-
-  - step_number: 2
-    instruction: "From the extracted text, identify and extract the following key fields: Invoice Number, Date, Total Amount, and Vendor Name."
-    required_inputs:
-      - extracted_text
-    uses_output_from_step:
-      - 1
-    output_variable_name: key_fields
-
-  - step_number: 3
-    instruction: "Format the extracted key fields into a structured format: { 'Invoice Number': <value>, 'Date': <value>, 'Total Amount': <value>, 'Vendor Name': <value> }."
-    required_inputs:
-      - key_fields
-    uses_output_from_step:
-      - 2
-    output_variable_name: formatted_output
-
-final_output:
-  description: The final expected result is the formatted_output, which contains the structured information extracted from the invoice.
+5. Technology Stack Integration:
 ```
+("Salesforce" OR "Hubspot") AND ("sales automation challenges" OR "manual prospecting") AND ("AI integration" OR "workflow automation") site:g2.com OR site:trustradius.com
+```
+Relevance: Finds companies using compatible CRM systems who are experiencing challenges that GodmodeHQ can address.
+
+6. Operations Efficiency:
+```
+("Operations Leader" OR "Head of Operations") AND ("sales efficiency" OR "process automation") AND ("AI adoption" OR "digital transformation") -jobs site:linkedin.com
+```
+Relevance: Targets operations leaders looking to improve efficiency through automation and AI adoption.
+
+7. Customer Communication Challenges:
+```
+("personalized outreach" OR "sales engagement") AND ("scaling challenges" OR "efficiency problems") AND ("mid-market" OR "SMB") site:saleshacker.com OR site:salesforce.com/blog
+```
+Relevance: Identifies companies struggling with personalized customer communication at scale.
+
+8. Digital Transformation Initiatives:
+```
+("digital transformation" OR "AI implementation") AND ("sales operations" OR "customer acquisition") AND ("automation strategy" OR "process improvement") site:forbes.com OR site:hbr.org
+```
+Relevance: Targets companies actively pursuing digital transformation initiatives in their sales operations.
+
+These queries are designed to:
+- Target specific decision-makers from the ICP
+- Focus on industries where GodmodeHQ has proven success
+- Identify companies experiencing pain points that GodmodeHQ solves
+- Find signals of growth or change that indicate potential need
+- Discover companies using compatible technology stacks
+- Uncover discussions about challenges in sales automation and AI adoption
+
+Each query uses Boolean operators to narrow results and includes relevant industry publications or platforms where these discussions are likely to occur. The queries can be adjusted based on the results they generate and can be run periodically to identify new potential customers.
 ================================================================================
 
-[2025-01-09 00:22:16]
-Event Class: StartActionsSubtaskEvent
-Task ID: b364a58a3ccc4405b3b9a5a45cb8ec85
-Timestamp: 1736382136.544079
+[2025-01-31 02:05:56]
+Event Class: FinishActionsSubtaskEvent
+Task ID: a0247bb59fba4d0582db95eaa89958b1
+Timestamp: 1738278356.5824058
 
 Subtask Actions:
-Tool Name: StructureRunTool
-Tool Path: run_structure
-Tool Input: {'values': {'args': ['invoice extraction app']}}
----
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': '("wealth management" OR "financial advisory") AND ("customer research challenges" OR "prospect research") AND ("automation needs" OR "AI implementation") site:techcrunch.com OR site:forbes.com'}}
 Tool Output: None
-None
+---
+================================================================================
+
+[2025-01-31 02:05:55]
+Event Class: StartActionsSubtaskEvent
+Task ID: a0247bb59fba4d0582db95eaa89958b1
+Timestamp: 1738278355.273518
+
+Subtask Actions:
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': '("wealth management" OR "financial advisory") AND ("customer research challenges" OR "prospect research") AND ("automation needs" OR "AI implementation") site:techcrunch.com OR site:forbes.com'}}
+Tool Output: None
+---
+================================================================================
+
+[2025-01-31 02:05:55]
+Event Class: FinishPromptEvent
+Task ID: 0b3f3c3e9df047e0a9adc18f15d9a4b1
+Timestamp: 1738278355.267453
+
+Final Task Output:
+[TextArtifact(type='TextArtifact', module_name='griptape.artifacts.text_artifact', id='c6a3613b67db4ce3b9b8f889df206866', reference=None, meta={}, name='c6a3613b67db4ce3b9b8f889df206866', encoding_error_handler='strict', encoding='utf-8', value="\n\n2. Let's try another query focusing on professional services:", embedding=None), ActionArtifact(type='ActionArtifact', module_name='griptape.artifacts.action_artifact', id='ef97460f4fc8459c9629c25a4ce65798', reference=None, meta={}, name='ef97460f4fc8459c9629c25a4ce65798', encoding_error_handler='strict', encoding='utf-8', value=ToolAction(type='ToolAction', module_name='griptape.common.actions.tool_action', tag='toolu_01MEPQmgr6wnZ6YZX68poWFU', name='WebSearchTool', path='search', input={'values': {'query': '("wealth management" OR "financial advisory") AND ("customer research challenges" OR "prospect research") AND ("automation needs" OR "AI implementation") site:techcrunch.com OR site:forbes.com'}}, tool=None, output=None))]
+================================================================================
+
+[2025-01-31 02:05:52]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 798c89794fef49c4a3447fc66886fe7c
+Timestamp: 1738278352.067956
+
+Subtask Actions:
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': '("manufacturing industry" OR "industrial company") AND ("sales automation challenges" OR "manual sales processes") AND ("AI adoption" OR "digital transformation") -jobs site:linkedin.com'}}
+Tool Output: None
+---
+================================================================================
+
+[2025-01-31 02:05:50]
+Event Class: StartActionsSubtaskEvent
+Task ID: 798c89794fef49c4a3447fc66886fe7c
+Timestamp: 1738278350.487676
+
+Subtask Actions:
+Tool Name: WebSearchTool
+Tool Path: search
+Tool Input: {'values': {'query': '("manufacturing industry" OR "industrial company") AND ("sales automation challenges" OR "manual sales processes") AND ("AI adoption" OR "digital transformation") -jobs site:linkedin.com'}}
+Tool Output: None
+---
+================================================================================
+
+[2025-01-31 02:05:50]
+Event Class: FinishPromptEvent
+Task ID: ec79d3a6bbe7456386ac84224a733d35
+Timestamp: 1738278350.484123
+
+Final Task Output:
+[TextArtifact(type='TextArtifact', module_name='griptape.artifacts.text_artifact', id='c26a929a4ea94b20a1474cdaf79e8dc6', reference=None, meta={}, name='c26a929a4ea94b20a1474cdaf79e8dc6', encoding_error_handler='strict', encoding='utf-8', value="I'll help create targeted search queries based on the provided ICP and GodmodeHQ's value proposition. I'll create several queries focusing on different aspects and explain their relevance.\n\nLet's start by searching for some queries to validate their effectiveness:\n\n1. First, let's try a query focused on sales automation pain points in manufacturing:", embedding=None), ActionArtifact(type='ActionArtifact', module_name='griptape.artifacts.action_artifact', id='ae8b1e16eef34770b48911780c493e3a', reference=None, meta={}, name='ae8b1e16eef34770b48911780c493e3a', encoding_error_handler='strict', encoding='utf-8', value=ToolAction(type='ToolAction', module_name='griptape.common.actions.tool_action', tag='toolu_01LSvNod2VvXQKJi1ZAj5yBZ', name='WebSearchTool', path='search', input={'query': '("manufacturing industry" OR "industrial company") AND ("sales automation challenges" OR "manual sales processes") AND ("AI adoption" OR "digital transformation") -jobs site:linkedin.com'}, tool=None, output=None))]
+================================================================================
+
+[2025-01-31 02:05:45]
+Event Class: FinishPromptEvent
+Task ID: 5c0ecc5f5732450eb5d37fc5ab7b1e8d
+Timestamp: 1738278345.537257
+
+Final Task Output:
+
+
+Let me analyze the website content and create a detailed ideal customer profile based on the available information.
+
+<ideal_customer_profile>
+<company_size_revenue>
+<reasoning>
+Based on the website content, GodmodeHQ targets businesses that need to automate sales and marketing operations. The platform mentions "small and medium sized businesses" specifically as one of their target segments. Additionally, the integration capabilities with enterprise tools like Salesforce, Hubspot, and the emphasis on team collaboration suggests they target companies with established sales and marketing teams.
+</reasoning>
+<attribute>
+- Small to Medium-sized Businesses (SMBs)
+- Annual revenue: $5M - $50M
+- Team size: 10-250 employees with dedicated sales/marketing teams
+</attribute>
+</company_size_revenue>
+
+<industry_verticals>
+<reasoning>
+The website explicitly mentions several target industries in their "Best fit" section and through their use cases. The platform appears particularly well-suited for businesses with complex sales processes and customer communication needs.
+</reasoning>
+<attribute>
+Primary verticals:
+- Manufacturing and industrial businesses
+- Professional services (Insurance, financial advisory, consulting)
+- Investment banking
+- Brokerage and wealth management
+- Technology companies (based on customer logos shown)
+</attribute>
+</industry_verticals>
+
+<technology_stack>
+<reasoning>
+The website shows various integration capabilities and mentions specific tools that their ideal customers are likely using. These integrations indicate the technical environment of their target customers.
+</reasoning>
+<attribute>
+Current technology stack includes:
+- CRM systems (Salesforce, Hubspot)
+- Email platforms (Gmail, Outlook)
+- LinkedIn
+- ERP systems (specifically mentioned for manufacturing businesses)
+- Internal documentation systems
+- Web-based tools
+</attribute>
+</technology_stack>
+
+<business_challenges>
+<reasoning>
+The website explicitly outlines several pain points and challenges their target customers face, particularly in the "Why?" section and throughout their solution descriptions.
+</reasoning>
+<attribute>
+Key challenges:
+- Manual and tedious research tasks for sales and marketing
+- Difficulty in leveraging AI without technical expertise
+- Complex automation needs requiring significant engineering time
+- Outdated ERP systems limiting AI adoption
+- Inability to effectively track and manage qualified customers
+- Need for personalized customer communication at scale
+- Time-consuming manual operations
+</attribute>
+</business_challenges>
+
+<buying_triggers>
+<reasoning>
+Based on the website's messaging and call-to-action points, several key events or situations appear to trigger interest in their solution.
+</reasoning>
+<attribute>
+Primary buying triggers:
+- Need to modernize operations with AI
+- Growing team requiring better automation
+- Increasing manual workload in sales/marketing operations
+- Desire to implement AI without technical expertise
+- Need to improve customer communication efficiency
+- Pressure to reduce operational costs
+- Need to scale sales operations without adding headcount
+</attribute>
+</buying_triggers>
+
+<decision_makers>
+<reasoning>
+The website's content, messaging, and use cases indicate the key decision makers they target. This is evident from the language used and the types of problems addressed.
+</reasoning>
+<attribute>
+Primary decision makers:
+- Operations Leaders/Managers
+- Sales Leaders
+- Marketing Directors
+- Business Owners/Founders
+- Chief Technology Officers
+- Digital Transformation Leaders
+- Process Improvement Managers
+Secondary influencers:
+- Sales Operations Teams
+- Marketing Operations Teams
+- IT Teams
+</attribute>
+</decision_makers>
+</ideal_customer_profile>
+================================================================================
+
+[2025-01-31 02:05:28]
+Event Class: FinishActionsSubtaskEvent
+Task ID: 2551117f08ab4d4dae617387a379b446
+Timestamp: 1738278328.013369
+
+Subtask Actions:
+Tool Name: WebScraperTool
+Tool Path: get_content
+Tool Input: {'values': {'url': 'https://godmodehq.com'}}
+Tool Output: None
+---
+================================================================================
+
+[2025-01-31 02:05:20]
+Event Class: StartActionsSubtaskEvent
+Task ID: 2551117f08ab4d4dae617387a379b446
+Timestamp: 1738278320.301743
+
+Subtask Actions:
+Tool Name: WebScraperTool
+Tool Path: get_content
+Tool Input: {'values': {'url': 'https://godmodehq.com'}}
+Tool Output: None
+---
+================================================================================
+
+[2025-01-31 02:05:19]
+Event Class: FinishPromptEvent
+Task ID: 704d5606253e48afb633271416f4fdf2
+Timestamp: 1738278319.4433012
+
+Final Task Output:
+[TextArtifact(type='TextArtifact', module_name='griptape.artifacts.text_artifact', id='c0d4e80d44364d11b39734c60fe4f347', reference=None, meta={}, name='c0d4e80d44364d11b39734c60fe4f347', encoding_error_handler='strict', encoding='utf-8', value="I'll help analyze the website content to create a detailed ideal customer profile. Let me start by accessing the website.", embedding=None), ActionArtifact(type='ActionArtifact', module_name='griptape.artifacts.action_artifact', id='6a8c8e3cd1c343158ea62372c3ecf771', reference=None, meta={}, name='6a8c8e3cd1c343158ea62372c3ecf771', encoding_error_handler='strict', encoding='utf-8', value=ToolAction(type='ToolAction', module_name='griptape.common.actions.tool_action', tag='toolu_016qX3mk9ndbBh1N5nmapgA8', name='WebScraperTool', path='get_content', input={'values': {'url': 'https://godmodehq.com'}}, tool=None, output=None))]
 ================================================================================

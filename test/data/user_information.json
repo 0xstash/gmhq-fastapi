@@ -1,0 +1,36 @@
+[
+  {
+    "first_name": "Mert",
+    "last_name": "Deveci",
+    "company": "GodmodeHQ",
+    "title": "Founder",
+    "website": "godmodehq.com",
+    "company_linkedin": "http://www.linkedin.com/company/godmodehq",
+    "location": {
+      "country": "Turkey",
+      "city": "Istanbul"
+    },
+    "linkedin_headline": "Founder at GodmodeHQ | Building the AI workforce so you can delegate the mundane tasks to AI agents",
+    "product_description": "GodmodeHQ is building the AI virtual employees for sales that can automate sales tasks like sourcing, account research, enrichment and outreach. GMHQ can help you acquire more customers in a much more efficient way by freeing up time for your sales team.",
+    "value_props": "GodmodeHQ is building the AI virtual employees for sales that can automate sales tasks like sourcing, account research, enrichment and outreach. GMHQ can help you acquire more customers in a much more efficient way by freeing up time for your sales team.\n\nGMHQ is the opposite of spray and pray outreach. It uses AI to analyse your internal knowledge and understand how you can best help the prospect based on the problems and pain points they have and your value propositions.\n\nGodmodeHQ analyses and scours the web to find any custom information on your prospects. Then it uses this information to understand how best you can help solve the pain points of your customers. This information is used to send very targeted outreach messages that kick up your conversion rates and actually build customer relationships.",
+    "email_address": "mert@troylabs.io",
+    "calendar_link": "https://gtm.sale/meet"
+  },
+  {
+    "first_name": "Siqi",
+    "last_name": "Chen",
+    "company": "Runway",
+    "title": "CEO",
+    "website": "runway.com",
+    "company_linkedin": "http://www.linkedin.com/company/runway",
+    "location": {
+      "country": "United States",
+      "city": "San Francisco"
+    },
+    "linkedin_headline": "CEO at Runway | Building AI tools for creative professionals",
+    "product_description": "Runway is the modern and intuitive way to model, plan, and align your business for everyone on your team. Runway is the modern and intuitive way to model, plan, and align your business for everyone on your team.",
+    "value_props": "Runway offers a comprehensive finance platform that simplifies financial management for businesses by providing intuitive budgeting and forecasting tools, automated reporting, and seamless integration with existing systems. Its user-friendly interface promotes collaboration among teams through role-based access controls, ensuring sensitive data is securely managed. With features like financial modeling and real-time scenario analysis, Runway empowers organizations to make informed, data-driven decisions while significantly reducing the time spent on financial processes. Backed by robust security measures, including SOC 2 Type II compliance, Runway positions itself as an essential partner for businesses looking to enhance efficiency and transparency in their financial operations.",
+    "email_address": "siqi@runway.com",
+    "calendar_link": "https://runway.com/meet"
+  }
+]
