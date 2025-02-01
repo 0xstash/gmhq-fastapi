@@ -1,10 +1,16 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 def get_pinecone_vector_store_driver(index_name):
     from griptape.drivers import OpenAiEmbeddingDriver, PineconeVectorStoreDriver
 
     vector_store_driver = PineconeVectorStoreDriver(
         embedding_driver=OpenAiEmbeddingDriver(),
         project_name="godmode",
-        api_key="pcsk_2J5HWs_EcRrhNUxCC48a2nZMopxjhKG6JXHKE7R5X4PdMft5b1RrhC2DQE1WrLdSPYz2op",
+        api_key=os.getenv("PINECONE_API_KEY"),
         index_name=index_name,
         environment="prod",
     )
@@ -29,7 +35,7 @@ def get_people_database_tool():
                 VectorStoreRetrievalRagModule(
                     vector_store_driver=people_vector_store_driver,
                     query_params={
-                        "count": 2,
+                        "count": 20,
                         "namespace": "dev",
                     },
                 )
@@ -38,13 +44,13 @@ def get_people_database_tool():
         response_stage=ResponseRagStage(
             response_modules=[
                 PromptResponseRagModule(
-                    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o")
+                    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini")
                 )
             ]
         ),
     )
     rag_tool = RagTool(
-        description="Database containing the contacts I have interacted with in the past",
+        description="You are tasked to answer questions about people and companies I know. You have a database of records containing them. ",
         rag_engine=engine,
         off_prompt=False,
     )

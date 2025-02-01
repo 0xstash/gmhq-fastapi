@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 Defaults.drivers_config = OpenAiDriversConfig(
-    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini")
+    prompt_driver=OpenAiChatPromptDriver(model="")
 )
 
 task_1 = PromptTask("Multiple the number here by 2: {{args[0]}}", id="task_1")
@@ -30,3 +30,11 @@ for task in workflow.tasks:
 
 print(f"First task: {workflow.tasks[0].output.value}")
 print(f"Second task: {workflow.tasks[1].output.value}")
+
+print(
+    f"Task outputs: {workflow.task_outputs}"
+)  # dictionary with all task outputs including the values and named tasked ID
+print(
+    f"Output variable: {workflow.output}"
+)  # output of the workflow - can be equal to workflow.output_task
+print(f"Output task: {workflow.output_task}")  # output of the last task available
