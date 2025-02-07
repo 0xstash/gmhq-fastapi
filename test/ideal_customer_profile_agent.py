@@ -124,7 +124,7 @@ Website: {{website}}
             web_search_driver=SerperWebSearchDriver(api_key=os.getenv("SERPER_API_KEY"))
         ),
     ],
-    context={"website": user_information_godmode["website"]},
+    context={"website": "terabee.com"},
     id="icp_task",
     prompt_driver=AnthropicPromptDriver(
         model="claude-3-5-sonnet-20241022", stream=True

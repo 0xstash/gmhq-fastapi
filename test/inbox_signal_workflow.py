@@ -3,6 +3,9 @@ import sys
 import logging
 import json
 from questionary import text, select
+import questionary
+from rich.pretty import pprint
+import schema
 
 # Add the project root directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -36,8 +39,16 @@ from griptape.events import (
     StartPromptEvent,
     StartTaskEvent,
 )
-from griptape.configs.drivers import OpenAiDriversConfig, AnthropicDriversConfig
-from griptape.drivers import OpenAiChatPromptDriver, AnthropicPromptDriver
+from griptape.configs.drivers import (
+    OpenAiDriversConfig,
+    AnthropicDriversConfig,
+    GoogleDriversConfig,
+)
+from griptape.drivers import (
+    OpenAiChatPromptDriver,
+    AnthropicPromptDriver,
+    GooglePromptDriver,
+)
 from griptape.tasks import PromptTask, ToolkitTask
 from datetime import datetime
 
@@ -56,8 +67,10 @@ company_choices = [
     for user in user_information
 ]
 
-# Prompt user to select a company
-selected_company = select("Select a company to analyze:", choices=company_choices).ask()
+# Prompt user to select a company using questionary
+selected_company = questionary.select(
+    "What company would you like to analyze?", choices=company_choices
+).ask()
 
 # Get the selected company's information
 selected_company_name = selected_company.split(" - ")[0]
@@ -66,24 +79,10 @@ user_information_selected = next(
 )
 
 
-# Defaults.drivers_config = OpenAiDriversConfig(
-#     prompt_driver=OpenAiChatPromptDriver(model="gpt-4o", stream=True)
-# )
-
-Defaults.drivers_config = AnthropicDriversConfig(
-    prompt_driver=AnthropicPromptDriver(model="claude-3-5-sonnet-20241022", stream=True)
-)
-
 logger = logging.getLogger(Defaults.logging_config.logger_name)
 logger.setLevel(logging.INFO)
 logger.handlers[0].setFormatter(JsonFormatter())
 
-
-news_web_search_tool = WebSearchTool(
-    web_search_driver=SerperWebSearchDriver(
-        api_key=os.getenv("SERPER_API_KEY"), type="news", date_range="d"
-    )
-)
 web_search_tool = WebSearchTool(
     web_search_driver=SerperWebSearchDriver(api_key=os.getenv("SERPER_API_KEY"))
 )
@@ -140,6 +139,7 @@ Ideal customer profile: {{ideal_customer_profile}}
         "ideal_customer_profile": user_information_selected["ideal_customer_profile"],
     },
     id="signal_search_task",
+    max_subtasks=10,
     prompt_driver=AnthropicPromptDriver(
         model="claude-3-5-sonnet-20241022", stream=True
     ),
@@ -166,7 +166,6 @@ Now, examine the keywords from the following search queries that have been gener
 Your task is to use these search queries and keywords to find and analyze relevant web content. Follow these steps:
 
 1. For each search query, use web search to find the most relevant results.
-    a. Also use news_web_search_tool to query for news
 2. Scrape the content from each of these web pages, focusing on the main text, headlines, and any structured data that might be relevant.
 3. Analyze the scraped content to identify potential buying signals, such as:
    a. Expressions of pain points or challenges related to the company's solution
@@ -181,10 +180,17 @@ Your task is to use these search queries and keywords to find and analyze releva
    d. An explanation of why this constitutes a potential buying signal (1-2 sentences)
    e. A confidence score (1-10) indicating how strong you believe this buying signal is
 
+
+IMPORTANT: Use the PromptSummary tool if the scraped content is too long. 
+IMPORTANT: We are looking for a specific target company for each signal. We are not looking for SEO articles or research articles or generic things. Each signal your return MUST have a target company. The target company would be the one we would reach out to. 
+IMPORTANT: Only and only focus on content that is specific about a company. We are not looking for SEO articles or research articles or generic things. We are looking for real and specific events. 
+
 Present your findings in the following format:
 
 <buying_signal>
-<url>[Insert the source URL]</url>
+<target_company>[Insert the company name here]</target_company>
+<target_company_url>[Insert the company URL here]</target_company_url>
+<source_url>[Insert the source URL]</source_url>
 <summary>[Insert your brief summary]</summary>
 <relevance>[Insert your explanation of relevance]</relevance>
 <confidence>[Insert your confidence score]</confidence>
@@ -193,14 +199,18 @@ Present your findings in the following format:
 Here are two examples of well-formatted outputs:
 
 <buying_signal>
-<url>https://www.cfodive.com/news/cfo-automation-financial-reporting-challenges</url>
-<summary>The article discusses how CFOs are increasingly turning to automation solutions to address financial reporting challenges. It mentions that 67% of CFOs surveyed reported difficulties in meeting compliance deadlines due to manual processes.</summary>
-<relevance>This indicates a widespread pain point among CFOs that aligns directly with the company's financial automation solution, suggesting a potential market opportunity.</relevance>
+<target_company>[Insert the company name here]</target_company>
+<target_company_url>[Insert the company URL here]</target_company_url>
+<source_url>https://www.cfodive.com/news/cfo-automation-financial-reporting-challenges</source_url>
+<summary>The news article reported that FinanceCorp has missed their earnings release deadline due to operational challenges. This lead to a decrease in stock price.</summary>
+<relevance>This might indicate that FinanceCorp's tech stack for reporting and management accounting is old-school and not useful anymore. We can use this as a relevant signal to reach out to offer our AI native financial management tool suite.</relevance>
 <confidence>9</confidence>
 </buying_signal>
 
 <buying_signal>
-<url>https://techcrunch.com/2023/04/15/logisticorp-raises-50m-series-b-to-tackle-supply-chain-bottlenecks</url>
+<target_company>LogistiCorp</target_company>
+<target_company_url>https://logicticscorp.com/</target_company_url>
+<source_url>https://techcrunch.com/2023/04/15/logisticorp-raises-50m-series-b-to-tackle-supply-chain-bottlenecks</source_url>
 <summary>LogistiCorp, a rapidly growing e-commerce fulfillment company, has just raised a $50M Series B round. The CEO states that they plan to use the funding to optimize their logistics operations and reduce inefficiencies in their supply chain.</summary>
 <relevance>This funding announcement, coupled with the stated intention to improve supply chain efficiency, suggests that LogistiCorp could be a potential customer for the company's supply chain optimization solution.</relevance>
 <confidence>8</confidence>
@@ -213,20 +223,21 @@ Remember to:
 - Provide a diverse range of buying signals from different sources and queries.
 - Respect website terms of service and robots.txt files when scraping content.
 
-Your goal is to provide actionable insights that the B2B company can use to identify and pursue potential customers. Good luck!
+Your goal is to provide actionable insights that the B2B company can use to identify and pursue potential customers.
+    Your output should be the list of all the signals you can find. 
     """,
     tools=[
         WebSearchTool(
             web_search_driver=SerperWebSearchDriver(
-                api_key=os.getenv("SERPER_API_KEY"), date_range="d"
+                api_key=os.getenv("SERPER_API_KEY"), date_range="w", type="news"
             )
         ),
-        news_web_search_tool,
         web_scraper_tool,
         PromptSummaryTool(),
     ],
+    prompt_driver=AnthropicPromptDriver(model="claude-3-5-haiku-20241022", stream=True),
     id="search_task",
-    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o", stream=True),
+    max_subtasks=20,
     context={
         "company_name": user_information_selected["company"],
         "value_props": user_information_selected["value_props"],
@@ -236,15 +247,56 @@ Your goal is to provide actionable insights that the B2B company can use to iden
 )
 
 
+structure_task = PromptTask(
+    """
+Conver the following output into a JSON. Only output the JSON. Do not include any additional text.
+
+Output: {{parents_output_text}}
+    """,
+    id="structure_task",
+    prompt_driver=OpenAiChatPromptDriver(
+        model="gpt-4o-mini", stream=True, structured_output_strategy="native"
+    ),
+    output_schema=schema.Schema(
+        {
+            "buying_signals": [
+                {
+                    "target_company": str,
+                    "target_company_url": str,
+                    "source_url": str,
+                    "summary": str,
+                    "relevance": str,
+                    "confidence": schema.And(int, lambda n: 1 <= n <= 10),
+                }
+            ]
+        }
+    ),
+)
+
 tasks = []
 tasks.append(signal_search_task)
 tasks.append(search_task)
 
 signal_search_task.add_child(search_task)
 
+
 workflow = Workflow(tasks=[*tasks])
 
-print(StructureVisualizer(workflow).to_url())
+workflow_url = StructureVisualizer(workflow).to_url()
+print(workflow_url)
+
+log_entry = f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}]\n"
+log_entry += f"Workflow Structure URL: {workflow_url}\n"
+log_file = "test/data/event_logs.log"
+os.makedirs(os.path.dirname(log_file), exist_ok=True)
+existing_content = ""
+if os.path.exists(log_file):
+    with open(log_file, "r") as f:
+        existing_content = f.read()
+
+with open(log_file, "w") as f:
+    f.write(log_entry + existing_content)
+
 
 workflow.run()
 

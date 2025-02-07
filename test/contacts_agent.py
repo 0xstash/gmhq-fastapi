@@ -12,6 +12,7 @@ from griptape.drivers import OpenAiChatPromptDriver
 from griptape.configs import Defaults
 from griptape.configs.drivers import OpenAiDriversConfig
 from griptape.utils import Chat
+from griptape.tasks import PromptTask
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -23,6 +24,16 @@ logger = logging.getLogger(Defaults.logging_config.logger_name)
 logger.setLevel(logging.INFO)
 logger.handlers[0].setFormatter(JsonFormatter())
 
-agent = Agent(tools=[get_people_database_tool()])
+agent = Agent()
+
+agent.add_task(
+    PromptTask(
+        """You are a CRM assistant who has access to emails, calendar events and contacts of companies and people
+    Your task is to answer the user's questions about their contacts. Always make an effort to find the answer in the user's contacts.
+    Here is his or her query: {{args[0]}}
+    """,
+        tools=[get_people_database_tool()],
+    )
+)
 
 Chat(structure=agent, logger_level=logging.INFO, processing_text="Thinking...").start()
