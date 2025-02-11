@@ -1,0 +1,1212 @@
+[
+  {
+    "timestamp": "2025-02-10T19:34:35.206709",
+    "data": {
+      "items": [
+        {
+          "id": "01924fe2-0df8-7f91-b2e9-d2a6e7921057",
+          "name": "Cube Software",
+          "domain": "cubesoftware.com",
+          "website": "https://cubesoftware.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": "1m-10m",
+          "description": "Cube Software is a financial planning and analysis (FP&A) platform that streamlines financial processes, allowing users to plan, report, and make decisions quickly and confidently without giving up their spreadsheets.",
+          "keywords": [
+            "financial technology",
+            "financial planning and analysis",
+            "fp&a",
+            "financial software",
+            "budgeting",
+            "forecasting",
+            "financial reporting",
+            "strategic finance"
+          ],
+          "technologies": [
+            "Amazon SES",
+            "Gmail",
+            "Google Apps",
+            "MailChimp SPF",
+            "Route 53",
+            "Salesforce"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2018,
+          "naics_codes": ["541511", "511210", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "New York",
+              "code": "NY",
+              "latitude": 40.712776,
+              "longitude": -74.005974
+            },
+            "city": null,
+            "address": "447 Broadway",
+            "phone": null
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 54200000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/cube-planning-inc/",
+            "twitter_url": "https://twitter.com/cube_fpa",
+            "facebook_url": null,
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.87,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01924fe2-0df8-7f91-b2e9-d2a6e7921057",
+          "seo_description": "Cube is the first spreadsheet-native FP&A platform that focuses on meeting strategic finance teams where they already live and enhancing the workflows they use every day. By pairing the ease and familiarity of Excel & Google Sheets with the structure of a purpose-built FP&A platform, Cube helps companies of all sizes plan and analyze for the unexpected and stay ahead of changes.Subscribe to our biweekly newsletter, The Finance Fix: https://www.cubesoftware.com/finance-fix-newsletter Join our exclusive Slack community, Strategic Finance Pros: https://www.cubesoftware.com/community"
+        },
+        {
+          "id": "01925371-675a-7f48-b735-4714ce3b9125",
+          "name": "Pry Financials",
+          "domain": "pry.co",
+          "website": "https://pry.co",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Finance/Credit Cards & Transaction Processing"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "1-10",
+          "revenue": null,
+          "description": "Pry Financials is a financial planning and analysis software company that provides a platform for financial forecasting, headcount planning, and KPI dashboards. It offers a purpose-built financial plan that helps businesses manage their finances and make informed decisions.",
+          "keywords": [
+            "fintech",
+            "financial planning",
+            "financial analysis",
+            "forecasting",
+            "headcount planning",
+            "kpi dashboards",
+            "financial modeling",
+            "financial reporting"
+          ],
+          "technologies": [
+            "cloudflare-cdn",
+            "gatsby",
+            "google-analytics",
+            "google-tag-manager",
+            "google-workspace",
+            "hubspot",
+            "matomo",
+            "netlify",
+            "react"
+          ],
+          "subsidiaries": null,
+          "founded_year": null,
+          "naics_codes": ["511210", "541511", "522320"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "California",
+              "code": "CA",
+              "latitude": 36.77826,
+              "longitude": -119.41793
+            },
+            "city": {
+              "name": "San Francisco",
+              "latitude": 37.77493,
+              "longitude": -122.41942
+            },
+            "address": null,
+            "phone": null
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/pry-financials",
+            "twitter_url": "https://twitter.com/pryhq",
+            "facebook_url": null,
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.34,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01925371-675a-7f48-b735-4714ce3b9125",
+          "seo_description": "Pry is the first real alternative to Excel for pro forma financials. One platform for financial forecasting, headcount planning, and KPI dashboards."
+        },
+        {
+          "id": "0192510d-abea-7c42-b2f8-90c1d3cab8e4",
+          "name": "Jedox",
+          "domain": "jedox.com",
+          "website": "https://jedox.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "201-500",
+          "revenue": "10m-50m",
+          "description": "Jedox is a global software company specializing in Financial Planning and Analysis (FP&A) and performance management solutions. It provides a flexible platform for Enterprise Performance Management (EPM) to accelerate planning, forecasting, and reporting through automation and predictive analytics.",
+          "keywords": [
+            "software",
+            "financial planning and analysis",
+            "performance management",
+            "enterprise performance management",
+            "financial planning software",
+            "budgeting and forecasting",
+            "financial reporting",
+            "financial modeling"
+          ],
+          "technologies": [
+            "Salesforce",
+            "Amazon SES",
+            "Sendgrid",
+            "Outlook",
+            "Microsoft Office 365",
+            "Zendesk"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2002,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "DE",
+              "name": "Germany",
+              "latitude": 51,
+              "longitude": 9
+            },
+            "state": null,
+            "city": null,
+            "address": "7A Bismarckallee",
+            "phone": "+49 761 151470"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 129400000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/jedox/",
+            "twitter_url": "https://twitter.com/Jedox",
+            "facebook_url": "https://facebook.com/jedox.software",
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": "https://youtube.com/user/jedoxpalo"
+          },
+          "page_rank": 4.91,
+          "logo_url": "https://api.companyenrich.com/companies/logo/0192510d-abea-7c42-b2f8-90c1d3cab8e4",
+          "seo_description": "Jedox\u00a0is the world's most adaptable planning and performance management platform that empowers organizations to deliver\u00a0plans that outperform expectations. Over 2,800 organizations in 140 countries trust\u00a0Jedox\u00a0to model any scenario, integrate data\u00a0from any source and simplify cross-organizational plans across all business systems.\u00a0Jedox\u00a0enables a culture of decisiveness and\u00a0confidence so teams can plan for opportunities, react quickly to changes, and uncover what they didn't know was possible."
+        },
+        {
+          "id": "01925672-11fe-7e11-bf75-4cf2caa9dda1",
+          "name": "Datarails",
+          "domain": "datarails.com",
+          "website": "https://datarails.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "201-500",
+          "revenue": "1m-10m",
+          "description": "Datarails is a financial planning and analysis platform for Excel users, automating data consolidation, reporting, and planning while enabling finance teams to continue using their own Excel spreadsheets and financial models.",
+          "keywords": [
+            "financial technology",
+            "financial planning",
+            "analysis",
+            "excel",
+            "data consolidation",
+            "reporting",
+            "budgeting",
+            "forecasting",
+            "scenario modeling",
+            "data visualization"
+          ],
+          "technologies": [
+            "Amazon AWS",
+            "Cloudflare DNS",
+            "Gmail",
+            "Google Apps",
+            "Microsoft Office 365",
+            "Zendesk"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2015,
+          "naics_codes": ["541511", "511210", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "New York",
+              "code": "NY",
+              "latitude": 40.712776,
+              "longitude": -74.005974
+            },
+            "city": null,
+            "address": "25 West 39th Street",
+            "phone": "(347) 480-1299"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 53500000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/datarails/",
+            "twitter_url": "https://twitter.com/datarails",
+            "facebook_url": "https://www.facebook.com/datarails",
+            "instagram_url": "https://www.instagram.com/data.rails/",
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": "https://www.youtube.com/@datarails3992"
+          },
+          "page_rank": 5.03,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01925672-11fe-7e11-bf75-4cf2caa9dda1",
+          "seo_description": "Datarails is a financial planning and analysis platform that automates financial reporting and planning, while enabling finance teams to continue benefiting from the familiar spreadsheets and financial models of Excel. Automating these time-consuming manual processes paves the way for finance teams to spend more time analyzing data and less time gathering it. And it empowers them to answer essential strategic questions like what their organization can do to increase revenue and reduce expenses."
+        },
+        {
+          "id": "019259bd-6e56-7089-8d4c-f0086af30628",
+          "name": "Jirav",
+          "domain": "jirav.com",
+          "website": "https://jirav.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": "1m-10m",
+          "description": "Jirav is a financial planning and analysis solution for accounting firms and small to medium-sized businesses. It offers an all-in-one software for forecasting, budgeting, and modeling, helping users to streamline their financial planning and analysis processes.",
+          "keywords": [
+            "financial technology",
+            "financial planning",
+            "financial analysis",
+            "forecasting",
+            "budgeting",
+            "accounting software",
+            "financial modeling"
+          ],
+          "technologies": [
+            "Route 53",
+            "Gmail",
+            "Google Apps",
+            "Microsoft Office 365",
+            "Microsoft Azure Hosting",
+            "Stripe"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2015,
+          "naics_codes": ["541511", "511210", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "Washington",
+              "code": "WA",
+              "latitude": 47.751076,
+              "longitude": -120.740135
+            },
+            "city": {
+              "name": "Seattle",
+              "latitude": 47.60621,
+              "longitude": -122.33207
+            },
+            "address": "1341 North Northlake Way",
+            "phone": "+1 425-497-5694"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 37600000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/jirav",
+            "twitter_url": "http://twitter.com/GoJirav",
+            "facebook_url": "http://facebook.com/GoJirav",
+            "instagram_url": "https://instagram.com/gojirav",
+            "angellist_url": "http://angel.co/jirav",
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.3,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019259bd-6e56-7089-8d4c-f0086af30628",
+          "seo_description": "Jirav is a California-based SaaS platform that provides solutions such as financial planning, budgeting and forecasting for sectors including manufacturing and life science."
+        },
+        {
+          "id": "019251ab-d57e-7eae-8c34-9f03477e92d8",
+          "name": "Causal",
+          "domain": "causal.app",
+          "website": "https://causal.app",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "11-50",
+          "revenue": null,
+          "description": "Causal is a finance platform for startups that replaces traditional spreadsheets with a better way to build models, connect to data, and share dashboards with teams. It offers features such as reporting, modeling, budgeting, forecasting, and consolidation, and integrates with various accounting systems, HRIS, CRM, and data warehouses.",
+          "keywords": [
+            "fintech",
+            "financial planning",
+            "financial modeling",
+            "budgeting",
+            "forecasting",
+            "consolidation",
+            "accounting",
+            "hris",
+            "crm",
+            "data warehouse"
+          ],
+          "technologies": [
+            "google-analytics",
+            "google-cloud",
+            "google-tag-manager",
+            "google-workspace",
+            "lua",
+            "nginx",
+            "openresty",
+            "webflow"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2019,
+          "naics_codes": ["541511", "511210", "541519"],
+          "location": {
+            "country": {
+              "code": "GB",
+              "name": "United Kingdom",
+              "latitude": 54,
+              "longitude": -2
+            },
+            "state": {
+              "name": "England",
+              "code": "ENG",
+              "latitude": 52.35552,
+              "longitude": -1.1743197
+            },
+            "city": {
+              "name": "London",
+              "latitude": 51.50853,
+              "longitude": -0.12574
+            },
+            "address": null,
+            "phone": null
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/causalhq/",
+            "twitter_url": "https://twitter.com/causalhq",
+            "facebook_url": null,
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.84,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019251ab-d57e-7eae-8c34-9f03477e92d8",
+          "seo_description": "Causal replaces your spreadsheets with a better way to build models, connect to data (accounting, CRM), and share dashboards with your team. Sign up for free."
+        },
+        {
+          "id": "0192568b-139c-7d5d-94a3-8a6e40c80025",
+          "name": "Vena Solutions",
+          "domain": "venasolutions.com",
+          "website": "https://venasolutions.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "501-1K",
+          "revenue": "50m-100m",
+          "description": "Vena Solutions is a company that provides a financial planning and analysis (FP&A) platform built for Excel, amplifying the power of Microsoft 365 apps, cloud technology, and AI. The platform helps finance teams streamline planning, collaboration, and growth, and is used by various industries such as banking, SaaS, insurance, and more.",
+          "keywords": [
+            "financial technology",
+            "financial planning and analysis",
+            "fp&a platform",
+            "excel",
+            "microsoft 365",
+            "cloud technology",
+            "ai",
+            "finance teams",
+            "budgeting",
+            "forecasting",
+            "financial reporting"
+          ],
+          "technologies": [
+            "Salesforce",
+            "Cloudflare DNS",
+            "Sendgrid",
+            "Mimecast",
+            "Microsoft Office 365",
+            "Zendesk"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2011,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "CA",
+              "name": "Canada",
+              "latitude": 60,
+              "longitude": -95
+            },
+            "state": {
+              "name": "Ontario",
+              "code": "ON",
+              "latitude": 51.253777,
+              "longitude": -85.32321
+            },
+            "city": {
+              "name": "Toronto",
+              "latitude": 43.70011,
+              "longitude": -79.4163
+            },
+            "address": "2 Fraser Avenue",
+            "phone": "+1 855-660-9754"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 414900000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/vena-solutions",
+            "twitter_url": "http://twitter.com/venasolutions",
+            "facebook_url": "https://www.facebook.com/venasolutions",
+            "instagram_url": "https://instagram.com/venasolutions",
+            "angellist_url": "http://angel.co/vena",
+            "crunchbase_url": null,
+            "youtube_url": "https://youtube.com/user/venasolutions"
+          },
+          "page_rank": 5.07,
+          "logo_url": "https://api.companyenrich.com/companies/logo/0192568b-139c-7d5d-94a3-8a6e40c80025",
+          "seo_description": "Vena (pronounced Venn-ah) is the only native Excel platform, built for Microsoft365 with Power BI Embedded. Add up to more with Vena. Try our demo: https://bit.ly/lin-demo"
+        },
+        {
+          "id": "019252f9-101c-7f4a-86de-d32e08cfb7ab",
+          "name": "Syft",
+          "domain": "syftanalytics.com",
+          "website": "https://syftanalytics.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": null,
+          "description": "Syft Analytics is an interactive and collaborative financial reporting tool for businesses, accountants, and non-profits.",
+          "keywords": [
+            "fintech",
+            "financial reporting",
+            "business intelligence",
+            "data analytics",
+            "accounting software",
+            "financial planning"
+          ],
+          "technologies": [
+            "Gmail",
+            "Google Apps",
+            "MailChimp SPF",
+            "Rackspace MailGun",
+            "Route 53",
+            "Stripe"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2016,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "ZA",
+              "name": "South Africa",
+              "latitude": -29,
+              "longitude": 24
+            },
+            "state": {
+              "name": "Gauteng",
+              "code": "GP",
+              "latitude": -26.27076,
+              "longitude": 28.112268
+            },
+            "city": null,
+            "address": "35 Ballyclare Dr",
+            "phone": "0027 1 0900 4349"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/syft-analytics",
+            "twitter_url": "https://twitter.com/syft_analytics",
+            "facebook_url": null,
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 5.1,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019252f9-101c-7f4a-86de-d32e08cfb7ab",
+          "seo_description": "Syft Analytics is reporting and data analytics software that helps accountants and businesses understand financial data. We serve over 50,000 businesses in more than 50 countries that go on to produce thousands of reports, dashboards and actionable insights every single month."
+        },
+        {
+          "id": "01925552-bf9e-7858-8c6f-346a261e243b",
+          "name": "Abacum",
+          "domain": "abacum.io",
+          "website": "https://abacum.io",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": "1m-10m",
+          "description": "Abacum is a financial planning and analysis (FP&A) software platform that empowers finance teams to drive business performance. It provides automated strategic finance, collaborative workflows, and real-time reporting to help teams make smarter decisions.",
+          "keywords": [
+            "fintech",
+            "financial planning and analysis",
+            "fp&a software",
+            "business performance",
+            "collaborative workflows",
+            "real time reporting"
+          ],
+          "technologies": [
+            "Salesforce",
+            "Route 53",
+            "Mailchimp Mandrill",
+            "Gmail",
+            "Google Apps",
+            "Microsoft Office 365"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2020,
+          "naics_codes": ["541511", "511210", "541610"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "New York",
+              "code": "NY",
+              "latitude": 40.712776,
+              "longitude": -74.005974
+            },
+            "city": null,
+            "address": "450 Park Ave S",
+            "phone": "+1415-534-3829"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 32000000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/abacum-io",
+            "twitter_url": "https://twitter.com/Abacum_io",
+            "facebook_url": null,
+            "instagram_url": "https://instagram.com/abacum.io",
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": "https://youtube.com/@abacumio"
+          },
+          "page_rank": 4.56,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01925552-bf9e-7858-8c6f-346a261e243b",
+          "seo_description": "Abacum is the FP&A platform that automates, analyzes, and forecasts for strategic impact.End the spreadsheet struggle. Drive business results through the most scalable Financial Planning SolutionWe empower finance teams to:\ud83d\udc49Drive efficient growth with faster revenue forecasts, scenarios and headcount planning.\ud83d\udc49Free up time by automating Board decks and monthly performance and reforecasting reports.\ud83d\udc49Increase your time for analysis with all your operational and financial KPIs in one place, in real-time.\ud83d\udc49Drive budget owner accountability with structured workflows.Experience the power of automated FP&A with Abacum."
+        },
+        {
+          "id": "019257f2-59bd-7aed-b8ee-735fe92e542c",
+          "name": "Planful",
+          "domain": "planful.com",
+          "website": "https://planful.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "501-1K",
+          "revenue": "50m-100m",
+          "description": "Planful is a financial performance management platform that empowers teams to drive financial success. It provides a range of solutions for finance, accounting, marketing, human resources, sales, IT, and operations, and is designed to improve financial performance and decision-making.",
+          "keywords": [
+            "financial technology",
+            "financial performance management",
+            "financial planning",
+            "budgeting",
+            "forecasting",
+            "accounting",
+            "marketing",
+            "human resources",
+            "sales",
+            "it",
+            "operations"
+          ],
+          "technologies": [
+            "Salesforce",
+            "UltraDns",
+            "Amazon SES",
+            "Gmail",
+            "Google Apps",
+            "Microsoft Office 365"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2000,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "California",
+              "code": "CA",
+              "latitude": 36.77826,
+              "longitude": -119.41793
+            },
+            "city": {
+              "name": "San Francisco",
+              "latitude": 37.77493,
+              "longitude": -122.41942
+            },
+            "address": "150 Spear St",
+            "phone": "+1 650-249-7100"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 71000000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/planful-inc",
+            "twitter_url": "http://www.twitter.com/host_analytics",
+            "facebook_url": "https://www.facebook.com/PlanfulInc/",
+            "instagram_url": "https://instagram.com/planful_inc",
+            "angellist_url": "http://angel.co/host-analytics",
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.96,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019257f2-59bd-7aed-b8ee-735fe92e542c",
+          "seo_description": "Planful is the pioneer of financial performance management cloud software. The Planful platform, which helps businesses drive peak financial performance, is used around the globe to streamline business-wide planning, budgeting, consolidations, reporting, and analytics. Planful empowers finance, accounting, and business users to plan confidently, close faster, and report accurately. More than 1,500 customers, including Bose, Boston Red Sox, Five Guys, Grafton Plc, Gousto, and Zappos rely on Planful to accelerate cycle times, increase productivity, and improve accuracy. Planful is a private company backed by Vector Capital, a leading global private equity firm."
+        }
+      ],
+      "page": 1,
+      "totalPages": 100,
+      "totalItems": 1000
+    }
+  },
+  {
+    "timestamp": "2025-02-11T11:20:46.596994",
+    "data": {
+      "items": [
+        {
+          "id": "01924dd9-0e5c-7185-b2f3-ec06556b61f2",
+          "name": "Asana",
+          "domain": "asana.com",
+          "website": "https://asana.com",
+          "type": "public",
+          "industry": "Software",
+          "industries": ["Software"],
+          "categories": ["b2b", "saas"],
+          "employees": "1K-5K",
+          "revenue": "200m-1b",
+          "description": "Asana is a global technology company specializing in work management and team collaboration. It provides a platform for teams to stay organized, assign and track work, and achieve their goals. Asana's platform is designed to help teams of all sizes and industries, from small businesses to large enterprises, to work more efficiently and effectively.",
+          "keywords": [
+            "technology",
+            "work management",
+            "team collaboration",
+            "project management",
+            "task management",
+            "workflow automation"
+          ],
+          "technologies": [
+            "Amazon SES",
+            "Gmail",
+            "Google Apps",
+            "Marketo",
+            "Route 53",
+            "Salesforce"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2009,
+          "naics_codes": ["511210"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "California",
+              "code": "CA",
+              "latitude": 36.77826,
+              "longitude": -119.41793
+            },
+            "city": {
+              "name": "San Francisco",
+              "latitude": 37.77493,
+              "longitude": -122.41942
+            },
+            "address": "633 Folsom St",
+            "phone": "+1 415-525-3888"
+          },
+          "financial": {
+            "stock_symbol": "ASAN",
+            "stock_exchange": "nasdaq",
+            "total_funding": 1100000000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/asana",
+            "twitter_url": "https://twitter.com/asana",
+            "facebook_url": "https://facebook.com/asana",
+            "instagram_url": "https://instagram.com/teamasana",
+            "angellist_url": "http://angel.co/asana",
+            "crunchbase_url": null,
+            "youtube_url": "https://youtube.com/user/asanateam"
+          },
+          "page_rank": 6.6,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01924dd9-0e5c-7185-b2f3-ec06556b61f2",
+          "seo_description": "Asana empowers organizations to work smarter. Asana is the only enterprise work management platform that connects company-wide goals, strategic initiatives, and the execution of work in one place. Asana has over 150,000 customers and millions of users in 200+ countries and territories. Customers like Amazon, Roche, and T-Mobile, rely on Asana to manage everything from goal setting and tracking to capacity planning, to product launches. For more information, visit www.asana.com."
+        },
+        {
+          "id": "019253ba-aa6f-7291-83a2-efc7e8af0e63",
+          "name": "Trello",
+          "domain": "trello.com",
+          "website": "https://trello.com",
+          "type": "public",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "b2c", "saas"],
+          "employees": "51-200",
+          "revenue": "10m-50m",
+          "description": "Trello is a project management tool that helps teams organize and prioritize tasks, projects, and workflows. It provides a visual interface for teams to collaborate and track progress, with features such as boards, lists, cards, and automation.",
+          "keywords": [
+            "software",
+            "project management",
+            "team collaboration",
+            "task management",
+            "workflow automation",
+            "productivity tool"
+          ],
+          "technologies": [
+            "Salesforce",
+            "Route 53",
+            "ExactTarget",
+            "Gmail",
+            "Marketo",
+            "Google Apps",
+            "React Redux"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2011,
+          "naics_codes": ["541511", "511210"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "New York",
+              "code": "NY",
+              "latitude": 40.712776,
+              "longitude": -74.005974
+            },
+            "city": null,
+            "address": "55 Broadway",
+            "phone": "+1 415-701-1110"
+          },
+          "financial": {
+            "stock_symbol": "TEAM",
+            "stock_exchange": "NASDAQ",
+            "total_funding": 10300000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/trello/",
+            "twitter_url": "https://twitter.com/trello",
+            "facebook_url": "https://www.facebook.com/trelloapp/",
+            "instagram_url": "https://www.instagram.com/trelloapp/",
+            "angellist_url": "http://angel.co/trello-inc-1",
+            "crunchbase_url": null,
+            "youtube_url": "https://www.youtube.com/channel/UCRcOkXoOrU6sN1yCz20VmQw"
+          },
+          "page_rank": 7.11,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019253ba-aa6f-7291-83a2-efc7e8af0e63",
+          "seo_description": "Trusted by millions, Trello is the visual collaboration tool that creates a shared perspective on any project. Trello's boards, lists, and cards enables your team to work in a fun, flexible, and rewarding way."
+        },
+        {
+          "id": "019254be-9c5f-77c5-b798-b3b594bea238",
+          "name": "ClickUp",
+          "domain": "clickup.com",
+          "website": "https://clickup.com",
+          "type": null,
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "b2c", "saas"],
+          "employees": "1K-5K",
+          "revenue": "50m-100m",
+          "description": "ClickUp is a project management software designed to revolutionize the way people work with features including tasks, whiteboards, spreadsheets, and document collaboration on a unified platform.",
+          "keywords": [
+            "software",
+            "project management",
+            "productivity",
+            "team collaboration",
+            "task management",
+            "document collaboration",
+            "workflow automation"
+          ],
+          "technologies": [
+            "Amazon SES",
+            "Gmail",
+            "Google Apps",
+            "Marketo",
+            "Route 53",
+            "Salesforce"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2016,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "California",
+              "code": "CA",
+              "latitude": 36.77826,
+              "longitude": -119.41793
+            },
+            "city": {
+              "name": "San Diego",
+              "latitude": 32.71571,
+              "longitude": -117.16472
+            },
+            "address": "350 10th Ave",
+            "phone": "+1 650-203-2403"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 598300000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/12949663",
+            "twitter_url": "https://twitter.com/clickup",
+            "facebook_url": "https://www.facebook.com/clickupprojectmanagement/",
+            "instagram_url": "https://www.instagram.com/clickup/",
+            "angellist_url": "http://angel.co/clickup",
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 6.29,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019254be-9c5f-77c5-b798-b3b594bea238",
+          "seo_description": "ClickUp is the world's only all-in-one productivity platform that flexes to the way people want to work. It replaces all individual workplace productivity tools with a single, unified platform that includes AI, project management, document collaboration, whiteboards, spreadsheets, and goals. Founded in 2017 and based in San Diego, ClickUp is on a mission to make the world more productive. As one of the fastest-growing SaaS companies in the world, ClickUp has helped more than 10 million users and 2 million teams lead a more productive life and save at least one day every week."
+        },
+        {
+          "id": "01925082-7597-74d5-a7d1-2a80dd27b4de",
+          "name": "Bitrix24",
+          "domain": "bitrix24.com",
+          "website": "https://bitrix24.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "201-500",
+          "revenue": "10m-50m",
+          "description": "Bitrix24 is an all-in-one free platform designed to manage teams and run sales, seamlessly integrated into all business processes to help manage them with precision and efficiency.",
+          "keywords": [
+            "software",
+            "crm",
+            "project management",
+            "collaboration",
+            "online workspace",
+            "sales automation",
+            "marketing automation",
+            "hr automation"
+          ],
+          "technologies": [
+            "Amazon AWS",
+            "Amcharts JS Library",
+            "Braintree",
+            "Google AdWords Conversion",
+            "ON24",
+            "Route 53",
+            "New Relic",
+            "Hotjar",
+            "Facebook Custom Audiences"
+          ],
+          "subsidiaries": null,
+          "founded_year": 1998,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "Virginia",
+              "code": "VA",
+              "latitude": 37.431572,
+              "longitude": -78.65689
+            },
+            "city": {
+              "name": "Alexandria",
+              "latitude": 38.80484,
+              "longitude": -77.04692
+            },
+            "address": "700 N Fairfax St",
+            "phone": "+1 703-740-8301"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/bitrix24",
+            "twitter_url": "https://twitter.com/bitrix24",
+            "facebook_url": "https://facebook.com/bitrix24",
+            "instagram_url": "https://instagram.com/bitrix24",
+            "angellist_url": "http://angel.co/bitrix24",
+            "crunchbase_url": null,
+            "youtube_url": "https://youtube.com/user/bitrix24"
+          },
+          "page_rank": 6.14,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01925082-7597-74d5-a7d1-2a80dd27b4de",
+          "seo_description": "Bitrix24 is software that helps companies and entrepreneurs increase their efficiency internally and externally. Our platform offers CRM, Contact Centre, Website builder, Online shop, Marketing campaigns, and other sales tools. In addition, there are safe intranet, task and project management, real-time file sharing and storing, communications tools, and organization. HR essentials and AI are built into the Bitrix24 structure.Bitrix24 is an initiative of Bitrix, Inc. initiative launched as a cloud-based service in April 2012. Now it is available in the cloud and on-premise. In 2024 our company has more than 15 million organizations. Bitrix24 takes pride in serving customers from small organizations to Fortune 500 companies."
+        },
+        {
+          "id": "01925860-ff7a-7ca9-9d46-50adef8ea5c3",
+          "name": "Process Street",
+          "domain": "process.st",
+          "website": "https://process.st",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": "10m-50m",
+          "description": "Process Street is a collaboration platform designed for teams that prioritize quality and compliance. It offers a range of features, including workflow management, project organization, data management, and form creation, all aimed at improving operational efficiency and reducing manual labor.",
+          "keywords": [
+            "software",
+            "workflow management",
+            "project management",
+            "data management",
+            "compliance",
+            "quality control",
+            "process automation",
+            "business process management"
+          ],
+          "technologies": [
+            "Cloudflare DNS",
+            "Mailchimp Mandrill",
+            "Gmail",
+            "Google Apps",
+            "CloudFlare Hosting",
+            "Mixpanel"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2014,
+          "naics_codes": ["541511", "511210", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "California",
+              "code": "CA",
+              "latitude": 36.77826,
+              "longitude": -119.41793
+            },
+            "city": {
+              "name": "San Francisco",
+              "latitude": 37.77493,
+              "longitude": -122.41942
+            },
+            "address": "201 Spear Street",
+            "phone": "(917) 675-4863"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 16399999,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/process-street/",
+            "twitter_url": "https://twitter.com/processstreet",
+            "facebook_url": "https://www.facebook.com/processstreet",
+            "instagram_url": "https://www.instagram.com/processstreet/",
+            "angellist_url": "http://angel.co/process-street",
+            "crunchbase_url": null,
+            "youtube_url": "https://www.youtube.com/@process-street"
+          },
+          "page_rank": 5.72,
+          "logo_url": "https://api.companyenrich.com/companies/logo/01925860-ff7a-7ca9-9d46-50adef8ea5c3",
+          "seo_description": "Process Street - the world's first AI-powered process management platform. We help teams share their core processes, then transform them into powerful no-code workflows.Start with employee onboarding to set up new hires for success, then build all sorts of workflows like customer implementation, content approvals and tenant screening.Manage your team wiki and company handbook 100% free.Join Salesforce, Colliers, Drift and 3,000+ others who use Process Street today."
+        }
+      ],
+      "page": 1,
+      "totalPages": 200,
+      "totalItems": 1000
+    }
+  }
+]
