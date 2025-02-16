@@ -19,7 +19,7 @@ class ApolloClient(BaseTool):
 
     @activity(
         config={
-            "description": "Searches for people on Apollo.io based on specified criteria",
+            "description": "Searches for people on Apollo.io based on specified criteria.",
             "schema": Schema(
                 {
                     Literal(

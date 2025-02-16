@@ -53,6 +53,10 @@ Defaults.drivers_config = AnthropicDriversConfig(
     prompt_driver=AnthropicPromptDriver(model="claude-3-5-sonnet-20240620")
 )
 
+Defaults.drivers_config = OpenAiDriversConfig(
+    prompt_driver=OpenAiChatPromptDriver(model="chatgpt-4o-latest")
+)
+
 # agent = ArtifactAgent(tools=[DateTimeTool()], stream=True)
 
 web_search_tool = WebSearchTool(
@@ -65,6 +69,6 @@ web_scraper_tool = WebScraperTool(
     off_prompt=False,
 )
 
-agent = Agent(tools=[web_scraper_tool, web_search_tool])
+agent = Agent()
 
 Chat(structure=agent, logger_level=logging.INFO, processing_text="thinking...").start()
