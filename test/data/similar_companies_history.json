@@ -1208,5 +1208,394 @@
       "totalPages": 200,
       "totalItems": 1000
     }
+  },
+  {
+    "timestamp": "2025-02-17T21:05:02.884241",
+    "data": {
+      "items": [
+        {
+          "id": "0192541f-250c-72a6-8b48-6fa99dddb2f3",
+          "name": "Databox",
+          "domain": "databox.com",
+          "website": "https://databox.com",
+          "type": null,
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas", "mobile"],
+          "employees": null,
+          "revenue": "1m-10m",
+          "description": "Databox is an analytics platform designed for growing businesses, providing a centralized source of truth for data, automating reporting, and enabling better decision-making. The platform offers a range of features, including metrics and KPI tracking, dashboards, reports, benchmarks, forecasts, and goal-setting.",
+          "keywords": [
+            "software",
+            "analytics platform",
+            "business intelligence",
+            "data visualization",
+            "reporting",
+            "decision making",
+            "metrics",
+            "kpi",
+            "dashboards",
+            "benchmarks",
+            "forecasts",
+            "goal setting"
+          ],
+          "technologies": [
+            "Amazon CloudFront",
+            "Cloudflare DNS",
+            "SendInBlue",
+            "Gmail",
+            "Amazon Elastic Load Balancer",
+            "Google Apps"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2012,
+          "naics_codes": ["541511", "511210", "541618"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "Massachusetts",
+              "code": "MA",
+              "latitude": 42.40721,
+              "longitude": -71.38244
+            },
+            "city": {
+              "name": "Boston",
+              "latitude": 42.35843,
+              "longitude": -71.05977
+            },
+            "address": "6 Liberty Square",
+            "phone": "+1 774-234-7822"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 8100000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/2394209",
+            "twitter_url": "https://twitter.com/databoxHQ",
+            "facebook_url": "https://facebook.com/databox",
+            "instagram_url": "https://www.instagram.com/databoxhq",
+            "angellist_url": "http://angel.co/databox",
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 5.6,
+          "logo_url": "https://api.companyenrich.com/companies/logo/0192541f-250c-72a6-8b48-6fa99dddb2f3",
+          "seo_description": "Databox is a data monitoring application that offers business intelligence and analytics solution for mobile phones."
+        },
+        {
+          "id": "019257f4-de8e-74dd-b897-f2604ffdd0d6",
+          "name": "InfoCaptor",
+          "domain": "infocaptor.com",
+          "website": "https://infocaptor.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "1-10",
+          "revenue": "under-1m",
+          "description": "InfoCaptor is a business intelligence and dashboard reporting software that helps users examine data from different angles and gain insights. It provides a drag-and-drop interface for creating dashboards and reports, and supports various data sources, including SQL databases, CSV files, and Excel.",
+          "keywords": [
+            "software",
+            "business intelligence",
+            "dashboard reporting",
+            "data visualization",
+            "sql databases",
+            "csv files",
+            "excel",
+            "data analysis"
+          ],
+          "technologies": [
+            "Gmail",
+            "Google Apps",
+            "DigitalOcean",
+            "Stripe",
+            "Woo Commerce",
+            "WordPress.org"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2006,
+          "naics_codes": ["541511", "511210", "541611"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "Pennsylvania",
+              "code": "PA",
+              "latitude": 41.203323,
+              "longitude": -77.19453
+            },
+            "city": {
+              "name": "Coraopolis",
+              "latitude": 40.5184,
+              "longitude": -80.16672
+            },
+            "address": "5050 Stags Leap Ln",
+            "phone": "+1 412-532-6273"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/infocaptor",
+            "twitter_url": "https://twitter.com/infocaptor",
+            "facebook_url": "https://facebook.com/infocaptordashboard",
+            "instagram_url": null,
+            "angellist_url": "http://angel.co/infocaptor-1",
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.96,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019257f4-de8e-74dd-b897-f2604ffdd0d6",
+          "seo_description": "Over the years InfoCaptor has grown organically in terms of satisfied customers across various industries. InfoCaptor's main focus is to continuously improve its solution and make it easy for end users to get meaningful insights from their business data. InfoCaptor is quickly gaining traction and being adopted by users from diverse industries and businesses of varying sizes.Self service Data Visualization and discoveryInfoCaptor will capture any data into valuable insights. Super Easy Dashboard and reporting applicationInfoCaptor Enterprise is your Data visualization, Analytics and Business Intelligence Dashboard application. It provides Visual Analytics for you, your team and your entire organization. InfoCaptor comes withAd-hoc Self Service Data VisualizationDrag and Drop analyticsInstant publishing to dashboardsBottomless visualization optionsConnection adapters to SQL databases (direct connection, no API needed)Enterprise class user access control mechanism (public sharing, private sharing, configure to work with your own LDAP groups)Visual Alerting systemSound Alerting system (Bells and whistles)Email Alerting systemUse online application at https://my.infocaptor.comDownload and host it internally"
+        },
+        {
+          "id": "0193d479-0a8d-76d1-8224-fd6f9c657b35",
+          "name": "AutoROICalc",
+          "domain": "autoroicalc.com",
+          "website": "https://autoroicalc.com",
+          "type": null,
+          "industry": "Business Services",
+          "industries": [
+            "Telecommunications/Internet Service Providers, Website Hosting & Internet-related Services",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development",
+            "Software"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": null,
+          "revenue": null,
+          "description": "AutoROICalc is a flexible tracking and reporting software that simplifies the process of gathering data from various sources, such as databases, processes, spreadsheets, and external APIs. It offers automated reporting, custom analytics, and data enrichment, making business intelligence easy to manage.",
+          "keywords": [
+            "software",
+            "business intelligence",
+            "reporting software",
+            "data management",
+            "custom analytics",
+            "automated reporting"
+          ],
+          "technologies": null,
+          "subsidiaries": null,
+          "founded_year": null,
+          "naics_codes": ["518210", "541511", "511210"],
+          "location": {
+            "country": null,
+            "state": null,
+            "city": null,
+            "address": null,
+            "phone": null
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": null,
+            "twitter_url": "https://twitter.com/AutoRoi",
+            "facebook_url": "https://www.facebook.com/autoroicalc",
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 4.65,
+          "logo_url": "https://api.companyenrich.com/companies/logo/0193d479-0a8d-76d1-8224-fd6f9c657b35",
+          "seo_description": null
+        },
+        {
+          "id": "019252f9-101c-7f4a-86de-d32e08cfb7ab",
+          "name": "Syft",
+          "domain": "syftanalytics.com",
+          "website": "https://syftanalytics.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": null,
+          "description": "Syft Analytics is an interactive and collaborative financial reporting tool for businesses, accountants, and non-profits.",
+          "keywords": [
+            "fintech",
+            "financial reporting",
+            "business intelligence",
+            "data analytics",
+            "accounting software",
+            "financial planning"
+          ],
+          "technologies": [
+            "Gmail",
+            "Google Apps",
+            "MailChimp SPF",
+            "Rackspace MailGun",
+            "Route 53",
+            "Stripe"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2016,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "ZA",
+              "name": "South Africa",
+              "latitude": -29,
+              "longitude": 24
+            },
+            "state": {
+              "name": "Gauteng",
+              "code": "GP",
+              "latitude": -26.27076,
+              "longitude": 28.112268
+            },
+            "city": null,
+            "address": "35 Ballyclare Dr",
+            "phone": "0027 1 0900 4349"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": null,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/syft-analytics",
+            "twitter_url": "https://twitter.com/syft_analytics",
+            "facebook_url": null,
+            "instagram_url": null,
+            "angellist_url": null,
+            "crunchbase_url": null,
+            "youtube_url": null
+          },
+          "page_rank": 5.1,
+          "logo_url": "https://api.companyenrich.com/companies/logo/019252f9-101c-7f4a-86de-d32e08cfb7ab",
+          "seo_description": "Syft Analytics is reporting and data analytics software that helps accountants and businesses understand financial data. We serve over 50,000 businesses in more than 50 countries that go on to produce thousands of reports, dashboards and actionable insights every single month."
+        },
+        {
+          "id": "0192578f-7be8-7820-8c75-acc5a0d49662",
+          "name": "Metabase",
+          "domain": "metabase.com",
+          "website": "https://metabase.com",
+          "type": "private",
+          "industry": "Business Services",
+          "industries": [
+            "Software",
+            "Business Services",
+            "Business Services/Custom Software & IT Services",
+            "Business Services/Management Consulting",
+            "Business Services/Research & Development"
+          ],
+          "categories": ["b2b", "saas"],
+          "employees": "51-200",
+          "revenue": "10m-50m",
+          "description": "Metabase is a business intelligence company that provides data visualization and analytics tools. It offers self-service analytics, embedded analytics, and interactive dashboards to help businesses make data-driven decisions. Metabase is accessible to all, from the free open-source tier to the powerful pay-as-you-go Pro plan, and all the way to Enterprise.",
+          "keywords": [
+            "software",
+            "business intelligence",
+            "data visualization",
+            "self service analytics",
+            "embedded analytics",
+            "interactive dashboards"
+          ],
+          "technologies": [
+            "Route 53",
+            "Amazon SES",
+            "Gmail",
+            "Google Apps",
+            "MailChimp SPF",
+            "Stripe"
+          ],
+          "subsidiaries": null,
+          "founded_year": 2014,
+          "naics_codes": ["511210", "541511", "541519"],
+          "location": {
+            "country": {
+              "code": "US",
+              "name": "United States",
+              "latitude": 38,
+              "longitude": -97
+            },
+            "state": {
+              "name": "California",
+              "code": "CA",
+              "latitude": 36.77826,
+              "longitude": -119.41793
+            },
+            "city": {
+              "name": "San Francisco",
+              "latitude": 37.77493,
+              "longitude": -122.41942
+            },
+            "address": "660 4th St",
+            "phone": "+1 415-767-0490"
+          },
+          "financial": {
+            "stock_symbol": null,
+            "stock_exchange": null,
+            "total_funding": 51000000,
+            "funding_stage": null,
+            "funding_date": null,
+            "funding": null
+          },
+          "socials": {
+            "linkedin_url": "https://www.linkedin.com/company/metabase",
+            "twitter_url": "https://www.twitter.com/metabase",
+            "facebook_url": "https://facebook.com/metabasedotcom/",
+            "instagram_url": null,
+            "angellist_url": "http://angel.co/metabase",
+            "crunchbase_url": null,
+            "youtube_url": "https://www.youtube.com/channel/UCvg53nhM-xPUiFGqDJDhjaw"
+          },
+          "page_rank": 5.4,
+          "logo_url": "https://api.companyenrich.com/companies/logo/0192578f-7be8-7820-8c75-acc5a0d49662",
+          "seo_description": "Metabase is bringing data tools with the elegance and simplicity of consumer products to the crufty world of enterprise business intelligence. We provide an opinionated open source starting point for how companies should measure, analyze and share their data as well as a suite of tools to deal with the complexity that arises as they grow.\n\nWe're hiring and would love for you to join us \ud83d\udc4b"
+        }
+      ],
+      "page": 1,
+      "totalPages": 200,
+      "totalItems": 1000
+    }
   }
 ]

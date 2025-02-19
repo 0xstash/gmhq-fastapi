@@ -105,7 +105,7 @@ class ToolsTask(ToolkitTask):
 
 agent = Agent()
 agent.add_task(ToolsTask(tools=[DateTimeTool()]))
-agent.run("what is yesterday's date")
+agent.run("how many months has it been since 2022 September")
 
 # Print all accumulated event logs at the end
 # rprint("Accumulated Event Logs:")
