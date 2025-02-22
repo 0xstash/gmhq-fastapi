@@ -1,0 +1,6 @@
+2025-02-21 19:43:38,275 - onboarding - INFO - Starting company lookup process
+2025-02-21 19:43:40,540 - onboarding - INFO - User provided domain: runway.com
+2025-02-21 19:43:40,540 - onboarding - INFO - Finding similar companies for domain: runway.com
+2025-02-21 19:43:40,540 - onboarding - INFO - Sending request to Company Enrich API
+2025-02-21 19:43:41,462 - onboarding - ERROR - Error finding similar companies: 401 Client Error: Unauthorized for url: https://api.companyenrich.com/companies/similar
+2025-02-21 19:43:41,468 - onboarding - INFO - Completed company lookup process

@@ -4,7 +4,6 @@ import logging
 import json
 import questionary
 from rich.pretty import pprint
-from openai import NOT_GIVEN
 import schema
 
 # Add the project root directory to Python path
@@ -12,11 +11,20 @@ sys.path.append(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 )
 
-from griptape.configs.defaults_config import LoggingConfig
 from griptape.configs.logging import JsonFormatter
-from griptape.structures import Agent, Pipeline, Workflow
-from pydantic import BaseModel
-from rich.pretty import pprint
+from griptape.structures import Agent
+from griptape.utils import StructureVisualizer
+from griptape.configs import Defaults
+from griptape.loaders import WebLoader
+from griptape.tools import (
+    WebSearchTool,
+    WebScraperTool,
+)
+from griptape.configs.drivers import OpenAiDriversConfig
+from griptape.drivers import OpenAiChatPromptDriver
+from griptape.tasks import PromptTask
+from datetime import datetime
+from dotenv import load_dotenv
 
 # tools
 from extension.drivers.serper_web_search_driver.serper_web_search_driver import (
@@ -26,14 +34,6 @@ from extension.drivers.jina_web_scraper_driver.jina_web_scraper_driver import (
     JinaWebScraperDriver,
 )
 
-from griptape.utils import StructureVisualizer
-from griptape.configs import Defaults
-from griptape.loaders import WebLoader
-from griptape.tools import (
-    WebSearchTool,
-    WebScraperTool,
-    PromptSummaryTool,
-)
 from griptape.events import (
     BaseEvent,
     EventBus,
@@ -45,21 +45,11 @@ from griptape.events import (
     StartPromptEvent,
     StartTaskEvent,
 )
-from griptape.configs.drivers import (
-    OpenAiDriversConfig,
-    AnthropicDriversConfig,
-    GoogleDriversConfig,
-)
-from griptape.drivers import (
-    OpenAiChatPromptDriver,
-    AnthropicPromptDriver,
-    GooglePromptDriver,
+from griptape.tools import (
+    PromptSummaryTool,
 )
 from griptape.utils import Chat, Stream
-from griptape.tasks import PromptTask, ToolkitTask
-from datetime import datetime
-
-from dotenv import load_dotenv
+from griptape.tasks import ToolkitTask
 
 load_dotenv()
 

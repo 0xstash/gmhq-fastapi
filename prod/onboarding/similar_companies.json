@@ -1,0 +1,110 @@
+{
+  "companies": [
+    {
+      "company_name": "Skills Matter",
+      "website_url": "https://skillsmatter.com",
+      "description": "Skills Matter is a learning platform that converges community and tech expertise, offering a revolutionary approach to tech learning and professional growth.",
+      "employees": "11-50",
+      "revenue": "1m-10m",
+      "keywords": [
+        "education",
+        "tech learning",
+        "professional development",
+        "community platform",
+        "online education"
+      ],
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/skillsmatter",
+        "twitter": "https://twitter.com/droidconuk",
+        "facebook": "https://facebook.com/skillsmatteruk/",
+        "instagram": null
+      }
+    },
+    {
+      "company_name": "Participate Inc.",
+      "website_url": "https://participate.com",
+      "description": "Participate Inc. is a company that builds powerful spaces for collaboration and knowledge creation in online Communities of Practice. They offer a social learning solution that empowers community-based learning, inspires innovation, and propels impact forward.",
+      "employees": "11-50",
+      "revenue": null,
+      "keywords": [
+        "education technology",
+        "social learning",
+        "communities of practice",
+        "collaboration",
+        "knowledge creation",
+        "online learning",
+        "professional development"
+      ],
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/participate-edu/",
+        "twitter": "https://twitter.com/participate",
+        "facebook": "https://www.facebook.com/vifinternationaleducation",
+        "instagram": "https://instagram.com/insideparticipate"
+      }
+    },
+    {
+      "company_name": "Shikkhangon",
+      "website_url": "https://shikkhangon.com",
+      "description": "Shikkhangon is a digital education portal that provides various educational services and resources, including online learning platforms, educational contests, and digital services such as online health services, alumni networks, and donation platforms.",
+      "employees": "1-10",
+      "revenue": null,
+      "keywords": [
+        "education",
+        "digital education",
+        "online learning",
+        "educational contests",
+        "digital services",
+        "online health services",
+        "alumni networks",
+        "donation platforms"
+      ],
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/shikkhangon-com",
+        "twitter": "https://twitter.com/shikkhangon",
+        "facebook": "https://www.facebook.com/Shikkhangon",
+        "instagram": "https://www.instagram.com/shikkhangon.info/"
+      }
+    },
+    {
+      "company_name": "Edredo",
+      "website_url": "https://edredo.com",
+      "description": "Edredo is an online learning platform that provides virtual classrooms, courses, and job opportunities. It enables users to learn, teach, and build their profiles through goal-based training cohorts and workrooms.",
+      "employees": "11-50",
+      "revenue": "under-1m",
+      "keywords": [
+        "education",
+        "online learning",
+        "virtual classroom",
+        "e learning",
+        "education platform",
+        "career development"
+      ],
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/edredo",
+        "twitter": "https://twitter.com/tech_tud",
+        "facebook": "https://facebook.com/techtuduniversity",
+        "instagram": null
+      }
+    },
+    {
+      "company_name": "Learninate",
+      "website_url": "https://learninate.org",
+      "description": "Learninate is a social network for learning where users can level up skills, share their passion, and create courses. It's a community for authentic lifelong learning.",
+      "employees": "1-10",
+      "revenue": null,
+      "keywords": [
+        "social network",
+        "learning platform",
+        "online courses",
+        "education",
+        "community building"
+      ],
+      "socials": {
+        "linkedin": "https://www.linkedin.com/company/learninate/",
+        "twitter": "https://twitter.com/learninate",
+        "facebook": "https://www.facebook.com/learninate/",
+        "instagram": "https://www.instagram.com/learninate/"
+      }
+    }
+  ]
+}

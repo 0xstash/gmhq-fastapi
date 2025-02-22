@@ -1,0 +1,7 @@
+2025-02-22 16:26:53,829 - onboarding - INFO - Starting company lookup process
+2025-02-22 16:26:56,304 - onboarding - INFO - User provided domain: stellarup.io
+2025-02-22 16:26:56,305 - onboarding - INFO - Finding similar companies for domain: stellarup.io
+2025-02-22 16:26:56,305 - onboarding - INFO - Sending request to Company Enrich API
+2025-02-22 16:27:05,084 - onboarding - INFO - Successfully received similar companies data
+2025-02-22 16:27:05,088 - onboarding - INFO - Successfully saved 5 companies to /Users/mertdeveci5/Desktop/Code/gmhq-fastapi/prod/onboarding/similar_companies.json
+2025-02-22 16:27:05,088 - onboarding - INFO - Completed company lookup process
