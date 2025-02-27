@@ -95,8 +95,11 @@ def load_person_timeline():
         return json.load(f)
 
 
-people = load_person_timeline()
+# Add this near the top of the file, after loading the person_timeline.json
+# Define the number of people to process
+NUM_PEOPLE_TO_PROCESS = 20
 
+people = load_person_timeline()
 print_json(data=people["people"][0])
 
 # for person in people["people"]:
@@ -168,102 +171,99 @@ web_scraper_tool = WebScraperTool(
 )
 
 
+# Add confirmation before processing
+proceed = questionary.confirm(
+    f"Do you want to process the first {NUM_PEOPLE_TO_PROCESS} people from your dataset?",
+    default=True,
+).ask()
+
+if not proceed:
+    num_to_process = questionary.text(
+        "How many people would you like to process instead?",
+        validate=lambda text: text.isdigit()
+        and int(text) > 0
+        and int(text) <= len(people["people"]),
+        instruction="Enter a number between 1 and " + str(len(people["people"])),
+    ).ask()
+    NUM_PEOPLE_TO_PROCESS = int(num_to_process)
+    rprint(f"[yellow]Will process {NUM_PEOPLE_TO_PROCESS} people instead.[/yellow]")
+
+# Now proceed with processing using the confirmed number
 tasks = []
-for index, person in enumerate(people["people"][:10]):
+for index, person in enumerate(people["people"][:NUM_PEOPLE_TO_PROCESS]):
     rprint(
         f"[blue]Processing:[/blue] [yellow]{person['name']}[/yellow] with email [green]{person['email']}[/green]"
     )
 
     followup_analysis_task = PromptTask(
         input="""
-You are a professional sales and customer success assistant. I'm providing you with communication data for a specific person from my network, including both email threads and calendar meetings. Your task is to determine if a business-critical follow-up is needed to advance a deal or support a customer.
-Today's date is: {{today_date}}
-ANALYSIS INSTRUCTIONS:
+            
+You are an AI assistant tasked with analyzing customer interactions for a sales team. Your goal is to determine whether a follow-up or check-in is warranted based on the recent email exchanges and meetings with a prospect or customer.
+Your identity is as follows:
+- Your first name: {{user_first_name}}
+- Your last name: {{user_last_name}}
+- Your email: {{user_email}}
+- Your company: {{user_company}}
 
-STEP 1: TIMELINE ASSESSMENT
-Begin by analyzing the chronology of our interactions:
-- When was our most recent interaction (email or meeting)?
-- How much time has elapsed since that interaction?
-- Was our last interaction a meeting? (Meetings almost always require follow-up)
-- Has there been an unusually long gap in communication for this relationship?
+First, review the following interactions:
 
-Apply these timeline rules:
-- If our last interaction was a meeting and there's been no follow-up email within 2 business days, a follow-up is needed
-- If it's been more than 14 days since our last communication with an active prospect, consider a follow-up
-- If it's been more than 30 days since our last communication with an existing customer, consider a check-in
+<interactions>
+{{person}}
+</interactions>
 
-STEP 2: BUSINESS RELEVANCE ASSESSMENT
-Determine if this contact represents a potential or existing customer/prospect with business value:
-- Is this a prospect in an active sales cycle?
-- Is this an existing customer who might need support?
-- Is this a strategic partnership opportunity?
+The current date is:
+<current_date>{{today_date}}</current_date>
 
-If this is merely a marketing email, newsletter, cold outreach with no response, or non-business conversation, mark it as NO FOLLOW-UP NEEDED and stop analysis.
+Analyze the interactions carefully, paying attention to the following aspects:
+1. The recency of the last interaction
+2. The nature and tone of the conversations
+3. Any open questions or unresolved issues
+4. Promises or commitments made by either party
+5. The overall engagement level of the prospect/customer
+6. Mind that we will exclusively look to follow on emails that are sales and customer conversations for the sale of {{user_company}}. If it is about something else, mark it as no follow-up needed.
+7. Some interactions are initiated and run by a colleague of yours. Best way to check this is the domain name of the sender of the email and {{user_company}} If that is the case, mark it as no follow-up needed.
+8. If the last interaction was a meeting conducted, a follow up is needed to either summarise or follow up with next steps regarding the meeting.
 
-STEP 3: FOLLOW-UP NECESSITY ASSESSMENT
-For business-relevant contacts only, determine whether a follow-up is needed by checking:
-- Are there unanswered questions about our product/service/pricing?
-- Is there an open sales opportunity that hasn't progressed recently?
-- Were there commitments made that need confirmation or completion?
-- Were there action items from meetings that haven't been addressed?
-- Did we discuss next steps that haven't been scheduled or executed?
-- Has a promising conversation gone cold without clear resolution?
-- If the request or the question of the customer is answered, then no follow-up is needed except to check in. 
+Consider that a follow-up may be necessary if:
+- The last interaction was more than 7 days ago
+- There are unanswered questions or unaddressed concerns
+- The salesperson promised to provide additional information or take action
+- The prospect/customer showed interest but didn't commit to a next step
+- The conversation ended abruptly or without a clear conclusion
 
-Provide a clear YES or NO assessment on whether follow-up is needed, with a brief explanation.
+However, a follow-up might not be needed if:
+- The last interaction was very recent (within the last 2-3 days)
+- The prospect/customer explicitly stated they need time before the next interaction
+- All questions were answered and next steps were clearly defined
+- The prospect/customer indicated they are not interested or it's not the right time
 
-IF AND ONLY IF follow-up is necessary, continue with the detailed analysis below:
+Based on your analysis, provide a recommendation on whether a follow-up is needed. Include a brief explanation of your reasoning.
 
-STEP 4: DETAILED ANALYSIS
-
-1. DEAL/RELATIONSHIP STATUS
-   - What stage is this deal or customer relationship in?
-   - What is the potential business value of this relationship?
-   - What are the current blockers or open questions in this deal/relationship?
-
-2. CONVERSATION STATUS
-   - What specific questions or requests remain unanswered?
-   - What commitments did we make that need follow-up?
-   - What information did they request that we haven't provided?
-   - What was the last action taken and by whom?
-
-3. FOLLOW-UP STRATEGY
-   - What specific information or proposal should we provide next?
-   - What objections or concerns should we address?
-   - What is the appropriate tone and urgency for this follow-up?
-   - What specific call-to-action should we include?
-
-Please format your response in the following sections:
-
-1. Follow-Up Necessity: [YES/NO with brief explanation]
-
-If YES, continue with:
-
-1. Timeline Context (last interaction date, elapsed time, meeting follow-up status)
-2. Business Context (deal stage, relationship value, current blockers)
-3. Recommended Action (specific next steps with rationale)
-4. Suggested Message Points (key elements to include in follow-up)
-
-Your analysis should be strictly focused on business-critical communications that can advance deals or support customers. Ignore marketing emails, newsletters, or conversations without clear business potential.
-
-Data to analyse below: 
-- Data on our interactions: {{person}}
+Present your results in the following terms: 
+- follow_up_needed: [Yes/No]
+- explanation: [Provide a short andconcise (max 2 sentences) explanation of your analysis and the key factors that influenced your decision] 
+- thread_id_to_follow_up: [The thread ID (thread_id) of the interaction that the follow up should be sent to]
             """,
         output_schema=schema.Schema(
             {
                 "follow_up_analysis": {
                     "follow_up_needed": bool,
                     "explanation": str,
-                    "timeline_context": str,
-                    "business_context": str,
-                    "recommended_action": str,
-                    "suggested_message_points": str,
+                    "thread_id_to_follow_up": str,
                 }
             }
         ),
         id=f"followup_analysis_{index}",
         rulesets=[identity_ruleset],
-        context={"person": person, "today_date": datetime.now().strftime("%Y-%m-%d")},
+        context={
+            "person": person,
+            "today_date": datetime.now().strftime("%Y-%m-%d"),
+            "user_first_name": user_information_selected["first_name"]
+            + " "
+            + user_information_selected["last_name"],
+            "user_email": user_information_selected["email"],
+            "user_company": user_information_selected["company"],
+        },
     )
 
     tasks.append(followup_analysis_task)
@@ -271,7 +271,7 @@ Data to analyse below:
 # Initialize output data structure before running the workflow
 output_data = {
     "analysis_timestamp": datetime.now().isoformat(),
-    "total_people_analyzed": len(people["people"][:10]),
+    "total_people_analyzed": len(people["people"][:NUM_PEOPLE_TO_PROCESS]),
     "user_company": user_information_selected["company"],
     "follow_up_results": [],
 }
@@ -302,14 +302,7 @@ for task in workflow.tasks:
                 "person_email": person_data.get("email", "Unknown"),
                 "follow_up_needed": analysis.get("follow_up_needed", False),
                 "explanation": analysis.get("explanation", ""),
-                "timeline_context": analysis.get("timeline_context", ""),
-                "business_context": analysis.get("business_context", ""),
-                "follow_up_priority": analysis.get("follow_up_priority", "N/A"),
-                "recommended_action": analysis.get("recommended_action", ""),
-                "suggested_message_points": analysis.get(
-                    "suggested_message_points", ""
-                ),
-                "optimal_timing": analysis.get("optimal_timing", ""),
+                "thread_id_to_follow_up": analysis.get("thread_id_to_follow_up", ""),
             }
 
             # Add this person's analysis to the results collection
@@ -332,12 +325,15 @@ for task in workflow.tasks:
         analysis = task_output["follow_up_analysis"]
         print(f"Follow-up needed: {analysis.get('follow_up_needed', False)}")
         print(f"Explanation: {analysis.get('explanation', '')}")
-        if analysis.get("follow_up_needed", False):
-            print(f"Priority: {analysis.get('follow_up_priority', 'N/A')}")
-            print(f"Recommended action: {analysis.get('recommended_action', '')}")
     else:
         print(f"Task output: \n{task_output}")
     print("-" * 80)
+
+# After collecting all results, sort them so follow-ups needed appear first
+output_data["follow_up_results"] = sorted(
+    output_data["follow_up_results"],
+    key=lambda x: (not x.get("follow_up_needed", False)),
+)
 
 # Save all results to a single file with timestamp
 output_file = os.path.join(
@@ -348,31 +344,14 @@ output_file = os.path.join(
 with open(output_file, "w") as f:
     json.dump(output_data, f, indent=2)
 
-# Also create a filtered version with only follow-ups needed
-follow_ups_needed = {
-    "analysis_timestamp": output_data["analysis_timestamp"],
-    "user_company": output_data["user_company"],
-    "follow_up_results": [
-        result
-        for result in output_data["follow_up_results"]
-        if result.get("follow_up_needed", False)
-    ],
-}
+# Count how many follow-ups are needed for the summary
+follow_ups_count = sum(
+    1
+    for result in output_data["follow_up_results"]
+    if result.get("follow_up_needed", False)
+)
 
-if follow_ups_needed["follow_up_results"]:
-    follow_ups_file = os.path.join(
-        os.path.dirname(__file__),
-        f"followup_needed_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-    )
-
-    with open(follow_ups_file, "w") as f:
-        json.dump(follow_ups_needed, f, indent=2)
-
-    rprint(f"\n[green]All analysis results saved to: {output_file}[/green]")
-    rprint(f"[green]Follow-ups needed saved to: {follow_ups_file}[/green]")
-    rprint(
-        f"[yellow]Found {len(follow_ups_needed['follow_up_results'])} contacts requiring follow-up[/yellow]"
-    )
-else:
-    rprint(f"\n[green]All analysis results saved to: {output_file}[/green]")
-    rprint("[blue]No follow-ups needed at this time[/blue]")
+rprint(f"\n[green]Analysis results saved to: {output_file}[/green]")
+rprint(
+    f"[yellow]Found {follow_ups_count} out of {len(output_data['follow_up_results'])} contacts requiring follow-up[/yellow]"
+)
