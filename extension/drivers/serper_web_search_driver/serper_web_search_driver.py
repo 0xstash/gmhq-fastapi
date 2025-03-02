@@ -22,6 +22,7 @@ class SerperWebSearchDriver(BaseWebSearchDriver):
     api_key: str = field(kw_only=True)
     type: str = field(default="search", kw_only=True)
     date_range: str = field(default=None, kw_only=True)
+    num: int = field(default=10, kw_only=True)  # Default to 10 results
 
     def search(self, query: str, **kwargs) -> ListArtifact:
         return ListArtifact(
@@ -41,6 +42,10 @@ class SerperWebSearchDriver(BaseWebSearchDriver):
         url = f"https://google.serper.dev/{search_type}"
 
         payload = {"q": query, **kwargs}
+
+        # Only add num if it's different from the default
+        if self.num != 10:
+            payload["num"] = self.num
 
         if self.date_range:
             payload["tbs"] = f"qdr:{self.date_range}"

@@ -95,15 +95,20 @@ def load_person_timeline():
         return json.load(f)
 
 
-# Add this near the top of the file, after loading the person_timeline.json
-# Define the number of people to process
-NUM_PEOPLE_TO_PROCESS = 20
-
 people = load_person_timeline()
 print_json(data=people["people"][0])
 
-# for person in people["people"]:
-#     rprint(f"[green]{person['email']}[/green]")
+# Define the number of people to process
+NUM_PEOPLE_TO_PROCESS = questionary.text(
+    "How many people would you like to process?",
+    validate=lambda text: text.isdigit()
+    and int(text) > 0
+    and int(text) <= len(people["people"]),
+    instruction="Enter a number between 1 and " + str(len(people["people"])),
+).ask()
+
+NUM_PEOPLE_TO_PROCESS = int(NUM_PEOPLE_TO_PROCESS)
+rprint(f"[yellow]Will process {NUM_PEOPLE_TO_PROCESS} people.[/yellow]")
 
 # Load user information using path relative to script
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -169,24 +174,6 @@ web_scraper_tool = WebScraperTool(
     ),
     off_prompt=False,
 )
-
-
-# Add confirmation before processing
-proceed = questionary.confirm(
-    f"Do you want to process the first {NUM_PEOPLE_TO_PROCESS} people from your dataset?",
-    default=True,
-).ask()
-
-if not proceed:
-    num_to_process = questionary.text(
-        "How many people would you like to process instead?",
-        validate=lambda text: text.isdigit()
-        and int(text) > 0
-        and int(text) <= len(people["people"]),
-        instruction="Enter a number between 1 and " + str(len(people["people"])),
-    ).ask()
-    NUM_PEOPLE_TO_PROCESS = int(num_to_process)
-    rprint(f"[yellow]Will process {NUM_PEOPLE_TO_PROCESS} people instead.[/yellow]")
 
 # Now proceed with processing using the confirmed number
 tasks = []

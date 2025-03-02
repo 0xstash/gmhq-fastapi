@@ -115,6 +115,29 @@ class GmailFetcher:
 
         return body
 
+    def clean_text(self, text):
+        """Remove invisible Unicode characters and normalize whitespace"""
+        if not text:
+            return ""
+
+        # Define ranges of invisible characters to remove
+        invisible_chars = (
+            # Zero-width characters
+            "\u200B-\u200D\uFEFF"  # Zero-width space, joiner, non-joiner, and BOM
+            # Various spaces
+            "\u2000-\u200A"  # Different width spaces
+            "\u2028\u2029"  # Line and paragraph separators
+            "\u00A0"  # Non-breaking space
+        )
+
+        import re
+
+        # Remove invisible characters
+        cleaned = re.sub(f"[{invisible_chars}]", "", text)
+        # Normalize whitespace (replace multiple spaces with single space)
+        cleaned = re.sub(r"\s+", " ", cleaned)
+        return cleaned.strip()
+
     def fetch_and_save_primary_emails(self, limit=20):
         """Fetch both received and sent email threads and save to JSON file"""
         try:
@@ -180,21 +203,32 @@ class GmailFetcher:
 
                 email_data = {
                     "id": msg["id"],
-                    "subject": next(
-                        (h["value"] for h in headers if h["name"] == "Subject"),
-                        "No subject",
+                    "subject": self.clean_text(
+                        next(
+                            (h["value"] for h in headers if h["name"] == "Subject"),
+                            "No subject",
+                        )
                     ),
-                    "from": next(
-                        (h["value"] for h in headers if h["name"] == "From"), "Unknown"
+                    "from": self.clean_text(
+                        next(
+                            (h["value"] for h in headers if h["name"] == "From"),
+                            "Unknown",
+                        )
                     ),
-                    "to": next(
-                        (h["value"] for h in headers if h["name"] == "To"), "Unknown"
+                    "to": self.clean_text(
+                        next(
+                            (h["value"] for h in headers if h["name"] == "To"),
+                            "Unknown",
+                        )
                     ),
-                    "date": next(
-                        (h["value"] for h in headers if h["name"] == "Date"), "Unknown"
+                    "date": self.clean_text(
+                        next(
+                            (h["value"] for h in headers if h["name"] == "Date"),
+                            "Unknown",
+                        )
                     ),
-                    "snippet": msg.get("snippet", ""),
-                    "body": body_content,
+                    "snippet": self.clean_text(msg.get("snippet", "")),
+                    "body": self.clean_text(body_content),
                     "labels": msg.get("labelIds", []),
                 }
 

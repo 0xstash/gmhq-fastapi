@@ -100,11 +100,12 @@ class PersonTimelineCreator:
                     try:
                         # Parse date for sorting
                         parsed_date = parser.parse(message_date)
+                        # Make sure parsed_date is timezone-aware
+                        if parsed_date.tzinfo is None:
+                            parsed_date = parsed_date.replace(tzinfo=timezone.utc)
 
                         # Skip future messages (shouldn't exist but just in case)
                         if parsed_date > now:
-                            # Optional: Comment out or remove this line to reduce output noise
-                            # print(f"Skipping future message: {message_date}")
                             continue
 
                         timestamp = parsed_date.isoformat()
@@ -183,6 +184,9 @@ class PersonTimelineCreator:
                 try:
                     # Parse date for sorting
                     parsed_date = parser.parse(start_time)
+                    # Make sure parsed_date is timezone-aware
+                    if parsed_date.tzinfo is None:
+                        parsed_date = parsed_date.replace(tzinfo=timezone.utc)
 
                     # Skip future events
                     if parsed_date > now:
