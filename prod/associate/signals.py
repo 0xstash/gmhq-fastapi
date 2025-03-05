@@ -128,17 +128,17 @@ identity_ruleset = Ruleset(
         Rule(
             f"""
             Your identity is as follows:
-            - First name: {user_information_selected['first_name']}
-            - Last name: {user_information_selected['last_name']}
-            - Company name: {user_information_selected['company']}
-            - Company website: {user_information_selected['website']}
-            - Job title: {user_information_selected['title']}
-            - The user lives in: {user_information_selected['location']['city']}, {user_information_selected['location']['country']}
-            - Description of the product or service: {user_information_selected['product_description']}
-            - The problems solved for the customer: {user_information_selected['value_props']}
-            - Your booking calendar link as a call to action: {user_information_selected['calendar_link']}
+            - First name: {user_information_selected["first_name"]}
+            - Last name: {user_information_selected["last_name"]}
+            - Company name: {user_information_selected["company"]}
+            - Company website: {user_information_selected["website"]}
+            - Job title: {user_information_selected["title"]}
+            - The user lives in: {user_information_selected["location"]["city"]}, {user_information_selected["location"]["country"]}
+            - Description of the product or service: {user_information_selected["product_description"]}
+            - The problems solved for the customer: {user_information_selected["value_props"]}
+            - Your booking calendar link as a call to action: {user_information_selected["calendar_link"]}
 
-            Always be factual about these details in your generation. For example, do not generate things as if you are living somewhere else other than {user_information_selected['location']['city']}, {user_information_selected['location']['country']}
+            Always be factual about these details in your generation. For example, do not generate things as if you are living somewhere else other than {user_information_selected["location"]["city"]}, {user_information_selected["location"]["country"]}
 
             """
         ),
@@ -177,63 +177,120 @@ structure_schema = Schema(
 )
 
 analysis_task = PromptTask(
+    #     input="""
+    # You are an expert sales agent for enterprise B2B sales to generate search queries to find signals. Here are guidelines for your task:
+    # Tasks step by step:
+    # 1. Analyse the prompt below.
+    # 2. Based on the prompt, identify key search queries that will help you find the most relevant information. The queries will be used in Google search to find information.
+    # 3. Output the search queries in a dictionary.
+    # Rules:
+    # - IMPORTANT: If a user prompts something like "Find me companies who have data streaming needs", recognise that this need cannot be identified by just searching for "data streaming". You have to search for related things like if they are hiring for data streaming related roles or they are launching a data heavy product. THINK VERY HARD ON QUERIES LIKE THIS.
+    # - IMPORTANT: If a user prompts something like "Find me companies who would buy data streaming solutions", and if you search with queries that would find data streaming solutions companies, the results will be wrong. There is no point in showing competitors to the user who is actually looking for customers.
+    # - IMPORTANT: The queries you generate should be
+    # - The queries should be specific and to the point. They are likely to be about the following things:
+    #     - Job postings
+    #     - Product or feature launches
+    #     - Funding rounds and news
+    #     - Case studies published
+    #     - Recent hiring news or executive changes and job changes
+    #     - Anything else that is relevant to the prompt
+    # - Ideally 10 search queries are enough.
+    # - The most important factor are the following:
+    #     - The queries should not return aggregated blogpost results. For example, if prompt is "Looking for companies who are doing M&A", the query should not be "recent acquistions" or "recent M&A activity". This will return aggregated blogpost results. This example applies to all prompts and parallels you can draw
+    # Example output:
+    # {
+    #     "search_queries": [
+    #         "search query 1",
+    #         "search query 2",
+    #         "search query 3"
+    #     ]
+    # }
+    # User's prompt: {{user_prompt}}
+    # """,
     input="""
-You are an expert sales agent for enterprise B2B sales to generate search queries to find signals. Here are guidelines for your task:  
+As an expert sales intelligence specialist, your task is to generate targeted search queries that uncover actionable sales signals for enterprise B2B opportunities.
+# Primary Task:
+1. Analyze the user's prompt carefully
+2. Generate specific search queries to discover relevant sales signals
+3. Output the search queries in a clear, organized dictionary format
 
-Tasks step by step: 
-1. Analyse the prompt below. 
-2. Based on the prompt, identify key search queries that will help you find the most relevant information. The queries will be used in Google search to find information. 
-3. Output the search queries in a dictionary.
+## Critical Guidelines:
+### Finding Indirect Signals (HIGHEST PRIORITY)
 
-Rules: 
-- The queries should be specific and to the point. They are likely to be about the following things: 
-    - Job postings
-    - Product or feature launches
-    - Funding rounds and news
-    - Case studies published
-    - Recent hiring news or executive changes and job changes
-    - Anything else that is relevant to the prompt
-- Ideally 10 search queries are enough. 
-- If a user prompts something like "Find me companies who have data streaming needs", recognise that this need cannot be identified by just searching for "data streaming". You have to search for related things like if they are hiring for data streaming related roles or they are launching a data heavy product. THINK VERY HARD ON QUERIES LIKE THIS. 
-- The most important factor are the following: 
-    - The queries should not return aggregated blogpost results. For example, if prompt is "Looking for companies who are doing M&A", the query should not be "recent acquistions" or "recent M&A activity". This will return aggregated blogpost results. This example applies to all prompts and parallels you can draw
-    
+- When asked to find companies with specific needs (e.g., "data streaming needs"), DO NOT search directly for those terms
+- Instead, search for indirect indicators such as:
+    - Job postings for related technical roles
+    - Infrastructure investments or upgrades
+    - New product launches requiring that capability
+    - Executive statements about digital transformation
 
-Example output:
+### Avoiding Competitor Results (HIGHEST PRIORITY)
+- When asked to find potential customers for a solution (e.g., "who would buy data streaming solutions"), DO NOT search for companies offering those solutions
+- This would return competitors rather than potential customers
+- Focus on companies exhibiting the needs that would make them prospects
 
-{
-    "search_queries": [
-        "search query 1",
-        "search query 2",
-        "search query 3"
-    ]
-}
+### Query Construction (HIGHEST PRIORITY)
+- Avoid queries that return aggregated blog posts or listicles
+- Example: For "companies doing M&A," do NOT use generic queries like "recent acquisitions" or "recent M&A activity"
+- Instead, use specific formats like: "[company name] acquires" OR "acquisition announcement [industry]"
 
+### Query Focus Areas:
+- Job postings indicating capability gaps
+- Product/feature launches suggesting new technical needs
+- Funding announcements showing growth and potential investment
+- Published case studies revealing pain points
+- Executive changes signaling strategic shifts
+- Technology stack changes or migrations
+
+### Output Requirements:
+- Provide approximately 10 high-quality, diverse search queries
+- Format as a clear dictionary of search terms
+- Each query should target specific, actionable intelligence
+
+---
 User's prompt: {{user_prompt}}
-    
+
 """,
     id="analysis_task",
     context={"user_prompt": custom_prompt},
     rulesets=[identity_ruleset],
+    # prompt_driver=OpenAiChatPromptDriver(
+    #     api_key=os.getenv("TOGETHER_API_KEY"),
+    #     base_url=os.getenv("TOGETHER_BASE_URL"),
+    #     model="deepseek-ai/DeepSeek-R1",
+    # ),
+    prompt_driver=OpenAiChatPromptDriver(model="o3-mini"),
 )
 
 search_task = PromptTask(
     input="""
     Use the following search queries to find information about the user's prompt.  
-    Search queries suggested: {{parent_outputs['analysis_task']}}
+Search queries suggested: {{parent_outputs['analysis_task']}}
 
-    Output all the results you found in a structured format. 
-    Output example: 
+When processing these queries:
+1. Focus on finding concrete, actionable business signals
+2. Prioritize recent information (within last 6 months when possible)  
+3. Ensure each result directly relates to the user's original intent
+4. Verify accuracy where possible before including
+
+Output all the results you found in a structured format. 
+Output example:  
     {
         "results": [
             {
                 "title": "Result 1",
                 "company_name": "Company name",
                 "source_url": "https://www.example.com/result1",
-                "signal_description": "Description of the result"
+                "signal_description": "Description of the result and why it is relevant to the user's prompt"
             }
         ]
     }
+Important guidelines:
+- Each title should clearly summarize the key signal
+- Company names should be precise and complete
+- Source URLs should link directly to the original information
+- Signal descriptions should explain why this information matters for sales outreach
+- If a query yields no quality results, simply exclude it rather than including low-value information
     """,
     id="search_task",
     tools=[
@@ -255,6 +312,8 @@ Analyse the following links and descriptions based on the following guide:
 4. One signal per company can be generated. 
 5. DEFINITELY DISCARD SEO LIKE ARTICLES AND OTHER NON-ACTIONABLE SIGNALS. ONLY RESULTS THAT ARE DIRECTLY LINKED TO THE TARGET COMPANY CAN BE CONSIDERED. 
 
+Here is the user's prompt: {{user_prompt}}
+
 Output your results in the following format: 
  {
         "results": [
@@ -262,7 +321,7 @@ Output your results in the following format:
                 "company_name": "Company name",
                 "company_website_url": "https://www.example.com",
                 "source_url": "https://www.example.com/result1",
-                "signal_description": "Description of the result"
+                "signal_description": "Description of the result and why it is relevant to the user's prompt"
             }
         ]
     }
@@ -270,6 +329,7 @@ Output your results in the following format:
 Search results: {{parent_outputs['search_task']}}
 """,
     id="structure_task",
+    context={"user_prompt": custom_prompt},
     tools=[web_search_tool],
     output_schema=structure_schema,
     max_subtasks=10,

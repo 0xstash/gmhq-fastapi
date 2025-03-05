@@ -69,6 +69,14 @@ web_scraper_tool = WebScraperTool(
     off_prompt=False,
 )
 
-agent = Agent()
+# agent = Agent(prompt_driver=OpenAiChatPromptDriver(model="o3-mini"))
+
+agent = Agent(
+    prompt_driver=OpenAiChatPromptDriver(
+        api_key=os.getenv("TOGETHER_API_KEY"),
+        base_url=os.getenv("TOGETHER_BASE_URL"),
+        model="deepseek-ai/DeepSeek-R1",
+    )
+)
 
 Chat(structure=agent, logger_level=logging.INFO, processing_text="thinking...").start()
