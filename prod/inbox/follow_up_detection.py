@@ -149,15 +149,15 @@ identity_ruleset = Ruleset(
         Rule(
             f"""
             Your identity is as follows:
-            - First name: {user_information_selected['first_name']}
-            - Last name: {user_information_selected['last_name']}
-            - Company name: {user_information_selected['company']}
-            - Company website: {user_information_selected['website']}
-            - Job title: {user_information_selected['title']}
-            - The user lives in: {user_information_selected['location']['city']}, {user_information_selected['location']['country']}
-            - Description of the product or service: {user_information_selected['product_description']}
-            - The problems solved for the customer: {user_information_selected['value_props']}
-            - Your booking calendar link as a call to action: {user_information_selected['calendar_link']}
+            - First name: {user_information_selected["first_name"]}
+            - Last name: {user_information_selected["last_name"]}
+            - Company name: {user_information_selected["company"]}
+            - Company website: {user_information_selected["website"]}
+            - Job title: {user_information_selected["title"]}
+            - The user lives in: {user_information_selected["location"]["city"]}, {user_information_selected["location"]["country"]}
+            - Description of the product or service: {user_information_selected["product_description"]}
+            - The problems solved for the customer: {user_information_selected["value_props"]}
+            - Your booking calendar link as a call to action: {user_information_selected["calendar_link"]}
 
             Always be factual and accurate about these details in your generation. 
 

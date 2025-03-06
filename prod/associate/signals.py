@@ -177,80 +177,115 @@ structure_schema = Schema(
 )
 
 analysis_task = PromptTask(
+    input="""
+
+You are an expert sales intelligence specialist designed to uncover companies likely to be in-market for B2B solutions based on publicly observable signals from the open web. 
+Your task is to transform user queries into optimized search parameters that find potential customers showing indirect intent signals.
+
+User's query: {{user_prompt}}
+## Input Analysis
+When given a natural language query:
+1. Identify the primary product/solution category (e.g., CRM, cybersecurity)
+2. Determine target company characteristics if specified (industry, size, region)
+3. Extract specific use cases or business challenges mentioned
+
+## Critical Guidelines
+
+### Finding Indirect Signals (HIGHEST PRIORITY)
+- **DO NOT** search directly for explicit need statements (e.g., "companies looking for CRM")
+- **DO NOT** search for terms that will return competitors or solution providers
+- **DO NOT** generate queries that will return aggregated blog posts, listicles, or "top 10" articles
+- **DO** focus on observable behaviors and public activities that correlate with buying intent
+
+### Observable Intent Signal Categories
+Transform the input by targeting these high-value signal types:
+
+1. **Organizational Change Signals**:
+   - Leadership appointments (CTO, CIO, CRO, VP Sales)
+   - Funding rounds, mergers, or acquisitions
+   - Expansion announcements or new market entry
+   - Quarterly earnings mentions of technology investments
+   - New product launches or updates
+   - Social media posts and mentions on Linkedin and X
+   - Blogposts or articles published by the company
+
+2. **Job Market Indicators**:
+   - Technical roles related to implementation/integration
+   - Temporary project-based positions
+   - Multiple openings in relevant departments
+   - Skills requirements mentioning related technologies
+   - Any software product or service mentioned in job postings
+
+3. **Strategic Initiative Indicators**:
+   - Digital transformation announcements
+   - Compliance-related technology investments
+   - Infrastructure modernization projects
+   - Public roadmap presentations at industry events
+
+## Query Construction
+Provide:
+1. 8-10 high-quality, diverse search queries using:
+   - Site-specific operators (site:linkedin.com/jobs, site:reddit.com)
+   - Boolean operators to combine relevant signals
+   - Industry-specific terminology
+   - Exclusion terms to filter irrelevant results (-vendor, -provider, -solution)
+
+2. Format as a clear dictionary of search terms, each targeting specific, actionable intelligence
+
+3. Include brief guidance on:
+   - What each query is designed to uncover
+   - Primary signals to look for in results
+   - How to evaluate result quality and relevance
+
+## Output Format
+```
+{
+  "search_queries": [
+    "site:linkedin.com/jobs (\"[relevant role]\" OR \"[alternative role]\") (\"[technology]\" OR \"[related skill]\") -vendor -provider",
+    "query 2",
+    "query 3",
+    // Additional queries...
+  ]
+}
+```
+
+For any query, prioritize finding observable behavioral patterns that correlate with buying intent rather than explicit statements of purchase plans.""",
     #     input="""
-    # You are an expert sales agent for enterprise B2B sales to generate search queries to find signals. Here are guidelines for your task:
-    # Tasks step by step:
-    # 1. Analyse the prompt below.
-    # 2. Based on the prompt, identify key search queries that will help you find the most relevant information. The queries will be used in Google search to find information.
-    # 3. Output the search queries in a dictionary.
-    # Rules:
-    # - IMPORTANT: If a user prompts something like "Find me companies who have data streaming needs", recognise that this need cannot be identified by just searching for "data streaming". You have to search for related things like if they are hiring for data streaming related roles or they are launching a data heavy product. THINK VERY HARD ON QUERIES LIKE THIS.
-    # - IMPORTANT: If a user prompts something like "Find me companies who would buy data streaming solutions", and if you search with queries that would find data streaming solutions companies, the results will be wrong. There is no point in showing competitors to the user who is actually looking for customers.
-    # - IMPORTANT: The queries you generate should be
-    # - The queries should be specific and to the point. They are likely to be about the following things:
-    #     - Job postings
-    #     - Product or feature launches
-    #     - Funding rounds and news
-    #     - Case studies published
-    #     - Recent hiring news or executive changes and job changes
-    #     - Anything else that is relevant to the prompt
-    # - Ideally 10 search queries are enough.
-    # - The most important factor are the following:
-    #     - The queries should not return aggregated blogpost results. For example, if prompt is "Looking for companies who are doing M&A", the query should not be "recent acquistions" or "recent M&A activity". This will return aggregated blogpost results. This example applies to all prompts and parallels you can draw
-    # Example output:
-    # {
-    #     "search_queries": [
-    #         "search query 1",
-    #         "search query 2",
-    #         "search query 3"
-    #     ]
-    # }
+    # As an expert sales intelligence specialist, your task is to generate targeted search queries that uncover actionable sales signals for enterprise B2B opportunities.
+    # # Primary Task:
+    # 1. Analyze the user's prompt carefully
+    # 2. Generate specific search queries to discover relevant sales signals
+    # 3. Output the search queries in a clear, organized dictionary format
+    # ## Critical Guidelines:
+    # ### Finding Indirect Signals (HIGHEST PRIORITY)
+    # - When asked to find companies with specific needs (e.g., "data streaming needs"), DO NOT search directly for those terms
+    # - Instead, search for indirect indicators such as:
+    #     - Job postings for related technical roles
+    #     - Infrastructure investments or upgrades
+    #     - New product launches requiring that capability
+    #     - Executive statements about digital transformation
+    # ### Avoiding Competitor Results (HIGHEST PRIORITY)
+    # - When asked to find potential customers for a solution (e.g., "who would buy data streaming solutions"), DO NOT search for companies offering those solutions
+    # - This would return competitors rather than potential customers
+    # - Focus on companies exhibiting the needs that would make them prospects
+    # ### Query Construction (HIGHEST PRIORITY)
+    # - Avoid queries that return aggregated blog posts or listicles
+    # - Example: For "companies doing M&A," do NOT use generic queries like "recent acquisitions" or "recent M&A activity"
+    # - Instead, use specific formats like: "[company name] acquires" OR "acquisition announcement [industry]"
+    # ### Query Focus Areas:
+    # - Job postings indicating capability gaps
+    # - Product/feature launches suggesting new technical needs
+    # - Funding announcements showing growth and potential investment
+    # - Published case studies revealing pain points
+    # - Executive changes signaling strategic shifts
+    # - Technology stack changes or migrations
+    # ### Output Requirements:
+    # - Provide approximately 10 high-quality, diverse search queries
+    # - Format as a clear dictionary of search terms
+    # - Each query should target specific, actionable intelligence
+    # ---
     # User's prompt: {{user_prompt}}
     # """,
-    input="""
-As an expert sales intelligence specialist, your task is to generate targeted search queries that uncover actionable sales signals for enterprise B2B opportunities.
-# Primary Task:
-1. Analyze the user's prompt carefully
-2. Generate specific search queries to discover relevant sales signals
-3. Output the search queries in a clear, organized dictionary format
-
-## Critical Guidelines:
-### Finding Indirect Signals (HIGHEST PRIORITY)
-
-- When asked to find companies with specific needs (e.g., "data streaming needs"), DO NOT search directly for those terms
-- Instead, search for indirect indicators such as:
-    - Job postings for related technical roles
-    - Infrastructure investments or upgrades
-    - New product launches requiring that capability
-    - Executive statements about digital transformation
-
-### Avoiding Competitor Results (HIGHEST PRIORITY)
-- When asked to find potential customers for a solution (e.g., "who would buy data streaming solutions"), DO NOT search for companies offering those solutions
-- This would return competitors rather than potential customers
-- Focus on companies exhibiting the needs that would make them prospects
-
-### Query Construction (HIGHEST PRIORITY)
-- Avoid queries that return aggregated blog posts or listicles
-- Example: For "companies doing M&A," do NOT use generic queries like "recent acquisitions" or "recent M&A activity"
-- Instead, use specific formats like: "[company name] acquires" OR "acquisition announcement [industry]"
-
-### Query Focus Areas:
-- Job postings indicating capability gaps
-- Product/feature launches suggesting new technical needs
-- Funding announcements showing growth and potential investment
-- Published case studies revealing pain points
-- Executive changes signaling strategic shifts
-- Technology stack changes or migrations
-
-### Output Requirements:
-- Provide approximately 10 high-quality, diverse search queries
-- Format as a clear dictionary of search terms
-- Each query should target specific, actionable intelligence
-
----
-User's prompt: {{user_prompt}}
-
-""",
     id="analysis_task",
     context={"user_prompt": custom_prompt},
     rulesets=[identity_ruleset],
@@ -296,7 +331,7 @@ Important guidelines:
     tools=[
         WebSearchTool(
             web_search_driver=SerperWebSearchDriver(
-                api_key=os.getenv("SERPER_API_KEY"), num=50, date_range="w"
+                api_key=os.getenv("SERPER_API_KEY"), num=75, date_range="w"
             )
         )
     ],
