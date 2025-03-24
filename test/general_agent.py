@@ -49,12 +49,12 @@ logger = logging.getLogger(Defaults.logging_config.logger_name)
 logger.setLevel(logging.INFO)
 logger.handlers[0].setFormatter(JsonFormatter())
 
-Defaults.drivers_config = AnthropicDriversConfig(
-    prompt_driver=AnthropicPromptDriver(model="claude-3-5-sonnet-20240620")
-)
+# Defaults.drivers_config = AnthropicDriversConfig(
+#     prompt_driver=AnthropicPromptDriver(model="claude-3-5-sonnet-20240620")
+# )
 
 Defaults.drivers_config = OpenAiDriversConfig(
-    prompt_driver=OpenAiChatPromptDriver(model="chatgpt-4o-latest")
+    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini")
 )
 
 # agent = ArtifactAgent(tools=[DateTimeTool()], stream=True)
@@ -71,12 +71,6 @@ web_scraper_tool = WebScraperTool(
 
 # agent = Agent(prompt_driver=OpenAiChatPromptDriver(model="o3-mini"))
 
-agent = Agent(
-    prompt_driver=OpenAiChatPromptDriver(
-        api_key=os.getenv("TOGETHER_API_KEY"),
-        base_url=os.getenv("TOGETHER_BASE_URL"),
-        model="deepseek-ai/DeepSeek-R1",
-    )
-)
+agent = Agent(tools=[web_search_tool, web_scraper_tool])
 
 Chat(structure=agent, logger_level=logging.INFO, processing_text="thinking...").start()
