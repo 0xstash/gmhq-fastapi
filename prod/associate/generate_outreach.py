@@ -4,6 +4,7 @@ import logging
 import json
 import questionary
 import re
+from rich.pretty import pprint
 
 # Add the project root directory to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -36,7 +37,12 @@ logger = logging.getLogger(Defaults.logging_config.logger_name)
 logger.setLevel(logging.INFO)
 logger.handlers[0].setFormatter(JsonFormatter())
 
-with open("test/data/user_information.json", "r") as file:
+# Use a relative path from the script location
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(script_dir))
+user_info_path = os.path.join(project_root, "test", "data", "user_information.json")
+
+with open(user_info_path, "r") as file:
     user_information = json.load(file)
 
 # Create company choices for selection
@@ -57,66 +63,12 @@ user_information_selected = next(
 )
 
 # ---- Drivers ----
-Defaults.drivers_config = OpenAiDriversConfig(
-    prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini", stream=True)
+# Defaults.drivers_config = OpenAiDriversConfig(
+#     prompt_driver=OpenAiChatPromptDriver(model="gpt-4o-mini", stream=True)
+# )
+
+Defaults.drivers_config = AnthropicDriversConfig(
+    prompt_driver=AnthropicPromptDriver(model="claude-3-5-haiku-20241022")
 )
 
-identity_ruleset = Ruleset(
-    name="User identity guidelines and information",
-    rules=[
-        Rule(
-            f"""
-            Your identity is as follows:
-            - First name: {user_information_selected['first_name']}
-            - Last name: {user_information_selected['last_name']}
-            - Company name: {user_information_selected['company']}
-            - Company website: {user_information_selected['website']}
-            - Job title: {user_information_selected['title']}
-            - The user lives in: {user_information_selected['location']['city']}, {user_information_selected['location']['country']}
-            - Description of the product or service: {user_information_selected['product_description']}
-            - The problems solved for the customer: {user_information_selected['value_props']}
-            - Your booking calendar link as a call to action: {user_information_selected['calendar_link']}
-
-            Always be factual about these details in your generation. For example, do not generate things as if you are living somewhere else other than {user_information_selected['location']['city']}, {user_information_selected['location']['country']}
-
-            """
-        ),
-    ],
-)
-
-output_ruleset = Ruleset(
-    name="Output rules",
-    rules=[
-        Rule(
-            "Your tone should be casual and human. Each point you make should be clear and specific regarding the solutions or problems you talk about. Your content should create relevancy between you, your solution and the customer. "
-        ),
-        Rule(
-            "Your output should always be around 40 to 50 words maximum. Always seperate each sentence as a paragraph. End your output with a signoff "
-        ),
-        Rule(
-            "Your output should only be the body of the message. Never output a subject line or explanation. "
-        ),
-    ],
-)
-
-user_instructions = input("Enter your instructions: ")
-
-
-def substitute_placeholders(user_instructions, contact_info):
-    pattern = r"@([A-Za-z0-9_-]+)"
-    placeholders = re.findall(pattern, user_instructions)
-    modified_request = user_instructions
-
-    # Create a set to hold the unique placeholder-value pairs
-    added_placeholders = set()
-
-    for placeholder in placeholders:
-        if placeholder.lower() not in added_placeholders:
-            value = contact_info.get(
-                placeholder.lower(), f"Empty value for {placeholder}"
-            )
-            modified_request += f"\n{placeholder}: {value}"
-            added_placeholders.add(placeholder.lower())
-
-    print("Modified request:", modified_request)
-    return modified_request
+pprint(user_information_selected)

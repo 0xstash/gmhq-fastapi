@@ -14,16 +14,16 @@ from extension.drivers.jina_web_scraper_driver.jina_web_scraper_driver import (
 from griptape.structures import Agent
 from griptape.configs.logging import JsonFormatter
 from griptape.configs import Defaults
+
 from griptape.configs.drivers import (
     OpenAiDriversConfig,
     GoogleDriversConfig,
     AnthropicDriversConfig,
 )
-from griptape.drivers import (
-    OpenAiChatPromptDriver,
-    AnthropicPromptDriver,
-    GooglePromptDriver,
-)
+from griptape.drivers.prompt.openai import OpenAiChatPromptDriver
+from griptape.drivers.prompt.anthropic import AnthropicPromptDriver
+from griptape.drivers.prompt.google import GooglePromptDriver
+
 from griptape.tools import DateTimeTool, WebSearchTool, WebScraperTool
 from dotenv import load_dotenv
 from artifact.artifact_agent import ArtifactAgent

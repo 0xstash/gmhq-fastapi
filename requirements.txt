@@ -69,7 +69,7 @@ google-auth-oauthlib==1.2.1
 google-generativeai==0.8.3
 googleapis-common-protos==1.66.0
 greenlet==3.1.1
-griptape==1.4.2
+griptape==1.5.2
 grpcio==1.68.0
 grpcio-status==1.68.0
 grpcio-tools==1.68.0
