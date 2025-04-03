@@ -3,7 +3,7 @@ import sys
 import logging
 import json
 import questionary
-from datetime import datetime
+import re
 from rich.pretty import pprint
 
 # Add the project root directory to Python path
@@ -28,8 +28,6 @@ import schema
 from griptape.utils import Chat, Stream
 from griptape.tasks import PromptTask
 from griptape.rules import Ruleset, Rule
-from datetime import datetime
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -51,14 +49,20 @@ with open(user_info_path, "r") as file:
 research_results_path = os.path.join(
     os.path.dirname(user_info_path), "research_results_20250401_011710.json"
 )
-
 with open(research_results_path, "r") as file:
     research_results = json.load(file)
-
 
 contact_list_path = os.path.join(os.path.dirname(user_info_path), "contact_list.json")
 with open(contact_list_path, "r") as file:
     contact_list = json.load(file)
+
+outreach_results_path = os.path.join(
+    os.path.dirname(user_info_path), "outreach_email_kojo_owusu_20250403_141743.txt"
+)
+
+with open(outreach_results_path, "r") as file:
+    outreach_email_sent = file.read()
+
 
 # Create company choices for selection
 company_choices = [
@@ -110,64 +114,73 @@ Defaults.drivers_config = AnthropicDriversConfig(
 
 pprint(user_information_selected)
 additional_instructions = questionary.text("Additional instructions: ").ask()
-outreach_task = PromptTask(
+
+followup_task = PromptTask(
     """
-    You are an expert sales professional crafting a genuine, conversational outreach email.
+You are a sales professional crafting a genuine, low-pressure follow-up message.
 
 Core Principles:
-1. Sound like a real person
-2. Be brutally simple
-3. Focus on ONE clear value
-4. Use zero sales fluff
-5. Always end the email with my signature
+1. Be specific and authentic
+2. Add new value in each follow-up
+3. Keep it extremely brief
+4. Sound like a real person
+5. Show you're not just sending a generic reminder
 
-Email Crafting Guidelines:
-- Maximum 4-5 sentences
-- Language a 5th grader understands
-- No corporate jargon
-- Personal, direct tone
-- Show you've done real research
+Follow-Up Email Guidelines:
+- Maximum 3-4 sentences
+- Simple, clear language
+- Zero sales pressure
+- Provide a NEW insight or piece of value
+- Demonstrate continued genuine interest
 
 Research Approach:
-1. Find ONE specific, recent company development
-2. Connect that development to a SINGLE, clear solution. It HAS to be a clear, logical connection to our offer.
-3. Make the value proposition crystal clear
-4. Offer an easy, no-pressure next step
+1. Reference the ORIGINAL email context
+2. Introduce a DIFFERENT, specific piece of information
+3. Make the value proposition fresh and relevant
+4. Offer an extremely easy next step
+
+Specific Requirements:
+- Acknowledge the previous email subtly
+- Bring a NEW angle to the conversation
+- Use a conversational, light tone
+- Show you're still interested, but not desperate
 
 Strict Prohibitions:
-- No marketing speak
-- No made-up stories
-- No generic phrases
-- No over-promising
-- No complex explanations
-- No corporate jargon
+- No guilt-tripping
+- No "just checking in"
+- No generic follow-up phrases
+- No pushing for a response
+- No repeating previous email's content
 
 Output Requirements:
 {
     "subject": "Short, specific subject (max 5 words)",
-    "body": "Conversational email text"
+    "body": "Conversational follow-up text"
 }
 
-Personalization Elements:
+Context Elements:
+- Original email: {{outreach_email_sent}}
 - Recipient Name: {{name}}
 - Company: {{company}}
 - Position: {{position}}
 - Specific Research: {{account_research}}
 
-Additional instructions provided by the user: {{additional_instructions}}
-Additional instructions overweight any under instruction made before. You should prioritise and emphasise to implement them. 
+Additional Context:
+- Time Since Original Email: {{days_since_email}}
+- Previous Response Status: {{response_status}}
 
-Golden Rule: Write like you're texting a work friend about a potential opportunity.
+Golden Rule: Write like you're casually bringing up something interesting to a potential work contact.
    """,
-    id="outreach_task",
+    id="followup_task",
     rulesets=[identity_ruleset],
     prompt_driver=AnthropicPromptDriver(model="claude-3-5-haiku-20241022"),
     context={
         "account_research": account_research,
         "additional_instructions": additional_instructions,
-        "name": contact_list[1]["name"],
-        "company": contact_list[1]["company"],
-        "position": contact_list[1]["position"],
+        "name": contact_list[2]["name"],
+        "company": contact_list[2]["company"],
+        "position": contact_list[2]["position"],
+        "outreach_email_sent": outreach_email_sent,
     },
     output_schema=schema.Schema({"subject": str, "body": str}),
 )
@@ -176,24 +189,19 @@ Golden Rule: Write like you're texting a work friend about a potential opportuni
 pprint(contact_list[0]["name"])
 
 tasks = []
-tasks.append(outreach_task)
+tasks.append(followup_task)
 
 workflow = Workflow(tasks=[*tasks])
 
 result = workflow.run()
 
 try:
-    # Get the output from the workflow result
-    output = result.output.value
+    output_dict = result.output.value
+    if isinstance(output_dict, str):
+        # If we got a string, try to parse it as JSON
+        import json
 
-    # If it's already a dictionary, use it directly
-    if isinstance(output, dict):
-        output_dict = output
-    # If it's a string, try to parse it as JSON
-    elif isinstance(output, str):
-        output_dict = json.loads(output)
-    else:
-        raise TypeError(f"Unexpected output type: {type(output)}")
+        output_dict = json.loads(output_dict)
 
     # Format the complete email with subject and body
     formatted_output = f"Subject: {output_dict['subject']}\n\n{output_dict['body']}"
@@ -204,8 +212,7 @@ except (KeyError, json.JSONDecodeError, TypeError) as e:
 
 # Save the output to a text file
 output_file_path = os.path.join(
-    os.path.dirname(user_info_path),
-    f"outreach_email_{contact_list[0]['name'].replace(' ', '_').lower()}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+    os.path.dirname(user_info_path), "outreach_follow_up.txt"
 )
 with open(output_file_path, "w") as f:
     f.write(formatted_output)
