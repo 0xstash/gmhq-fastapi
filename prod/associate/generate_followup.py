@@ -117,7 +117,7 @@ additional_instructions = questionary.text("Additional instructions: ").ask()
 
 followup_task = PromptTask(
     """
-You are a sales professional crafting a genuine, low-pressure follow-up message.
+You are a sales professional crafting a genuine, low-pressure follow-up message to the original email sent below.
 
 Core Principles:
 1. Be specific and authentic
@@ -128,13 +128,16 @@ Core Principles:
 
 Follow-Up Email Guidelines:
 - Maximum 3-4 sentences
+- Make sure each sentence is divided by a line break
+- Each sentence should be short and focused, almost 5th grade language, simple to read and understand. 
 - Simple, clear language
 - Zero sales pressure
 - Provide a NEW insight or piece of value
 - Demonstrate continued genuine interest
+- Always end the email with my signature
 
 Research Approach:
-1. Reference the ORIGINAL email context
+1. Reference the original email context
 2. Introduce a DIFFERENT, specific piece of information
 3. Make the value proposition fresh and relevant
 4. Offer an extremely easy next step
@@ -165,9 +168,8 @@ Context Elements:
 - Position: {{position}}
 - Specific Research: {{account_research}}
 
-Additional Context:
-- Time Since Original Email: {{days_since_email}}
-- Previous Response Status: {{response_status}}
+Additional instructions provided by the user: {{additional_instructions}}
+Additional instructions overweight any under instruction made before. You should prioritise and emphasise to implement them. 
 
 Golden Rule: Write like you're casually bringing up something interesting to a potential work contact.
    """,
