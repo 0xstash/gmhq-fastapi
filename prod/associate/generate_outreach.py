@@ -124,6 +124,8 @@ Core Principles:
 Email Crafting Guidelines:
 - Maximum 4-5 sentences
 - Language a 5th grader understands
+- Each sentence is short, concise, focused and to the point. 
+- Each sentence in the email content should end with a line break. This makes reading it easier. 
 - No corporate jargon
 - Personal, direct tone
 - Show you've done real research
@@ -141,6 +143,7 @@ Strict Prohibitions:
 - No over-promising
 - No complex explanations
 - No corporate jargon
+- No emojis in the content
 
 Output Requirements:
 {

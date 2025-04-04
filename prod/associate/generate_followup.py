@@ -130,6 +130,8 @@ Follow-Up Email Guidelines:
 - Maximum 3-4 sentences
 - Make sure each sentence is divided by a line break
 - Each sentence should be short and focused, almost 5th grade language, simple to read and understand. 
+- Each sentence is short, concise, focused and to the point. 
+- Each sentence in the email content should end with a line break. This makes reading it easier. 
 - Simple, clear language
 - Zero sales pressure
 - Provide a NEW insight or piece of value
@@ -154,6 +156,7 @@ Strict Prohibitions:
 - No generic follow-up phrases
 - No pushing for a response
 - No repeating previous email's content
+- No emojis in the content
 
 Output Requirements:
 {
